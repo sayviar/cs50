@@ -3,5 +3,8 @@
 
 int main(void)
 {
-    
+    if (x < y)
+    {
+        printf("%i is less than %i\n");
+    }
 }
