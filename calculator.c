@@ -9,7 +9,7 @@ int main(void)
 {
     int x = get_int("x: ");
     int y = get_int("y: ");
-    float z = (float) x / y;
+    float z = (float) x / (float) y;
 
     for(char i[20]= ""; strlen(i) < 10; strcat(i, "r"))
     {
