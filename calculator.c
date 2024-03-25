@@ -1,7 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int add(int x, int y);
+int add(int a, int b);
 
 int main(void)
 {
@@ -12,7 +12,7 @@ int main(void)
     printf("%i\n", z);
 }
 
-int add(int x, int y)
+int add(int a, int b)
 {
-    return x + y;
+    return a + b;
 }
