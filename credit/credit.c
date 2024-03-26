@@ -4,12 +4,7 @@
 int main(void)
 {
     int checksum = 0;
-    long cardnumber;
-    do
-    {
-        cardnumber = get_long("Number: ");
-    }
-    while (false);
+    long cardnumber = get_long("Number: ");
 
     for (long number = cardnumber / 10; number > 0; number /= 100)
     {
@@ -27,7 +22,7 @@ int main(void)
     {
         checksum += n % 10;
     }
-    if (checksum % 10 == 0)
+    if ((checksum % 10 == 0 && cardnumber / 10 * 14 == 34) || cardnumber /)
     {
         printf("VALID\n");
     }
