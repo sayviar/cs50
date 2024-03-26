@@ -18,6 +18,6 @@ int main(void)
 
     for (int number = cardnumber / 10; number > 0; number / 100)
     {
-        secondtolast = number
+        secondtolast += (number % 10) * 2
     }
 }
