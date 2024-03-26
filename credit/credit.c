@@ -12,7 +12,7 @@ int main(void)
     {
         ValidCheck("AMEX\n", cardnumber);
     }
-    else if (cardnumber / 10 * 15 > 50 && cardnumber / 10 * 15 < 56)
+    else if (cardnumber / 10  15 > 50 && cardnumber / 10 * 15 < 56)
     {
         ValidCheck("MASTERCARD\n", cardnumber);
     }
