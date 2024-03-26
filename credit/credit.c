@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    int secondtolast
+    int secondtolast;
     long cardnumber;
     do
     {
@@ -13,7 +13,7 @@ int main(void)
 
     for(int i = 0; i % 2 = 1; i++)
     {
-        
+        secondtolast += cardnumber % 10 * i
     }
 
     for (int number = cardnumber / 10; number > 0; number / 100)
