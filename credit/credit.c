@@ -22,6 +22,7 @@ int main(void)
         {
             checksum += (number % 10) *2;
         }
+        printf("%i", checksum);
     }
     for (long n = cardnumber; n > 0; n /= 100)
     {
