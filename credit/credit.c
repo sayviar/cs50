@@ -3,8 +3,10 @@
 
 int main(void)
 {
+    long cardnumber;
     do
     {
-        while 
+        cardnumber = get_long("Number: ");
     }
+    while (cardnumber = )
 }
