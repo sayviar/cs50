@@ -6,19 +6,19 @@ void ValidCheck(string card, long cardnumber);
 
 int main(void)
 {
-    
+
 
     long cardnumber = get_long("Number: ");
     string card;
-    if (cardnumber / (long)pow(10, 14) == 34 || cardnumber /(long) pow(10, 14) == 37)
+    if (cardnumber / (long)pow(10, 13) == 34 || cardnumber /(long) pow(10, 13) == 37)
     {
         ValidCheck("AMEX\n", cardnumber);
     }
-    else if (cardnumber /(long) pow(10, 15) > 50 && cardnumber /(long) pow(10, 15) < 56)
+    else if (cardnumber /(long) pow(10, 14) > 50 && cardnumber /(long) pow(10, 14) < 56)
     {
         ValidCheck("MASTERCARD\n", cardnumber);
     }
-    else if (cardnumber / (long)pow(10, 13) == 4 || cardnumber /(long) pow(10, 16) == 4)
+    else if (cardnumber / (long)pow(10, 12) == 4 || cardnumber /(long) pow(10, 15) == 4)
     {
         ValidCheck("VISA\n", cardnumber);
     }
