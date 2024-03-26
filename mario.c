@@ -3,8 +3,9 @@
 
 int main(void)
 {
+    int n;
     do {
-    int n = get_int("Height:\n");
+    n = get_int("Height:\n");
     }
     while (n > 0 && n < 9);
 
