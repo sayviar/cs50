@@ -11,6 +11,9 @@ int main(void)
 int minimumCoins(int change)
 {
     int coins = 0;
-    coins += change / 25;
-    change 
+    while (change > 25)
+    {
+        coins++
+        
+    }
 }
