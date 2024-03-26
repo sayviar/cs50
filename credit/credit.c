@@ -29,10 +29,10 @@ int main(void)
     }
     if (checksum % 10 == 0)
     {
-        printf("VALID");
+        printf("VALID\n");
     }
     else
     {
-        printf("INVALID");
+        printf("INVALID\n");
     }
 }
