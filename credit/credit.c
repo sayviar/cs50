@@ -10,9 +10,9 @@ int main(void)
     }
     while (False);
 
-    for (int i = 0; i % 2 == 1; i++)
-        for (int number = cardnumber; number > 0; number / 10)
-        {
 
-        }
+    for (int number = cardnumber / 10; number > 0; number / 100)
+    {
+        
+    }
 }
