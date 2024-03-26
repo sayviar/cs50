@@ -30,7 +30,7 @@ int main(void)
 int calculate25(int change)
 {
     int coins = 0;
-    while (change > 25)
+    while (change >= 25)
     {
         coins++;
         change -= 25;
@@ -41,7 +41,7 @@ int calculate25(int change)
 int calculate10(int change)
 {
     int coins = 0;
-    while(change > 10)
+    while(change >= 10)
     {
         coins++;
         change -= 10;
@@ -52,7 +52,7 @@ int calculate10(int change)
 int calculate5(int change)
 {
     int coins = 0;
-    while(change > 5)
+    while(change >= 5)
     {
         coins++;
         change -= 5;
