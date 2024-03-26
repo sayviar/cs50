@@ -15,8 +15,8 @@ int main(void)
     {
         if ((number % 10) *2 > 9)
         {
-            checksum += number % 10;
-            checksum += number / 10;
+            checksum += (number % 10) * 2 % 10;
+            checksum += (number % 10) * 2 / 10;
         }
         else
         {
