@@ -8,5 +8,6 @@ int main(void)
     {
         cardnumber = get_long("Number: ");
     }
-    while (cardnumber = )
+    while (False)
+    for ()
 }
