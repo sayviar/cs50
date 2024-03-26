@@ -20,6 +20,10 @@ int main(void)
     {
         ValidCheck("VISA\n", cardnumber);
     }
+    else
+    {
+        printf("INVALID\n");
+    }
 
 
 }
