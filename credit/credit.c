@@ -5,6 +5,18 @@ int main(void)
 {
     int checksum = 0;
     long cardnumber = get_long("Number: ");
+    string card;
+    bool cardcheck = false;
+    if (cardnumber / 10 * 14 == 34 || cardnumber / 10 * 14 == 37)
+    {
+        card = "AMEX\n";
+        
+    }
+    else if (cardnumber / 10 * 15 > 50 && cardnumber / 10 * 15 < 56)
+    {
+        card = "MASTERCARD\n";
+    }
+    else if (cardnumber /)
 
     for (long number = cardnumber / 10; number > 0; number /= 100)
     {
@@ -22,9 +34,9 @@ int main(void)
     {
         checksum += n % 10;
     }
-    if ((checksum % 10 == 0 && cardnumber / 10 * 14 == 34) || cardnumber /)
+    if (checksum % 10 == 0)
     {
-        printf("VALID\n");
+        printf("%s", card);
     }
     else
     {
