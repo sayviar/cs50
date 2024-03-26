@@ -10,6 +10,9 @@ int main(void)
 
     for (int i = 1; i <= n; i++)
     {
-        print
+        string spaces= " " * n-i;
+        string hashes = "#" * i;
+        printf("%s", spaces);
+        printf("%s  %s\n", hashes, hashes)
     }
 }
