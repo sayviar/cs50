@@ -6,6 +6,7 @@ void ValidCheck(string card, long cardnumber);
 
 int main(void)
 {
+    printf("%f", pow(10, 14));
 
     long cardnumber = get_long("Number: ");
     string card;
