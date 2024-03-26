@@ -7,13 +7,18 @@ int main(void)
     do {
     n = get_int("Height:\n");
     }
-    while (n > 0 && n < 9);
+    while (n < 1 && n > 8);
 
     for (int i = 1; i <= n; i++)
     {
-        string spaces= " " * n-i;
-        string hashes = "#" * i;
-        printf("%s", spaces);
-        printf("%s  %s\n", hashes, hashes)
+        for (int j = n - i; j > 0; j--)
+        {
+            printf(" ");
+        }
+        for (int k = i; k > 0; k--)
+        {
+            printf("#");
+        }
+        printf("\n");
     }
 }
