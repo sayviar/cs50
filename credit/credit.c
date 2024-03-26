@@ -3,21 +3,36 @@
 
 int main(void)
 {
-    int secondtolast;
+    int checksum;
     long cardnumber;
     do
     {
         cardnumber = get_long("Number: ");
     }
-    while (False);
-
-    for(int i = 0; i % 2 = 1; i++)
-    {
-        secondtolast += cardnumber % 10 * i
-    }
+    while (false);
 
     for (int number = cardnumber / 10; number > 0; number / 100)
     {
-        secondtolast += (number % 10) * 2
+        if ((number % 10) *2 > 9)
+        {
+            checksum += number % 10;
+            checksum += number / 10;
+        }
+        else
+        {
+            checksum += (number % 10) *2;
+        }
+    }
+    for (int n = cardnumber; n > 0; n / 100)
+    {
+        checksum += n % 10;
+    }
+    if (checksum % 10 == 0)
+    {
+        printf("VALID");
+    }
+    else
+    {
+        printf("INVALID");
     }
 }
