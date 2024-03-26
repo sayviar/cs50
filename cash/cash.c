@@ -8,12 +8,34 @@ int main(void)
 
 }
 
-int minimumCoins(int change)
+int calculate25(int change)
 {
-    int coins = 0;
+    int coins;
     while (change > 25)
     {
-        coins++
-        
+        coins++;
+        change -= 25;
+    }
+    return coins;
+}
+
+int calculate10(int change)
+{
+    int coins;
+    while(change > 10)
+    {
+        coins++;
+        change -= 10;
     }
 }
+
+int calculate5(int change)
+{
+    int coins;
+    while(change > 5)
+    {
+        coins++;
+        change -= 5;
+    }
+}
+
