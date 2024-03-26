@@ -1,6 +1,8 @@
 #include <cs50.h>
 #include <stdio.h>
 
+void ValidCheck(string card, long cardnumber);
+
 int main(void)
 {
 
