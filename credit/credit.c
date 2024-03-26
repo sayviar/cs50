@@ -11,7 +11,7 @@ int main(void)
     }
     while (false);
 
-    for (int number = cardnumber / 10; number > 0; number / 100)
+    for (long number = cardnumber / 10; number > 0; number / 100)
     {
         if ((number % 10) *2 > 9)
         {
@@ -23,7 +23,7 @@ int main(void)
             checksum += (number % 10) *2;
         }
     }
-    for (int n = cardnumber; n > 0; n / 100)
+    for (long n = cardnumber; n > 0; n / 100)
     {
         checksum += n % 10;
     }
