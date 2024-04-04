@@ -11,7 +11,7 @@ int SentenceCount(string text);
 int main(void)
 {
     // Prompt User for Text input
-    string text = "Congratulations! Today is your day. You're off to Great Places! You're off and away!";//get_string("Text: ");
+    string text = get_string("Text: ");
     // Count the number of letters in the text
 
     int letters = LetterCount(text);
@@ -64,7 +64,7 @@ int WordCount(string text)
             words++;
         }
     }
-    return words++;
+    return words + 1;
 }
 
 int SentenceCount(string text)
