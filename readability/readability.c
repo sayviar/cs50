@@ -1,8 +1,8 @@
 #include <cs50.h>
-#include <string.h>
 #include <ctype.h>
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
+#include <string.h>
 
 int LetterCount(string text);
 int WordCount(string text);
@@ -19,12 +19,13 @@ int main(void)
     int words = WordCount(text);
     // Count the number of punctuations to get the number of sentences
     int sentences = SentenceCount(text);
-    // Use Coleman-Liau index 0.0588 * Average number of letters per 100 words - 0.296 * Average number of sentences per 100 words - 15.8
+    // Use Coleman-Liau index 0.0588 * Average number of letters per 100 words - 0.296 * Average
+    // number of sentences per 100 words - 15.8
     float l = (float) letters / words * 100;
 
     float s = (float) sentences / words * 100;
 
-    int result = round (0.0588 * l - 0.296 * s - 15.8);
+    int result = round(0.0588 * l - 0.296 * s - 15.8);
 
     if (result >= 1 && result < 16)
     {
@@ -38,8 +39,6 @@ int main(void)
     {
         printf("Grade 16+\n");
     }
-
-
 }
 int LetterCount(string text)
 {
@@ -59,7 +58,7 @@ int WordCount(string text)
     int words = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
-        if(isspace(text[i]))
+        if (isspace(text[i]))
         {
             words++;
         }
@@ -72,7 +71,7 @@ int SentenceCount(string text)
     int sentences = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
-        if (text[i] == '.' || text[i] == '!' || text[i] == '?' )
+        if (text[i] == '.' || text[i] == '!' || text[i] == '?')
         {
             sentences++;
         }
