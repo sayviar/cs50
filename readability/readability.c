@@ -72,7 +72,7 @@ int SentenceCount(string text)
     int sentences = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
-        if (text[i] )
+        if (text[i] == '.' || text[i] == '!' || text[i] == '?' )
         {
             sentences++;
         }
