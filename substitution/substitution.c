@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
+
 int main(int argc, string argv[])
 {
     if (argc != 2)
@@ -25,4 +26,11 @@ int main(int argc, string argv[])
     }
 }
 
-string CypherText(string )
+string CypherText(string text, string cypher)
+{
+    string alphabet = "abcdefghijklmnopqrstuvwxyz"
+    for (int i = 0, n strlen(text); i < n; i++)
+    {
+        if (text[i])
+    }
+}
