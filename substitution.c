@@ -5,5 +5,5 @@
 
 int main(string cypher)
 {
-    if (cypher is null)
+    if (cypher !=
 }
