@@ -6,7 +6,6 @@
 
 int main(int argc, string argv[])
 {
-    printf("%i" = 'A')
     if (argc != 2)
     {
         printf("Usage: ./substituation key\n");
@@ -29,12 +28,14 @@ int main(int argc, string argv[])
 
 string CypherText(string text, string cypher)
 {
-    string alphabet = "abcdefghijklmnopqrstuvwxyz";
+    string cypheredText = "";
     for (int i = 0, n = strlen(text); i < n; i++)
     {
         if (isupper(text[i]))
         {
-
+            cypheredText += cypher[(int) text[i] - 64];
         }
+        else if(islower)
     }
+    return "s";
 }
