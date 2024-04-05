@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-int main(string cypher)
+int main(intstring cypher)
 {
     bool onlyLetters = true;
 
