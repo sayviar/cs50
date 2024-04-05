@@ -34,6 +34,8 @@ string CypherText(string text, string cypher)
         if (isupper(text[i]))
         {
             printf("%i", (int) text[i]);
+            return "s";
         }
     }
+    return "s";
 }
