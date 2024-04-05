@@ -28,12 +28,12 @@ int main(int argc, string argv[])
 
 string CypherText(string text, string cypher)
 {
-    string alphabet = "abcdefghijklmnopqrstuvwxyz"
-    for (int i = 0, n strlen(text); i < n; i++)
+    string alphabet = "abcdefghijklmnopqrstuvwxyz";
+    for (int i = 0, n = strlen(text); i < n; i++)
     {
         if (isupper(text[i]))
         {
-            
+            printf("%i", (int) text[i]);
         }
     }
 }
