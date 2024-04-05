@@ -5,8 +5,6 @@
 
 int main(int argc, string argv[])
 {
-    bool onlyLetters = true;
-
     if (argc != 1)
     {
         printf("Usage: ./substituation key\n");
