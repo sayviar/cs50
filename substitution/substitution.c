@@ -9,7 +9,7 @@ int main(int argc, string argv[])
 
     for (int i = 0, n = strlen(argv[1]); i < n ; i++)
     {
-        if (!isalpha(argv[1][i]))
+        if (!isalpha(argv[1][i])|| argc != 1)
         {
             printf("Usage: ./substituation key");
             return 1;
