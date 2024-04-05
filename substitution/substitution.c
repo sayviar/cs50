@@ -18,4 +18,11 @@ int main(int argc, string argv[])
             return 1;
         }
     }
+    if (strlen(argv[1]) != 26)
+    {
+        printf("Key must contain 26 characters.\n");
+        return 1;
+    }
 }
+
+string CypherText(string )
