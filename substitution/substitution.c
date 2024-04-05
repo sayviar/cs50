@@ -31,6 +31,9 @@ string CypherText(string text, string cypher)
     string alphabet = "abcdefghijklmnopqrstuvwxyz"
     for (int i = 0, n strlen(text); i < n; i++)
     {
-        if (text[i])
+        if (isupper(text[i]))
+        {
+            
+        }
     }
 }
