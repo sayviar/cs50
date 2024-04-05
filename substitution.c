@@ -5,5 +5,14 @@
 
 int main(string cypher)
 {
-    if (cypher !=
+    bool onlyLetters = true;
+
+    for (int i = 0, n = strlen(cypher); i < n ; i++)
+    {
+        if (!isalpha(cypher[i]))
+        {
+            printf("Usage: ./substituation key");
+            return 1;
+        }
+    }
 }
