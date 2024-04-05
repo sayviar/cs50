@@ -7,9 +7,9 @@ int main(int argc, string argv[])
 {
     bool onlyLetters = true;
 
-    for (int i = 0, n = strlen(cypher); i < n ; i++)
+    for (int i = 0, n = strlen(argv[1]); i < n ; i++)
     {
-        if (!isalpha(cypher[i]))
+        if (!isalpha(cypher[1]))
         {
             printf("Usage: ./substituation key");
             return 1;
