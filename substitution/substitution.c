@@ -6,6 +6,7 @@
 
 int main(int argc, string argv[])
 {
+    printf("%i" = 'A')
     if (argc != 2)
     {
         printf("Usage: ./substituation key\n");
@@ -33,9 +34,7 @@ string CypherText(string text, string cypher)
     {
         if (isupper(text[i]))
         {
-            printf("%i", (int) text[i]);
-            return "s";
+
         }
     }
-    return "s";
 }
