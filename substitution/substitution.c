@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
+string CypherText(string text, string cypher);
 
 int main(int argc, string argv[])
 {
