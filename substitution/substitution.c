@@ -24,7 +24,9 @@ int main(int argc, string argv[])
         printf("Key must contain 26 characters.\n");
         return 1;
     }
-    print("%s")
+    string text = get_string("plaintext: ");
+    printf("ciphertext: %s", CypherText(text, argv[1]));
+    return 0;
 }
 
 string CypherText(string text, string cypher)
