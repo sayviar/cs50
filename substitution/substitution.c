@@ -42,6 +42,7 @@ string CypherText(string text, string cypher)
         }
         else if(islower(text[i]))
         {
+            printf("%c", cypher[(int) text[i] - 96]);
             cypheredText += tolower(cypher[(int) text[i] - 96]);
         }
     }
