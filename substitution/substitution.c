@@ -43,7 +43,7 @@ bool DoubleChecker(string cypher)
     {
         for (int j = i + 1; j < n; j++)
         {
-            if (cypher[i] == cypher[j])
+            if (tolower(cypher[i]) == tolower(cypher[j]))
             {
                 return true;
             }
