@@ -3,6 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
+bool DoubleChecker(string cypher);
 void CypherText(string text, string cypher);
 
 int main(int argc, string argv[])
@@ -25,7 +26,7 @@ int main(int argc, string argv[])
         printf("Key must contain 26 characters.\n");
         return 1;
     }
-    if (DoubleChecker)
+    if (DoubleChecker(argv[1]))
     {
         printf("Error, each letter once!");
     }
@@ -39,7 +40,7 @@ bool DoubleChecker(string cypher)
 {
     for (int i = 0, n = strlen(cypher); i < n; i++)
     {
-        for (j = i + 1 , n = strlen(cypher); j < n; j++)
+        for (int j = i + 1; j < n; j++)
         {
             if (cypher[i] == cypher[j])
             {
