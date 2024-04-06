@@ -3,7 +3,7 @@
 #include <string.h>
 #include <ctype.h>
 
-string CypherText(string text, string cypher);
+void CypherText(string text, string cypher);
 
 int main(int argc, string argv[])
 {
@@ -26,24 +26,27 @@ int main(int argc, string argv[])
         return 1;
     }
     string text = get_string("plaintext: ");
-    string plain = CypherText(text, argv[1]);
-    printf("ciphertext: %s\n", plain);
+    //string plain =
+    CypherText(text, argv[1]);
+    //printf("ciphertext: %s\n", plain);
     return 0;
 }
 
-string CypherText(string text, string cypher)
+void CypherText(string text, string cypher)
 {
-    string cypheredText = "";
+    //string cypheredText = "";
+    printf("ciphertext: ");
     for (int i = 0, n = strlen(text); i < n; i++)
     {
         if (isupper(text[i]))
         {
-            strcat(cypheredText, toupper(cypher[(int) text[i] - 64]));
+            printf("%c",toupper(cypher[(int) text[i] - 64]));
+
         }
         else if(islower(text[i]))
         {
-            strcat(cypheredText, tolower(cypher[(int) text[i] - 96]));
+            printf("%c", tolower(cypher[(int) text[i] - 96]));
         }
     }
-    return cypheredText;
+    printf("\n");
 }
