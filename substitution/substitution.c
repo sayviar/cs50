@@ -31,6 +31,13 @@ int main(int argc, string argv[])
     //printf("ciphertext: %s\n", plain);
     return 0;
 }
+void DoubleChecker(string cypher)
+{
+    for (int i = 0, n = strlen(cypher); i < n; i++)
+    {
+        for (j = i, n = strlen(cypher))
+    }
+}
 
 void CypherText(string text, string cypher)
 {
