@@ -38,11 +38,11 @@ string CypherText(string text, string cypher)
     {
         if (isupper(text[i]))
         {
-            cypheredText += toupper(cypher[(int) text[i] - 64]);
+            strcat(cypheredText, toupper(cypher[(int) text[i] - 64]));
         }
         else if(islower(text[i]))
         {
-            cypheredText += tolower(cypher[(int) text[i] - 96]);
+            strcat(cypheredText, tolower(cypher[(int) text[i] - 96]));
         }
     }
     return cypheredText;
