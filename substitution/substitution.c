@@ -25,18 +25,29 @@ int main(int argc, string argv[])
         printf("Key must contain 26 characters.\n");
         return 1;
     }
+    if (DoubleChecker)
+    {
+        printf()
+    }
     string text = get_string("plaintext: ");
     //string plain =
     CypherText(text, argv[1]);
     //printf("ciphertext: %s\n", plain);
     return 0;
 }
-void DoubleChecker(string cypher)
+bool DoubleChecker(string cypher)
 {
     for (int i = 0, n = strlen(cypher); i < n; i++)
     {
-        for (j = i, n = strlen(cypher))
+        for (j = i + 1 , n = strlen(cypher); j < n; j++)
+        {
+            if (cypher[i] == cypher[j])
+            {
+                return true;
+            }
+        }
     }
+    return false;
 }
 
 void CypherText(string text, string cypher)
