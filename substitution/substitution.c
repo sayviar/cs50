@@ -27,7 +27,7 @@ int main(int argc, string argv[])
     }
     string text = get_string("plaintext: ");
     string plain = CypherText(text, argv[1]);
-    printf("ciphertext: %s", plain);
+    printf("ciphertext: %s\n", plain);
     return 0;
 }
 
@@ -42,7 +42,6 @@ string CypherText(string text, string cypher)
         }
         else if(islower(text[i]))
         {
-            printf("%c", cypher[(int) text[i] - 96]);
             cypheredText += tolower(cypher[(int) text[i] - 96]);
         }
     }
