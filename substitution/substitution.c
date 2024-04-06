@@ -26,7 +26,8 @@ int main(int argc, string argv[])
         return 1;
     }
     string text = get_string("plaintext: ");
-    printf("ciphertext: %s", CypherText(text, argv[1]));
+    string plain = CypherText(text, argv[1]);
+    printf("ciphertext: %s", plain);
     return 0;
 }
 
