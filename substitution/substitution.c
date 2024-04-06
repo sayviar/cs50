@@ -47,6 +47,10 @@ void CypherText(string text, string cypher)
         {
             printf("%c", tolower(cypher[(int) text[i] - 96]));
         }
+        else
+        {
+            printf("%c", text[i]);
+        }
     }
     printf("\n");
 }
