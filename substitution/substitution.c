@@ -24,6 +24,7 @@ int main(int argc, string argv[])
         printf("Key must contain 26 characters.\n");
         return 1;
     }
+    print("%s")
 }
 
 string CypherText(string text, string cypher)
@@ -33,9 +34,12 @@ string CypherText(string text, string cypher)
     {
         if (isupper(text[i]))
         {
-            cypheredText += cypher[(int) text[i] - 64];
+            cypheredText += toupper(cypher[(int) text[i] - 64]);
         }
-        else if(islower)
+        else if(islower(text[i]))
+        {
+            cypheredText += tolower(cypher[(int) text[i] - 96]);
+        }
     }
-    return "s";
+    return cypheredText;
 }
