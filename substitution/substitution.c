@@ -60,12 +60,12 @@ void CypherText(string text, string cypher)
     {
         if (isupper(text[i]))
         {
-            printf("%c",toupper(cypher[(int) text[i] - 64]));
+            printf("%c",toupper(cypher[(int) text[i] - 65]));
 
         }
         else if(islower(text[i]))
         {
-            printf("%c", tolower(cypher[(int) text[i] - 96]));
+            printf("%c", tolower(cypher[(int) text[i] - 97]));
         }
         else
         {
