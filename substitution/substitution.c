@@ -27,7 +27,7 @@ int main(int argc, string argv[])
     }
     if (DoubleChecker)
     {
-        printf()
+        printf("Error, each letter once!");
     }
     string text = get_string("plaintext: ");
     //string plain =
