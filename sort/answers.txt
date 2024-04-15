@@ -1,4 +1,4 @@
-sort1 uses:
+sort1 uses: selection sort
 
 How do you know?: TODO
 
@@ -6,7 +6,7 @@ sort2 uses: merge sort
 
 How do you know?: TODO
 
-sort3 uses: TODO
+sort3 uses: bubble sort
 
 How do you know?: TODO
 
