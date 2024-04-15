@@ -20,6 +20,8 @@ sort1:
         random10000     0,206
         random50000     5,642
 
+        sorted50000     0,512
+
 sort2:
         reversed5000    0,031
         reversed10000   0,141
@@ -28,6 +30,8 @@ sort2:
         random5000      0,035
         random10000     0,072
         random50000     0,491
+        
+        sorted50000     0,618
 
 sort3:
         reversed5000    0,058
@@ -37,3 +41,5 @@ sort3:
         random5000      0,054
         random10000     0,144
         random50000     2,241
+
+        sorted50000     2,525
