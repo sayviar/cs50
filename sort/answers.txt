@@ -1,14 +1,14 @@
-sort1 uses: bubble sort
+sort1 uses: Bubble Sort
 
-How do you know?: TODO
+How do you know?: takes 4,823s in reversed50000 case and 0,512s in sorted50000 case.
 
-sort2 uses: merge sort
+sort2 uses: Merge Sort
 
-How do you know?: TODO
+How do you know?: takes 0,484s in reversed50000 case and 0,618s in sorted50000 case.
 
-sort3 uses: selection sort
+sort3 uses: Selection Sort
 
-How do you know?: TODO
+How do you know?: takes 2,402s in reversed50000 case and 2,525s in sorted50000 case.
 
 
 sort1:
