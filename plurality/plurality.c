@@ -82,7 +82,7 @@ void print_winner(void)
     int vote_count = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        if(vote_count < candidates[i].votes)
+        if (vote_count < candidates[i].votes)
         {
             vote_count = candidates[i].votes;
         }
