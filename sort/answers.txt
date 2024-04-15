@@ -12,34 +12,34 @@ How do you know?: TODO
 
 
 sort1:
-        reversed5000    0,072
-        reversed10000   0,306
-        reversed50000   4,823
+        reversed5000    0,072s
+        reversed10000   0,306s
+        reversed50000   4,823s
 
-        random5000      0,076
-        random10000     0,206
-        random50000     5,642
+        random5000      0,076s
+        random10000     0,206s
+        random50000     5,642s
 
-        sorted50000     0,512
+        sorted50000     0,512s
 
 sort2:
-        reversed5000    0,031
-        reversed10000   0,141
-        reversed50000   0,484
+        reversed5000    0,031s
+        reversed10000   0,141s
+        reversed50000   0,484s
 
-        random5000      0,035
-        random10000     0,072
-        random50000     0,491
-        
-        sorted50000     0,618
+        random5000      0,035s
+        random10000     0,072s
+        random50000     0,491s
+
+        sorted50000     0,618s
 
 sort3:
-        reversed5000    0,058
-        reversed10000   0,151
-        reversed50000   2,402
+        reversed5000    0,058s
+        reversed10000   0,151s
+        reversed50000   2,402s
 
-        random5000      0,054
-        random10000     0,144
-        random50000     2,241
+        random5000      0,054s
+        random10000     0,144s
+        random50000     2,241s
 
-        sorted50000     2,525
+        sorted50000     2,525s
