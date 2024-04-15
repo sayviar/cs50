@@ -65,7 +65,10 @@ int main(int argc, string argv[])
 // Update vote totals given a new vote
 bool vote(string name)
 {
-    // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcomp(candidates[i], name) == 0)
+    }
     return false;
 }
 
