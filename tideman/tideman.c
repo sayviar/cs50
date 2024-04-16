@@ -209,7 +209,7 @@ void print_winner(void)
         bool neverlost = true;
         for (int j = 0; j < candidate_count; i++)
         {
-            if (locked[j][i] == true)
+            if (locked[j][i])
             {
                 neverlost = false;
             }
