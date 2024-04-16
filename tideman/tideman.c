@@ -177,7 +177,10 @@ void lock_pairs(void)
     return;
 }
 
-bool recursion()
+bool recursion(int test)
+{
+
+}
 
 // Print the winner of the election
 void print_winner(void)
