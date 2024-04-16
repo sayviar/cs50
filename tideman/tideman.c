@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
 
 // Max number of candidates
 #define MAX 9
@@ -31,6 +32,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+bool creates_cycle(int winner, int loser);
 
 int main(int argc, string argv[])
 {
@@ -102,7 +104,7 @@ bool vote(int rank, string name, int ranks[])
     {
         if (strcmp(candidates[i], name))
         {
-            ranks[rank] = i
+            ranks[rank] = i;
             return true;
         }
     }
@@ -129,7 +131,7 @@ void add_pairs(void)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            if(preferences[i][j] > prefernces[j][i])
+            if(preferences[i][j] > preferences[j][i])
             {
                 pairs[pair_count].winner = i;
                 pairs[pair_count].loser = j;
@@ -152,10 +154,10 @@ void sort_pairs(void)
         {
             if (preferences[pairs[j].winner][pairs[j].loser]-preferences[pairs[j].loser][pairs[j].winner] > preferences[pairs[i].winner][pairs[i].loser]-preferences[pairs[i].loser][pairs[i].winner])
             {
-                temp = pairs[j]
-                pairs[j] = pairs[i]
+                temp = pairs[j];
+                pairs[j] = pairs[i];
                 pairs[i] = temp;
-                swapped = true
+                swapped = true;
             }
         }
         if (swapped == false)
@@ -171,7 +173,7 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        if(!creates_cycle(pairs[i].winner, pairs[i].loser)
+        if(!creates_cycle(pairs[i].winner, pairs[i].loser))
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
         }
@@ -183,7 +185,7 @@ bool creates_cycle(int winner, int loser)
 {
     if (winner == loser)
     {
-        return true
+        return true;
     }
     for (int i = 0; i < MAX; i++)
     {
@@ -207,13 +209,16 @@ void print_winner(void)
         bool neverlost = true;
         for (int j = 0; j < candidate_count; i++)
         {
-            if (locked[i][j] == true)
+            if (locked[j][i] == true)
             {
                 neverlost = false;
             }
 
         }
-        locked
+        if (neverlost)
+        {
+            printf("%s", candidates[i]);
+        }
     }
     return;
 }
