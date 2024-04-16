@@ -191,7 +191,7 @@ bool creates_cycle(int winner, int loser)
     {
         if (locked[winner][i])
         {
-            if (creates_cycle(pairs[i].loser,loser))
+            if (creates_cycle(i,loser))
             {
                 return true;
             }
