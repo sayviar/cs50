@@ -185,7 +185,7 @@ bool creates_cycle(int winner, int loser)
     }
     for (int i = 0; i < MAX; i++)
     {
-        if locked[pairs[i].winner]
+        if (locked[winner][i]== true)
     }
 
 }
