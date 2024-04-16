@@ -217,7 +217,7 @@ void print_winner(void)
         }
         if (neverlost)
         {
-            printf("%s", candidates[i]);
+            printf("%s\n", candidates[i]);
 
         }
     }
