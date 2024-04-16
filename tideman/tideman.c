@@ -189,7 +189,7 @@ bool creates_cycle(int winner, int loser)
     }
     for (int i = 0; i < pair_count; i++)
     {
-        if (locked[pairs[i].winner][pairs[i].loser]== true)
+        if ((locked[pairs[i].winner][pairs[i].loser]== true) && (pairs[i].winner == winner))
         {
             if (creates_cycle(pairs[i].loser,loser))
             {
