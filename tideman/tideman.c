@@ -152,8 +152,15 @@ void sort_pairs(void)
         {
             if (preferences[pairs[j].winner][pairs[j].loser]-preferences[pairs[j].loser][pairs[j].winner] > preferences[pairs[i].winner][pairs[i].loser]-preferences[pairs[i].loser][pairs[i].winner])
             {
-                temp = pairs
+                temp = pairs[j]
+                pairs[j] = pairs[i]
+                pairs[i] = temp;
+                swapped = true
             }
+        }
+        if (swapped == false)
+        {
+            return;
         }
     }
     return;
