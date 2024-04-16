@@ -186,6 +186,10 @@ bool creates_cycle(int winner, int loser)
     for (int i = 0; i < MAX; i++)
     {
         if (locked[winner][i]== true)
+        {
+            creates_cycle(i,loser)
+            
+        }
     }
 
 }
