@@ -179,7 +179,11 @@ void lock_pairs(void)
 
 bool creates_cycle(int winner, int loser)
 {
-    if (winner == )
+    if (winner == loser)
+    {
+        return true
+    }
+    
 
 }
 
