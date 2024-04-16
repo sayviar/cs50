@@ -131,7 +131,7 @@ void add_pairs(void)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            if(preferences[i][j] > preferences[j][i])
+            if (preferences[i][j] > preferences[j][i])
             {
                 pairs[pair_count].winner = i;
                 pairs[pair_count].loser = j;
@@ -152,7 +152,10 @@ void sort_pairs(void)
         swapped = false;
         for (int j = i + 1; j < pair_count; j++)
         {
-            if (preferences[pairs[j].winner][pairs[j].loser]-preferences[pairs[j].loser][pairs[j].winner] > preferences[pairs[i].winner][pairs[i].loser]-preferences[pairs[i].loser][pairs[i].winner])
+            if (preferences[pairs[j].winner][pairs[j].loser] -
+                    preferences[pairs[j].loser][pairs[j].winner] >
+                preferences[pairs[i].winner][pairs[i].loser] -
+                    preferences[pairs[i].loser][pairs[i].winner])
             {
                 temp = pairs[j];
                 pairs[j] = pairs[i];
@@ -173,7 +176,7 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        if(!creates_cycle(pairs[i].winner, pairs[i].loser))
+        if (!creates_cycle(pairs[i].winner, pairs[i].loser))
         {
             locked[pairs[i].winner][pairs[i].loser] = true;
         }
@@ -191,14 +194,13 @@ bool creates_cycle(int original_winner, int loser)
     {
         if (locked[loser][i])
         {
-            if (creates_cycle(original_winner,i))
+            if (creates_cycle(original_winner, i))
             {
                 return true;
             }
         }
     }
     return false;
-
 }
 
 // Print the winner of the election
@@ -213,12 +215,10 @@ void print_winner(void)
             {
                 neverlost = false;
             }
-
         }
         if (neverlost)
         {
             printf("%s\n", candidates[i]);
-
         }
     }
     return;
