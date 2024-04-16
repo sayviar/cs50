@@ -177,8 +177,9 @@ void lock_pairs(void)
     return;
 }
 
-bool recursion(int test)
+bool creates_cycle(int winner, int loser)
 {
+    if (winner == )
 
 }
 
