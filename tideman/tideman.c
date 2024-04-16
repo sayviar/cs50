@@ -189,7 +189,7 @@ bool creates_cycle(int original_winner, int loser)
     }
     for (int i = 0; i < candidate_count; i++)
     {
-        if (locked[i][loser])
+        if (locked[loser][i])
         {
             if (creates_cycle(original_winner,i))
             {
