@@ -187,10 +187,13 @@ bool creates_cycle(int winner, int loser)
     {
         if (locked[winner][i]== true)
         {
-            creates_cycle(i,loser)
-            
+            if (creates_cycle(i,loser))
+            {
+                return true;
+            }
         }
     }
+    return false;
 
 }
 
