@@ -183,7 +183,7 @@ bool creates_cycle(int winner, int loser)
     {
         return true
     }
-    
+    for (int i = 0; i )
 
 }
 
