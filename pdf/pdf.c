@@ -3,6 +3,7 @@
 #include <stdint.h>
 
 const int CHECK_SIZE = 4;
+int pdf[] = {37, 80, 68, 70};
 int main (int argc, string argv[])
 {
     // TODO: Check first four bytes in given file
@@ -17,6 +18,9 @@ int main (int argc, string argv[])
         printf("Could not open File!")
         return 1;
     }
-    
+    int buffer[CHECK_SIZE];
+    fread(buffer, 1, CHECK_SIZE, input);
 
 }
+
+int 
