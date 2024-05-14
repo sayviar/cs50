@@ -2,20 +2,24 @@
 #include <stdio.h>
 #include <stdint.h>
 
+int checkpdf (int a[4], int b[4]);
+
 const int CHECK_SIZE = 4;
 int pdf[] = {37, 80, 68, 70};
+
+
 int main (int argc, string argv[])
 {
     // TODO: Check first four bytes in given file
     if (argc != 2)
     {
-        printf("The right format is ./pdf file")
+        printf("The right format is ./pdf file");
         return 1;
     }
-    FILE *input = fopen(argv[2], "r")
+    FILE *input = fopen(argv[2], "r");
     if (input == NULL)
     {
-        printf("Could not open File!")
+        printf("Could not open File!");
         return 1;
     }
     int buffer[CHECK_SIZE];
