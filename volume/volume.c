@@ -37,10 +37,12 @@ int main(int argc, char *argv[])
     FILE *output = fopen("output.wav", "w")
     fread(buffer, 44, 1, input);
     fwrite(buffer, 44, 1, output);
-    
-    fread(buffer, 2, 1, input);
+
 
     // TODO: Read samples from input file and write updated data to output file
+    fread(buffer, 2, 1, input);
+    buffer = buffer * factor;
+    fwrite(buffer, 2, 1, output);
 
     // Close files
     fclose(input);
