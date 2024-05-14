@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     float factor = atof(argv[3]);
     uint8_t header[HEADER_SIZE];
     // TODO: Copy header from input file to output file
-    FILE *output = fopen("output.wav", "w")
+    
     fread(header, HEADER_SIZE, 1, input);
     fwrite(header, HEADER_SIZE, 1, output);
 
