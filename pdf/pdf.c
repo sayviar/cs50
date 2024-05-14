@@ -5,7 +5,7 @@
 int checkpdf (int a[4], int b[4]);
 
 const int CHECK_SIZE = 4;
-int pdf[] = {37, 80, 68, 70};
+uint8_t pdf[] = {37, 80, 68, 70};
 
 
 int main (int argc, string argv[])
@@ -16,13 +16,13 @@ int main (int argc, string argv[])
         printf("The right format is ./pdf file");
         return 1;
     }
-    FILE *input = fopen(argv[2], "r");
+    FILE *input = fopen(argv[1], "r");
     if (input == NULL)
     {
         printf("Could not open File!");
         return 1;
     }
-    int buffer[CHECK_SIZE];
+    uint8_t buffer[CHECK_SIZE];
     for (int i = 0; i<CHECK_SIZE; i++)
     {
         fread(buffer, 1, 1, input);
