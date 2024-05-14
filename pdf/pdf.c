@@ -19,8 +19,30 @@ int main (int argc, string argv[])
         return 1;
     }
     int buffer[CHECK_SIZE];
-    fread(buffer, 1, CHECK_SIZE, input);
+    for (int i = 0; i<CHECK_SIZE; i++)
+    {
+        fread(buffer, 1, 1, input);
+    }
 
+    if (checkpdf(buffer, pdf))
+    {
+        printf("This is a pdf");
+    }
+    else
+    {
+        printf("This is not a pdf");
+    }
+    fclose(input);
 }
 
-int 
+int checkpdf (int a[4], int b[4])
+{
+    for (int i = 0; i<4; i++)
+    {
+        if (a[i] != b[i])
+        {
+            return false;
+        }
+    }
+    return true;
+}
