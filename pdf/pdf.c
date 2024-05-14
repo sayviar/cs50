@@ -13,28 +13,31 @@ int main (int argc, string argv[])
     // TODO: Check first four bytes in given file
     if (argc != 2)
     {
-        printf("The right format is ./pdf file");
+        printf("The right format is ./pdf file\n");
         return 1;
     }
     FILE *input = fopen(argv[1], "r");
     if (input == NULL)
     {
-        printf("Could not open File!");
+        printf("Could not open File!\n");
         return 1;
     }
     uint8_t buffer[CHECK_SIZE];
-    for (int i = 0; i<CHECK_SIZE; i++)
+
+    fread(buffer, 1, 4, input);
+
+    for(int i = 0 ; i < 4; i++)
     {
-        fread(buffer, 1, 1, input);
+        printf("%i\n", buffer[i]);
     }
 
     if (checkpdf(buffer, pdf))
     {
-        printf("This is a pdf");
+        printf("This is a pdf\n");
     }
     else
     {
-        printf("This is not a pdf");
+        printf("This is not a pdf\n");
     }
     fclose(input);
 }
