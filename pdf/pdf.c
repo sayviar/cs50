@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdint.h>
 
-int checkpdf (int a[4], int b[4]);
+int checkpdf (uint8_t a[4],uint8_t b[4]);
 
 const int CHECK_SIZE = 4;
 uint8_t pdf[] = {37, 80, 68, 70};
@@ -39,7 +39,7 @@ int main (int argc, string argv[])
     fclose(input);
 }
 
-int checkpdf (int a[4], int b[4])
+int checkpdf (uint8_t a[4],uint8_t b[4])
 {
     for (int i = 0; i<4; i++)
     {
