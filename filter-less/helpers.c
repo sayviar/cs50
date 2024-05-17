@@ -28,6 +28,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
+            int originalRed = image[i][j]rgbtRed;
+            int originalGreen = image[i][j]rgbtGreen;
+            int originalBlue = image[i][j]rgbtBlue;
             int sepiaRed;
             int sepiaGreen;
             int sepiaBlue;
