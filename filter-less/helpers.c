@@ -51,7 +51,11 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width/2.0; j++)
         {
-            
+            int buffer[] = image[i][j];
+            for (int k = 1; k< 3 ; k++)
+            {
+            printf("%i",buffer[k]);
+            }
         }
     }
     return;
