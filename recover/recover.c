@@ -50,6 +50,7 @@ int main(int argc, char *argv[])
         }
     }
         // Create JPEGs from the data
+    fclose(img);
     fclose(recover);
     free(filename);
 }
