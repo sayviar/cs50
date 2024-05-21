@@ -1,6 +1,6 @@
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 
 int main(int argc, char *argv[])
 {
@@ -24,36 +24,33 @@ int main(int argc, char *argv[])
     int counter = 0;
     uint8_t buffer[512];
     // While there's still data left to read from the memory card
-    while (fread(buffer,1,512, recover) == 512)
+    while (fread(buffer, 1, 512, recover) == 512)
     {
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff &&
+            (buffer[3] & 0xf0) == 0xe0)
         {
 
-            if(img != NULL)
+            if (img != NULL)
             {
 
                 fclose(img);
                 counter++;
-
             }
             sprintf(filename, "%03i.jpg", counter);
-            img = fopen(filename,"w");
+            img = fopen(filename, "w");
             if (img == NULL)
             {
                 fclose(recover);
                 free(filename);
                 return 1;
             }
-
-
-
         }
         if (img != NULL)
         {
             fwrite(buffer, 1, 512, img);
         }
     }
-        // Create JPEGs from the data
+    // Create JPEGs from the data
     fclose(img);
     fclose(recover);
     free(filename);
