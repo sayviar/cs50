@@ -15,11 +15,12 @@ int main(int argc, char *argv[])
     FILE *recover = fopen(infile, "r");
     if (recover == NULL)
     {
+        fclose(recover);
         printf("File couldn't be opened\n");
         return 1;
     }
     FILE *img = NULL;
-    char *filename = malloc(4);
+    char *filename = malloc(8);
     int counter = 0;
     uint8_t buffer[512];
     // While there's still data left to read from the memory card
@@ -30,6 +31,7 @@ int main(int argc, char *argv[])
 
             if(img != NULL)
             {
+
                 fclose(img);
                 counter++;
 
@@ -38,6 +40,8 @@ int main(int argc, char *argv[])
             img = fopen(filename,"w");
             if (img == NULL)
             {
+                fclose(recover);
+                free(filename);
                 return 1;
             }
 
@@ -53,4 +57,5 @@ int main(int argc, char *argv[])
     fclose(img);
     fclose(recover);
     free(filename);
+    return 0;
 }
