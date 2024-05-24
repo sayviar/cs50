@@ -67,7 +67,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    char *buffer[45];
+    char *buffer= NULL;
     int hashed;
     while (fscanf(dic, "%s", buffer) != EOF)
     {
@@ -77,7 +77,8 @@ bool load(const char *dictionary)
         {
             return false;
         }
-        new->word = buffer;
+        strcpy(new->word, buffer);
+
         diccounter++;
         hashed = hash(new->word);
 
