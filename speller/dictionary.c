@@ -38,16 +38,16 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     int charcounter;
-    fopen(dictionary, 'r');
-    FILE *dic;
-    WHILE (fread(dic, 1, 1, dictionary) != EOF)
+    FILE *dic = fopen(dictionary, 'r');
+    char buffer;
+    WHILE (fgetc(buffer, 1, 1, dictionary) != EOF)
     {
         charcounter = 0;
         node *new = malloc(sizeof(node));
-        WHILE (fread(dic, 1, 1, dictionary) != '\n')
+        WHILE (fread(buffer, 1, 1, dictionary) != '\n')
         {
-            new->word[charcounter] = dic;
-            printf("%c", dic);
+            new->word[charcounter] = buffer;
+            printf("%c", buffer);
         }
     }
 
