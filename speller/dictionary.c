@@ -52,26 +52,36 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-
+    int charcounter;
     FILE *dic = fopen(dictionary, "r");
     if (dic == NULL)
     {
         return false;
     }
-    char buffer[LENGTH +1];
+    int buffer;
     int hashed;
-    while (fscanf(dic, "%s", buffer) != EOF)
+    while ((buffer = fgetc(dic)) != EOF)
     {
-        printf("%s\n", buffer);
+        charcounter = 0;
         node *new = malloc(sizeof(node));
         if (new == NULL)
         {
             return false;
         }
-        strcpy(new->word, buffer);
-
+        do
+        {
+            new->word[charcounter] = (char)buffer;
+            charcounter++;
+        }
+        while ((buffer = fgetc(dic)) != '\n' && buffer != EOF);
+        new->word[charcounter] = '\0';
         diccounter++;
         hashed = hash(new->word);
+
+        if (hashed < 0 || hashed >= N) {
+         // handle error
+         return false;
+        }
 
         if (table[hashed] == NULL)
         {
@@ -88,6 +98,7 @@ bool load(const char *dictionary)
     fclose(dic);
     return true;
 }
+
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
