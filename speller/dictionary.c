@@ -61,13 +61,13 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    int charcounter;
+
     FILE *dic = fopen(dictionary, "r");
     if (dic == NULL)
     {
         return false;
     }
-    char *buffer[LENGTH +1];
+    char buffer[LENGTH +1];
     int hashed;
     while (fscanf(dic, "%s", buffer) != EOF)
     {
