@@ -51,7 +51,6 @@ unsigned int hash(const char *word)
     // TODO: Improve this hash function
     while (word[i] != '\0'&& word[i] != '\n')
     {
-        printf("%s____", word);
         hash += toupper(word[i]) - 'A';
         i++;
     }
