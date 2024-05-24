@@ -26,7 +26,7 @@ node *table[N];
 bool check(const char *word)
 {
 
-    node *ptr = table[hash(word)];
+    node *ptr = table[hash(toupper(word))];
     while (ptr != NULL)
     {
 
