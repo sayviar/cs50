@@ -49,7 +49,7 @@ unsigned int hash(const char *word)
     int i = 0;
     int hash = 0;
     // TODO: Improve this hash function
-    while (word[i] != '\0'&& word[i] != )
+    while (word[i] != '\0'&& word[i] != '\n')
     {
         hash += toupper(word[i]) - 'A';
         i++;
