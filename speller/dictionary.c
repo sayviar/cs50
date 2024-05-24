@@ -19,7 +19,7 @@ typedef struct node
 } node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = ;
+const unsigned int N = 26;
 
 // Hash table
 node *table[N];
