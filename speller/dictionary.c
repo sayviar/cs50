@@ -43,7 +43,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    char buffer;
+    int buffer;
     int hashed;
     while (fgetc(dic) != EOF)
     {
