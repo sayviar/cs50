@@ -50,6 +50,7 @@ bool load(const char *dictionary)
             printf("%c", buffer);
             charcounter++;
         }
+        if table[hash(new->word[0])]
     }
 
     // TODO
