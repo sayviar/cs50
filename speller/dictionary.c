@@ -40,7 +40,7 @@ bool load(const char *dictionary)
     int charcounter;
     FILE *dic = fopen(dictionary, 'r');
     char buffer;
-    while (fread(buffer, 1, 1, dic) != 0)
+    while (fgetc(dic) != EOF)
     {
         charcounter = 0;
         node *new = malloc(sizeof(node));
