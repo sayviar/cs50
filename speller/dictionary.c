@@ -56,7 +56,6 @@ bool load(const char *dictionary)
         while ((buffer = fgetc(dic)) != '\n')
         {
             new->word[charcounter] = (char)buffer;
-            printf("%c", (char)buffer);
             charcounter++;
         }
         if (buffer != 10)
