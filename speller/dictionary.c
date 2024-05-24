@@ -35,8 +35,12 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful, else false
 bool load(const char *dictionary)
 {
-    FILE *dic
-    fopen(dic,)
+    FILE *dic;
+    WHILE (fopen(dic, 1, 1, dictionary)!= '\n')
+    {
+        
+    }
+
     // TODO
     return false;
 }
