@@ -39,7 +39,6 @@ bool load(const char *dictionary)
     FILE *dic;
     WHILE (fread(dic, 1, 1, dictionary) != )
     {
-        node *new = malloc(sizeof(node))
 
     }
 
