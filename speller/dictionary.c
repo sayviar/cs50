@@ -67,23 +67,17 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    int buffer;
+    char *buffer;
     int hashed;
-    while (buffer = fscanf(dic, "%s", buffer)) != EOF)
+    while (fscanf(dic, "%s", buffer) != EOF)
     {
-        charcounter = 0;
+
         node *new = malloc(sizeof(node));
         if (new == NULL)
         {
             return false;
         }
-        do
-        {
-            new->word[charcounter] = (char)buffer;
-            charcounter++;
-        }
-        while ((buffer = fgetc(dic)) != '\n' && buffer != EOF);
-        new->word[charcounter] = '\0';
+        new->word = buffer;
         diccounter++;
         hashed = hash(new->word);
 
