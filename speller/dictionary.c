@@ -58,10 +58,11 @@ bool load(const char *dictionary)
             new->word[charcounter] = (char)buffer;
             charcounter++;
         }
-        if (buffer != 10)
-        {
         new->word[charcounter] = '\0';
         hashed = hash(new->word);
+        if (buffer != 10)
+        {
+
         if (table[hashed] == NULL)
         {
             table[hashed] = new;
