@@ -40,14 +40,15 @@ bool load(const char *dictionary)
     int charcounter;
     FILE *dic = fopen(dictionary, 'r');
     char buffer;
-    while (fgetc(buffer, 1, 1, dic) != EOF)
+    while (fread(buffer, 1, 1, dic) != 0)
     {
         charcounter = 0;
         node *new = malloc(sizeof(node));
-        while (fread(buffer, 1, 1, dic) != '\n')
+        while (fgetc(buffer, 1, 1, dic) != '\n')
         {
             new->word[charcounter] = buffer;
             printf("%c", buffer);
+            charcounter++;
         }
     }
 
