@@ -37,7 +37,7 @@ bool load(const char *dictionary)
 {
     fopen(dictionary, 'r');
     FILE *dic;
-    WHILE (fread(dic, 1, 1, dictionary) != )
+    WHILE (fread(dic, 1, 1, dictionary) != EOF)
     {
 
     }
