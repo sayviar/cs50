@@ -19,7 +19,7 @@ typedef struct node
 } node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 1501;
+const unsigned int N = 1500;
 
 // Hash table
 node *table[N];
@@ -71,7 +71,7 @@ bool load(const char *dictionary)
     int hashed;
     while (fscanf(dic, "%s", buffer) != EOF)
     {
-
+        printf("%s\n", buffer);
         node *new = malloc(sizeof(node));
         if (new == NULL)
         {
