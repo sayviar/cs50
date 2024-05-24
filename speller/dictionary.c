@@ -26,11 +26,11 @@ node *table[N];
 bool check(const char *word)
 {
 
-    node *ptr = table[hash(toupper(word))];
+    node *ptr = table[hash(word)];
     while (ptr != NULL)
     {
 
-        if (strcmp(word, ptr->word) == 0)
+        if (strcmp(tolower(word), ptr->word) == 0)
         {
             return true;
         }
