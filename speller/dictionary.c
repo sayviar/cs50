@@ -25,6 +25,7 @@ node *table[N];
 bool check(const char *word)
 {
     node *ptr = table[hash(word[0])];
+    int lengthword = 
     for (int i = 0; word[i] != '\0'; i++)
     {
         if (ptr->word[i] != word[i] || pt->word[i] == '\0')
