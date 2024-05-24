@@ -45,7 +45,7 @@ bool load(const char *dictionary)
     }
     int buffer;
     int hashed;
-    while ((buffer= fgetc(dic)) != EOF)
+    while (fgetc(dic) != EOF)
     {
         charcounter = 0;
         node *new = malloc(sizeof(node));
@@ -53,7 +53,7 @@ bool load(const char *dictionary)
         {
             return false;
         }
-        while (buffer != '\n')
+        while ((buffer = fgetc(dic)) != '\n')
         {
             new->word[charcounter] = (char)buffer;
             charcounter++;
@@ -71,7 +71,6 @@ bool load(const char *dictionary)
             new->next = table[hashed];
             table[hashed] = new;
         }
-
     }
     fclose(dic);
     return true;
