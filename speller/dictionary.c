@@ -40,6 +40,7 @@ bool load(const char *dictionary)
     int charcounter;
     FILE *dic = fopen(dictionary, 'r');
     char buffer;
+    int hash;
     while (fgetc(dic) != EOF)
     {
         charcounter = 0;
@@ -50,7 +51,15 @@ bool load(const char *dictionary)
             printf("%c", buffer);
             charcounter++;
         }
-        if table[hash(new->word[0])]
+        hash = hash(new->word[0])
+        if (table[] = NULL)
+        {
+            new->next = NULL;
+        }
+        else
+        {
+            new->next = table[]
+        }
     }
 
     // TODO
