@@ -6,7 +6,8 @@
 #include <stdio.h>
 
 #include "dictionary.h"
-
+bool loaded = false;
+unsigned int diccounter = 0;
 // Represents a node in a hash table
 typedef struct node
 {
@@ -60,6 +61,7 @@ bool load(const char *dictionary)
         }
         while ((buffer = fgetc(dic)) != '\n' && buffer != EOF);
         new->word[charcounter] = '\0';
+        diccounter++;
         hashed = hash(new->word);
 
         if (table[hashed] == NULL)
@@ -73,6 +75,7 @@ bool load(const char *dictionary)
             table[hashed] = new;
         }
     }
+    loaded = true;
     fclose(dic);
     return true;
 }
@@ -80,6 +83,10 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
+    if (loaded)
+    {
+        return diccounter;
+    }
     // TODO
     return 0;
 }
