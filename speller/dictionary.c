@@ -32,6 +32,7 @@ bool check(const char *word)
             ptr = ptr->next;
             i = 0;
         }
+        if ()
     }
 
     // TODO
