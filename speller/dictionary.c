@@ -64,6 +64,7 @@ bool load(const char *dictionary)
         hashed = hash(new->word);
         if (table[hashed] == NULL)
         {
+            table[hashed] = new;
             new->next = NULL;
         }
         else
