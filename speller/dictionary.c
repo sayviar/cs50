@@ -26,17 +26,20 @@ bool check(const char *word)
 {
 
     node *ptr = table[hash(word)];
-    for (int i = 0; i < LENGTH; i++)
+    while (ptr != NULL)
     {
-
-        if (ptr->word[i] !=  tolower(word[i]))
+        for(int i = 0; i < LENGTH; i++)
         {
+            if (ptr->word[i] !=  tolower(word[i]))
+            {
+                i = 0;
+                break;
+            }
+            if (ptr->word[i] == '\0' && word[i] == '\0')
+            {
+                return true;
+            }
             ptr = ptr->next;
-            i = 0;
-        }
-        if (ptr->word[i] == '\0' && word[i] == '\0')
-        {
-            return true;
         }
     }
 
