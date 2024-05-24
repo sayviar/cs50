@@ -67,7 +67,7 @@ bool load(const char *dictionary)
     {
         return false;
     }
-    char *buffer= NULL;
+    char *buffer[LENGTH +1];
     int hashed;
     while (fscanf(dic, "%s", buffer) != EOF)
     {
