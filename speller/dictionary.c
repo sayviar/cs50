@@ -27,12 +27,13 @@ bool check(const char *word)
     node *ptr = table[hash(word[0])];
     for (int i = 0; word[i] != '\0'; i++)
     {
-        if (ptr->word[i] != word[i] )
+        if (ptr->word[i] != word[i] || pt->word[i] == '\0')
         {
             ptr = ptr->next;
+            i = 0;
         }
-
     }
+
     // TODO
     return false;
 }
