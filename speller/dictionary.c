@@ -44,7 +44,8 @@ bool load(const char *dictionary)
         node *new = malloc(sizeof(node));
         WHILE (fread(dic, 1, 1, dictionary) != '\n')
         {
-            new->word[charcounter] = dic
+            new->word[charcounter] = dic;
+            printf("%c", dic);
         }
     }
 
