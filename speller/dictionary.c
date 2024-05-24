@@ -113,9 +113,14 @@ bool unload(void)
         node *tmp;
         while(crs != NULL)
         {
-            tmp = crs
+            tmp = crs;
             crs = crs->next;
+            if(tmp == NULL)
+            {
+                return false;
+            }
             free(tmp);
+
         }
     }
     // TODO
