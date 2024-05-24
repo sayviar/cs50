@@ -59,6 +59,7 @@ bool load(const char *dictionary)
             printf("%c", (char)buffer);
             charcounter++;
         }
+        new->word[charcounter] = '\0';
         hashed = hash(new->word);
         if (table[hashed] == NULL)
         {
