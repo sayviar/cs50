@@ -69,7 +69,7 @@ bool load(const char *dictionary)
     }
     int buffer;
     int hashed;
-    while ((buffer = fgetc(dic)) != EOF)
+    while ((buffer = scanf(dic)) != EOF)
     {
         charcounter = 0;
         node *new = malloc(sizeof(node));
