@@ -45,7 +45,7 @@ bool load(const char *dictionary)
     }
     int buffer;
     int hashed;
-    while (fgetc(dic) != EOF)
+    while ((buffer = fgetc(dic)) != EOF)
     {
         charcounter = 0;
         node *new = malloc(sizeof(node));
@@ -53,11 +53,12 @@ bool load(const char *dictionary)
         {
             return false;
         }
-        while ((buffer = fgetc(dic)) != '\n')
+        do
         {
             new->word[charcounter] = (char)buffer;
             charcounter++;
         }
+        while ((buffer = fgetc(dic)) != '\n');
         new->word[charcounter] = '\0';
         hashed = hash(new->word);
 
