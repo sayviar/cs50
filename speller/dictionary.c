@@ -44,7 +44,7 @@ bool load(const char *dictionary)
     {
         charcounter = 0;
         node *new = malloc(sizeof(node));
-        while (fgetc(buffer, 1, 1, dic) != '\n')
+        while (buffer = fgetc(dic) != '\n')
         {
             new->word[charcounter] = buffer;
             printf("%c", buffer);
