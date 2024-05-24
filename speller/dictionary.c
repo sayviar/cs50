@@ -24,16 +24,20 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    node *ptr = table[hash(word[0])];
-    int lengthword = 
-    for (int i = 0; word[i] != '\0'; i++)
+    node *ptr = table[hash(word)];
+    int lengthword =
+    for (int i = 0; i < LENGTH; i++)
     {
-        if (ptr->word[i] != word[i] || pt->word[i] == '\0')
+
+        if (ptr->word[i] != word[i])
         {
             ptr = ptr->next;
             i = 0;
         }
-        if ()
+        if (ptr->word[i] == '\0' && word[i] == '\0')
+        {
+            return true;
+        }
     }
 
     // TODO
