@@ -60,8 +60,6 @@ bool load(const char *dictionary)
         }
         new->word[charcounter] = '\0';
         hashed = hash(new->word);
-        if (buffer != 10)
-        {
 
         if (table[hashed] == NULL)
         {
@@ -73,7 +71,7 @@ bool load(const char *dictionary)
             new->next = table[hashed];
             table[hashed] = new;
         }
-        }
+
     }
     fclose(dic);
     return true;
