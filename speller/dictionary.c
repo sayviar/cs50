@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include<stdlib.h>
 #include <stdio.h>
+#include<string.h>
 
 #include "dictionary.h"
 bool loaded = false;
@@ -28,19 +29,12 @@ bool check(const char *word)
     node *ptr = table[hash(word)];
     while (ptr != NULL)
     {
-        for(int i = 0; i < LENGTH; i++)
+
+        if (strcmp(word, ptr->word) == 0)
         {
-            if (ptr->word[i] !=  tolower(word[i]))
-            {
-                i = 0;
-                break;
-            }
-            if (ptr->word[i] == '\0' && word[i] == '\0')
-            {
-                return true;
-            }
-            ptr = ptr->next;
+            return true;
         }
+        ptr = ptr->next;
     }
 
     // TODO
@@ -113,6 +107,10 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
+    for (int i = 0; i < N; i++)
+    {
+        while(table[i] )
+    }
     // TODO
     return false;
 }
