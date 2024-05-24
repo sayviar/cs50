@@ -109,7 +109,9 @@ bool unload(void)
 {
     for (int i = 0; i < N; i++)
     {
-        while(table[i] )
+        crs = table[i];
+        tmp = table[i];
+        while(table[i])
     }
     // TODO
     return false;
