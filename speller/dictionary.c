@@ -39,8 +39,12 @@ bool load(const char *dictionary)
 {
     int charcounter;
     FILE *dic = fopen(dictionary, 'r');
+    IF (dic == NULL)
+    {
+        return false;
+    }
     char buffer;
-    int hash;
+    int hashed;
     while (fgetc(dic) != EOF)
     {
         charcounter = 0;
@@ -51,20 +55,19 @@ bool load(const char *dictionary)
             printf("%c", buffer);
             charcounter++;
         }
-        hash = hash(new->word)
-        if (table[hash] = NULL)
+        hashed = hash(new->word);
+        if (table[hashed] == NULL)
         {
             new->next = NULL;
         }
         else
         {
-            new->next = table[hash]
-            table[hash] = new;
+            new->next = table[hashed];
+            table[hashed] = new;
         }
     }
 
-    // TODO
-    return false;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
