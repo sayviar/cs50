@@ -51,14 +51,15 @@ bool load(const char *dictionary)
             printf("%c", buffer);
             charcounter++;
         }
-        hash = hash(new->word[0])
-        if (table[] = NULL)
+        hash = hash(new->word)
+        if (table[hash] = NULL)
         {
             new->next = NULL;
         }
         else
         {
-            new->next = table[]
+            new->next = table[hash]
+            table[hash] = new;
         }
     }
 
