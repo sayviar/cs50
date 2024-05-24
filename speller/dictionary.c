@@ -58,7 +58,7 @@ bool load(const char *dictionary)
             new->word[charcounter] = (char)buffer;
             charcounter++;
         }
-        while ((buffer = fgetc(dic)) != '\n');
+        while ((buffer = fgetc(dic)) != '\n' && buffer != EOF);
         new->word[charcounter] = '\0';
         hashed = hash(new->word);
 
