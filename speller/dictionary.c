@@ -54,7 +54,7 @@ unsigned int hash(const char *word)
         hash += toupper(word[i]) - 'A';
         i++;
     }
-    return round(hash / i);
+    return hash;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
