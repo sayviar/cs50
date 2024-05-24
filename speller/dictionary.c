@@ -82,11 +82,6 @@ bool load(const char *dictionary)
         diccounter++;
         hashed = hash(new->word);
 
-        if (hashed < 0 || hashed >= N) {
-         // handle error
-         return false;
-        }
-
         if (table[hashed] == NULL)
         {
             table[hashed] = new;
