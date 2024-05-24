@@ -69,7 +69,7 @@ bool load(const char *dictionary)
     }
     char buffer[45];
     int hashed;
-    while ((fscanf(file, "%s", buffer)) != EOF)
+    while (fscanf(dic, "%s", buffer) != EOF)
     {
         charcounter = 0;
         node *new = malloc(sizeof(node));
