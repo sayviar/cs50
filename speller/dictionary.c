@@ -5,6 +5,7 @@
 #include<stdlib.h>
 #include <stdio.h>
 #include<string.h>
+#include<strings.h>
 
 #include "dictionary.h"
 bool loaded = false;
@@ -30,7 +31,7 @@ bool check(const char *word)
     while (ptr != NULL)
     {
 
-        if (strcmp(tolower(word), ptr->word) == 0)
+        if (strcasecmp(word, ptr->word) == 0)
         {
             return true;
         }
