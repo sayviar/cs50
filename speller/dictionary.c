@@ -39,6 +39,7 @@ bool load(const char *dictionary)
     WHILE (fopen(dic, 1, 1, dictionary)!= '\n')
     {
         node *new = malloc(sizeof(node))
+
     }
 
     // TODO
