@@ -39,7 +39,7 @@ bool load(const char *dictionary)
 {
     int charcounter;
     FILE *dic = fopen(dictionary, 'r');
-    IF (dic == NULL)
+    if (dic == NULL)
     {
         return false;
     }
@@ -66,7 +66,7 @@ bool load(const char *dictionary)
             table[hashed] = new;
         }
     }
-
+    fclose(dic)
     return true;
 }
 
