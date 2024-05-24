@@ -109,9 +109,14 @@ bool unload(void)
 {
     for (int i = 0; i < N; i++)
     {
-        crs = table[i];
-        tmp = table[i];
-        while(table[i])
+        node *crs = table[i];
+        node *tmp;
+        while(crs != NULL)
+        {
+            tmp = crs
+            crs = crs->next;
+            free(tmp);
+        }
     }
     // TODO
     return false;
