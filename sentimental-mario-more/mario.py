@@ -6,7 +6,7 @@ while True:
         break
 
 for i in range(size):
-    print(" " * (size - i), end="")
-    print("#" * (i + 1) + " " + "#" * (i + 1))
+    print(" " * (size - 1 - i), end="")
+    print("#" * (i + 1) + "  " + "#" * (i + 1))
 
 
