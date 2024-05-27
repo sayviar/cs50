@@ -6,8 +6,7 @@ while True:
         break
 
 for i in range(size):
-    for j in reversed(range(size)):
-        print(" ", end="")
+    print(" " * (size - i), end="")
     print("#" * (i + 1) + " " + "#" * (i + 1))
 
 
