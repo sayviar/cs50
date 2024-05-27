@@ -8,5 +8,3 @@ while True:
 for i in range(size):
     print(" " * (size - 1 - i), end="")
     print("#" * (i + 1) + "  " + "#" * (i + 1))
-
-
