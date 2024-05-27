@@ -8,6 +8,6 @@ while True:
 for i in range(size):
     for j in reversed(range(size)):
         print(" ", end="")
-        print("#" * i)
-    print()
+    print("#" * (i + 1))
+
 
