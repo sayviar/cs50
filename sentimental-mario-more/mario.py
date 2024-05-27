@@ -6,4 +6,4 @@ while True:
         break
 
 for i in range(size):
-    for j in range(size -):
+    for j in range():
