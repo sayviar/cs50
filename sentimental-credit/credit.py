@@ -6,4 +6,4 @@ def main():
         if card_number.isnumeric():
             break
 
-    case card_number
+    match len
