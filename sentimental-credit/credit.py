@@ -11,8 +11,8 @@ def main():
 
 def check_credit(credit_number):
     length = len(credit_number)
-    for i in range(length-1, 0, -2)
-    
+    for i in range(length-1, 0, -2):
+        
 
 
 
