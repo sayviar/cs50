@@ -1,5 +1,6 @@
 from cs50 import get_string
 
+
 def main():
     text = get_string("Text: ")
     letter = 0
@@ -14,8 +15,7 @@ def main():
             sentence += 1
     word += 1
 
-
-    l = letter  / word * 100
+    l = letter / word * 100
     s = sentence / word * 100
     liau = (0.0588 * l) - (0.296 * s) - 15.8
     if round(liau) > 0 and round(liau) < 16:
@@ -24,5 +24,6 @@ def main():
         print("Grade 16+")
     else:
         print("Before Grade 1")
+
 
 main()
