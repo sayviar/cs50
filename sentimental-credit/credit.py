@@ -1,6 +1,7 @@
 from cs50 import get_string
 import re
 
+
 def main():
     while True:
         card_number = get_string("Number: ")
@@ -41,7 +42,6 @@ def check_credit(credit_number):
         return True
     else:
         return False
+
+
 main()
-
-
-
