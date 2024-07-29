@@ -12,7 +12,11 @@ def main():
     elif re.search("^[51-55][0-9]{14}$"):
         if check_credit(card_number):
             print("MASTERCARD\n")
-    elif re.search("^[51-55][0-9]{13}$")
+    elif re.search("^[0-9](\d{13}|\d{16})$")
+        if check_credit(card_number):
+            print("VISA\n")
+    else:
+        print("INVALID\n")
 
 
 def check_credit(credit_number):
