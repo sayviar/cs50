@@ -4,6 +4,7 @@ from cs50 import get_string
     sentence = 0
 def main():
     text = get_string("Text: ")
+    counters(text)
 
 def counters(text):
     for i in text:
@@ -11,6 +12,7 @@ def counters(text):
             letter += 1
         elif i.isspace():
             word += 1
-        elif i in ['.', '!']
+        elif i in ['.', '!', '?']:
+            sentence += 1
 
-
+    return True
