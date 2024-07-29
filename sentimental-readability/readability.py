@@ -16,10 +16,10 @@ def main():
 
 
     l = letter  / word * 100
-    s = sentence / words * 100
+    s = sentence / word * 100
     liau = (0.0588 * l) - (0.296 * s) - 15.8
     if round(liau) < 16:
-        print(f"Grade{round(liau)}")
+        print(f"Grade {round(liau)}")
     else:
         print("Grade 16+")
 
