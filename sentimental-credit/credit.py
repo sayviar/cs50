@@ -3,7 +3,7 @@ import re
 
 def main():
     while True:
-        card_number = get_string
+        card_number = get_string()
         if card_number.isnumeric():
             break
     if re.search("^(34|37)[0-9]{13}$", card_number):
@@ -12,7 +12,7 @@ def main():
     elif re.search("^[51-55][0-9]{14}$"):
         if check_credit(card_number):
             print("MASTERCARD\n")
-    elif re.search("^(\d{13}|\d{16})$"):
+    elif re.search("^([0-9]{13}|[0-9]{16})$"):
         if check_credit(card_number):
             print("VISA\n")
     else:
