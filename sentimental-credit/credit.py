@@ -16,7 +16,7 @@ def main():
             print("MASTERCARD\n")
         else:
             print("INVALID\n")
-    elif re.search("^((4)[0-9]{12}|[0-9]{15})$", card_number):
+    elif re.search("^((4)[0-9]{12}|(4)[0-9]{15})$", card_number):
         if check_credit(card_number):
             print("VISA\n")
         else:
