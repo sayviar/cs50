@@ -12,10 +12,11 @@ def main():
             word += 1
         elif i in ['.', '!', '?']:
             sentence += 1
+    word += 1
 
 
     l = letter  / word * 100
-    s = word  / sentence * 100
+    s = word * 100 / sentence
     liau = (0.0588 * l) - (0.296 * s) - 15.8
     if round(liau) < 16:
         print(f"Grade{round(liau)}")
