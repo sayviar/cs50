@@ -11,6 +11,6 @@ def counters(text):
             letter += 1
         elif i.isspace():
             word += 1
-        elif
+        elif i in ['.', '!']
 
 
