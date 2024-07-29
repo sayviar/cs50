@@ -30,8 +30,7 @@ def check_credit(credit_number):
     checksum = 0
     checkstring = ""
     for i in range(length-1, -1, -2):
-        checkstring += str(i)
-        print(checkstring)
+        checkstring += str(2*i)
     for i in checkstring:
         checksum += int(i)
     for i in range(length, -1, -2):
