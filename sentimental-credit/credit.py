@@ -29,7 +29,7 @@ def check_credit(credit_number):
     length = len(credit_number)
     checksum = 0
     counter = 0
-    for i in range(length, 0, -1):
+    for i in range(length, -1, -1):
         if counter % 2 == 0:
             checksum += i
         else:
