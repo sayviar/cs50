@@ -5,8 +5,8 @@ from cs50 import get_string
 def main():
     text = get_string("Text: ")
     counters(text)
-    l = letter / word * 100
-    s = word / sentence 
+    l = letter  / word
+    s = word  / sentence
 
 def counters(text):
     for i in text:
