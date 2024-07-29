@@ -10,7 +10,9 @@ def main():
 
 
 def check_credit(credit_number):
-    len(credit_number)
+    length = len(credit_number)
+    for i in range(length-1, 0, -2)
+    
 
 
 
