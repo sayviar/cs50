@@ -9,6 +9,8 @@ def counters(text):
     for i in text:
         if i.isalpha():
             letter += 1
-        elif i 
+        elif i.isspace():
+            word += 1
+        elif
 
 
