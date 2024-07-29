@@ -36,6 +36,7 @@ def check_credit(credit_number):
     for i in range(length-1, -1, -2):
         checksum += int(credit_number[i])
 
+    print(checksum)
     if checksum % 10 == 0:
         return True
     else:
