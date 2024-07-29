@@ -28,14 +28,15 @@ def main():
 def check_credit(credit_number):
     length = len(credit_number)
     checksum = 0
-    counter = 0
-    for i in range(length, -1, -1):
-        if counter % 2 == 0:
-            checksum += i
-            counter += 1
-        else:
-            checksum += i * 2
-            counter += 1
+    checkstring = ""
+    for i in range(length-1, -1, -2):
+        checkstring += i
+        print(checkstring)
+    for i in checkstring:
+        checksum += i
+    for i in range(length, -1, -2):
+        checksum += i
+
     if checksum % 10 == 0:
         return True
     else:
