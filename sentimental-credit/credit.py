@@ -9,6 +9,8 @@ def main():
     if re.search(")
 
 
-def CheckCredit()
+def check_credit(credit_number):
+    len(credit_number)
+
 
 
