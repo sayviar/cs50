@@ -4,4 +4,4 @@ def main():
     text = get_string("Text: ")
     word
     for i in text:
-        if
+        if i
