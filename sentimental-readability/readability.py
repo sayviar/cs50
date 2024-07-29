@@ -16,11 +16,11 @@ def main():
 def counters(text):
     for i in text:
         if i.isalpha():
-            letter += 1
+            global letter += 1
         elif i.isspace():
-            word += 1
+            global word += 1
         elif i in ['.', '!', '?']:
-            sentence += 1
+            global sentence += 1
 
     return True
 main()
