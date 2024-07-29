@@ -3,7 +3,7 @@ import re
 
 def main():
     while True:
-        card_number = get_string()
+        card_number = get_string("Number: ")
         if card_number.isnumeric():
             break
     if re.search("^(34|37)[0-9]{13}$", card_number):
@@ -32,7 +32,7 @@ def check_credit(credit_number):
         return True
     else:
         return False
-
+main()
 
 
 
