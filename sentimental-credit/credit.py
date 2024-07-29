@@ -32,8 +32,10 @@ def check_credit(credit_number):
     for i in range(length, -1, -1):
         if counter % 2 == 0:
             checksum += i
+            counter += 1
         else:
             checksum += i * 2
+            counter += 1
     if checksum % 10 == 0:
         return True
     else:
