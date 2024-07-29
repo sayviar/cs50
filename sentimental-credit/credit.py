@@ -9,7 +9,6 @@ def main():
     if re.search(")
 
 
-fun 
-
+def CheckCredit()
 
 
