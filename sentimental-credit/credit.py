@@ -6,7 +6,10 @@ def main():
         card_number = get_string
         if card_number.isnumeric():
             break
-    if re.search(")
+    if re.search("^(34|37)[0-9]{13}$", card_number):
+        if check_credit(card_number):
+            print("AMEX\n")
+    elif re.search("^[51-55][0-9]{14}$")
 
 
 def check_credit(credit_number):
