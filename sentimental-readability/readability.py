@@ -1,13 +1,17 @@
 from cs50 import get_string
-    letter = 0
-    word = 0
-    sentence = 0
+letter = 0
+word = 0
+sentence = 0
 def main():
     text = get_string("Text: ")
     counters(text)
     l = letter  / word * 100
     s = word  / sentence * 100
     liau = 0.0588 * l - 0.296 * s - 15.8
+    if round(liau) < 16:
+        print(f"Grade{round(liau)}")
+    else:
+        print("Grade 16+")
 
 def counters(text):
     for i in text:
@@ -19,3 +23,4 @@ def counters(text):
             sentence += 1
 
     return True
+main()
