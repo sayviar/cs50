@@ -7,7 +7,7 @@ def main():
     counters(text)
     l = letter  / word * 100
     s = word  / sentence * 100
-    liau = 0.0588 * l 
+    liau = 0.0588 * l - 0.296 * s - 15.8
 
 def counters(text):
     for i in text:
