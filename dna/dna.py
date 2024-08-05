@@ -34,7 +34,7 @@ def main():
 
     for entry in database:
         for str, amount in values.items():
-            if entry[str] != amount:
+            if int(entry[str]) != amount:
                 break
             print(entry['name'])
             return
