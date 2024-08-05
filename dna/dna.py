@@ -10,7 +10,7 @@ def main():
         exit(0)
     with open(sys.argv[1]) as database:
         reader = csv.DictReader(database)
-        print(reader.fieldnames)
+
 
 
     # TODO: Read database file into a variable
