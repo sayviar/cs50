@@ -6,6 +6,7 @@ def main():
     database = []
     dna = ''
     fieldnames = []
+    values = []
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
         print("The Program needs the following Arguments: python dna.py database.csv sequence.txt!")
@@ -23,11 +24,10 @@ def main():
     with open(sys.argv[2]) as data:
         for x in data:
             dna += x
-            
+
     # TODO: Find longest match of each STR in DNA sequence
-    agatc = longest_match(dna, "AGATC")
-    aatg = longest_match(dna, "AATG")
-    tatc = longest_match(dna, "TATC")
+    for x in range(1, len(fieldnames)+1 , 1):
+        
 
     # TODO: Check database for matching profiles
     for entry in database:
