@@ -9,13 +9,12 @@ def main():
         print("The Program needs the following Arguments: python dna.py database.csv sequence.txt!")
         exit(0)
 
+
+    # TODO: Read database file into a variable
     with open(sys.argv[1]) as data:
         reader = csv.DictReader(data)
         for row in reader:
             database.append(row)
-
-
-    # TODO: Read database file into a variable
 
     # TODO: Read DNA sequence file into a variable
 
