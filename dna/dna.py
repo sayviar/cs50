@@ -3,15 +3,16 @@ import sys
 
 
 def main():
-
+    database = []
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
         print("The Program needs the following Arguments: python dna.py database.csv sequence.txt!")
         exit(0)
-    with open(sys.argv[1]) as database:
-        reader = csv.DictReader(database)
-    for row in reader:
-        print(row)
+
+    with open(sys.argv[1]) as data:
+        reader = csv.DictReader(data)
+        for row in reader:
+            database.append(row)
 
 
     # TODO: Read database file into a variable
