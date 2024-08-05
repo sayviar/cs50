@@ -33,11 +33,14 @@ def main():
     # TODO: Check database for matching profiles
 
     for entry in database:
+        check = True
         for str, amount in values.items():
             if int(entry[str]) != amount:
+                check = False
                 break
-        print(entry['name'])
-        return
+        if check:
+            print(entry['name'])
+            return
     print("No match")
     return
 
