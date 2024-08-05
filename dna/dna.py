@@ -12,7 +12,6 @@ def main():
         print("The Program needs the following Arguments: python dna.py database.csv sequence.txt!")
         exit(0)
 
-
     # TODO: Read database file into a variable
     with open(sys.argv[1]) as data:
         reader = csv.DictReader(data)
@@ -28,7 +27,6 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     for x in range(1, len(fieldnames), 1):
         values[fieldnames[x]] = longest_match(dna, fieldnames[x])
-
 
     # TODO: Check database for matching profiles
 
