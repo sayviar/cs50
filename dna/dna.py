@@ -21,16 +21,16 @@ def main():
     with open(sys.argv[2]) as data:
         for x in data:
             dna += x
-    print(dna)
+
     # TODO: Find longest match of each STR in DNA sequence
     agatc = longest_match(dna, "AGATC")
     aatg = longest_match(dna, "AATG")
     tatc = longest_match(dna, "TATC")
-    print(agatc)
-    print(aatg)
-    print(tatc)
-    # TODO: Check database for matching profiles
 
+    # TODO: Check database for matching profiles
+    for row in database:
+        if int(database['AGATC']) == agatc:
+            print(database['name'])
     return
 
 
