@@ -28,13 +28,15 @@ def main():
     # TODO: Find longest match of each STR in DNA sequence
     for x in range(1, len(fieldnames), 1):
         values[fieldnames[x]] = longest_match(dna, fieldnames[x])
-        print(values)
 
 
     # TODO: Check database for matching profiles
+    check = True
     for entry in database:
-        for str in values:
-            if str
+        for str, amount in values.items():
+            if entry[str] != amount:
+                check = False
+        if check:
             print(entry['name'])
             return
     print("No match")
