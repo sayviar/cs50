@@ -28,9 +28,9 @@ def main():
     tatc = longest_match(dna, "TATC")
 
     # TODO: Check database for matching profiles
-    for row in database:
-        if database[AGATC] == agatc:
-            print(database[0])
+    #for row in database:
+        #if database[AGATC] == agatc:
+    print(database['name'])
     return
 
 
