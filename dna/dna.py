@@ -4,6 +4,7 @@ import sys
 
 def main():
     database = []
+    dna = ''
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
         print("The Program needs the following Arguments: python dna.py database.csv sequence.txt!")
@@ -17,7 +18,10 @@ def main():
             database.append(row)
 
     # TODO: Read DNA sequence file into a variable
-
+    with open(sys.argv[2]) as data:
+        for x in data:
+            dna += x
+    print(dna)
     # TODO: Find longest match of each STR in DNA sequence
 
     # TODO: Check database for matching profiles
