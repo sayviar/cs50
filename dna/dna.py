@@ -23,8 +23,12 @@ def main():
             dna += x
     print(dna)
     # TODO: Find longest match of each STR in DNA sequence
-    agat = longest_match(dna, )
-    AGATC,AATG,TATC
+    agatc = longest_match(dna, "AGATC")
+    aatg = longest_match(dna, "AATG")
+    tatc = longest_match(dna, "TATC")
+    print(agatc)
+    print(aatg)
+    print(tatc)
     # TODO: Check database for matching profiles
 
     return
