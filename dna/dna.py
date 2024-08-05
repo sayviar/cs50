@@ -21,7 +21,7 @@ def main():
     with open(sys.argv[2]) as data:
         for x in data:
             dna += x
-
+    print(database.fieldnames)
     # TODO: Find longest match of each STR in DNA sequence
     agatc = longest_match(dna, "AGATC")
     aatg = longest_match(dna, "AATG")
