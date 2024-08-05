@@ -36,8 +36,8 @@ def main():
         for str, amount in values.items():
             if int(entry[str]) != amount:
                 break
-            print(entry['name'])
-            return
+        print(entry['name'])
+        return
     print("No match")
     return
 
