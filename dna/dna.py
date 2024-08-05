@@ -29,8 +29,10 @@ def main():
 
     # TODO: Check database for matching profiles
     for entry in database:
-        if entry['AGATC'] == agatc:
-            print(database['name'])
+        if int(entry['AGATC']) == agatc and int(entry['AATG']) == aatg and int(entry['TATC']) == tatc:
+            print(entry['name'])
+            return
+    print("No match")
     return
 
 
