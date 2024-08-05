@@ -5,6 +5,7 @@ import sys
 def main():
     database = []
     dna = ''
+    fieldnames = []
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
         print("The Program needs the following Arguments: python dna.py database.csv sequence.txt!")
@@ -14,8 +15,8 @@ def main():
     # TODO: Read database file into a variable
     with open(sys.argv[1]) as data:
         reader = csv.DictReader(data)
+        fieldnames = reader.fieldnames
         for row in reader:
-            print(reader.fieldnames)
             database.append(row)
 
     # TODO: Read DNA sequence file into a variable
