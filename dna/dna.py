@@ -31,8 +31,9 @@ def main():
 
 
     # TODO: Check database for matching profiles
-    check = True
+
     for entry in database:
+        check = True
         for str, amount in values.items():
             if entry[str] != amount:
                 check = False
