@@ -15,13 +15,14 @@ def main():
     with open(sys.argv[1]) as data:
         reader = csv.DictReader(data)
         for row in reader:
+            print(reader.fieldnames)
             database.append(row)
 
     # TODO: Read DNA sequence file into a variable
     with open(sys.argv[2]) as data:
         for x in data:
             dna += x
-    print(database.fieldnames)
+            
     # TODO: Find longest match of each STR in DNA sequence
     agatc = longest_match(dna, "AGATC")
     aatg = longest_match(dna, "AATG")
