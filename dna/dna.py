@@ -26,8 +26,9 @@ def main():
             dna += x
 
     # TODO: Find longest match of each STR in DNA sequence
-    for x in range(1, len(fieldnames) + 1, 1):
-        values{fieldnames[x] : longest_match(dna, fieldnames[x])}
+    for x in range(1, len(fieldnames), 1):
+        values[fieldnames[x]] = longest_match(dna, fieldnames[x])
+        print(values)
 
 
     # TODO: Check database for matching profiles
