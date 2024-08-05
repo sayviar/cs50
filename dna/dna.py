@@ -5,7 +5,9 @@ import sys
 def main():
 
     # TODO: Check for command-line usage
-    if sys.argv[1] not NULL
+    if len(sys.argv) != 3:
+        print("The Program needs the following Arguments: python dna.py database.csv)
+
 
     # TODO: Read database file into a variable
 
