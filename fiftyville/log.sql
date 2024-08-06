@@ -53,3 +53,6 @@ JOIN bakery_security_logs as bake ON bake.license_plate = people.license_plate
 WHERE flights.day = 29 AND flights.month = 7 AND flights.year = 2023 AND atm_transactions.atm_location = 'Leggett Street' AND atm_transactions.transaction_type = 'withdraw'
 AND city = 'Fiftyville' AND phone_calls.duration < 60 AND bake.day = 28 AND bake.month = 7 AND bake.year = 2023 AND bake.hour = 10 AND bake.minute BETWEEN 15 AND 25 AND bake.activity = 'exit';;
 
+-- only two people remaining who could be the possible thief Bruce and Diana I consider adding the flight time to the
+
+
