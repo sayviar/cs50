@@ -37,3 +37,17 @@ WHERE atm_transactions.day = 29 AND atm_transactions.month = 7 AND atm_transacti
 
 -- Look into phone calls to see which calls were less than a minute long on that day
 
+SELECT * FROM phone_calls WHERE day = 28 AND month = 7 AND year = 2023 AND duration < 60;
+
+-- Adjusting the earlier SQL Query to have more information to filter with for example airports and phone numbers
+
+SELECT people.name FROM passengers
+JOIN flights ON flights.id = passengers.flight_id
+JOIN airports ON flights.origin_airport_id = airports.id
+JOIN people ON passengers.passport_number = people.passport_number
+JOIN bank_accounts ON bank_accounts.person_id = people.id
+JOIN atm_transactions ON atm_transactions.account_number = bank_accounts.account_number
+JOIN phone_calls ON phone_calls.caller = people.phone_number
+WHERE atm_transactions.day = 29 AND atm_transactions.month = 7 AND atm_transactions.year = 2023 AND atm_transactions.atm_location = 'Leggett Street' AND atm_transactions.transaction_type = 'withdraw'
+AND city = 'Fiftyville' AND phone_calls.duration < 60;
+
