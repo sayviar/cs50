@@ -48,7 +48,7 @@ JOIN people ON passengers.passport_number = people.passport_number
 JOIN bank_accounts ON bank_accounts.person_id = people.id
 JOIN atm_transactions ON atm_transactions.account_number = bank_accounts.account_number
 JOIN phone_calls ON phone_calls.caller = people.phone_number
-JOIN bakery_security_logs ON 
+JOIN bakery_security_logs as bake ON bake.license_plate = people.license_plate
 WHERE flights.day = 29 AND flights.month = 7 AND flights.year = 2023 AND atm_transactions.atm_location = 'Leggett Street' AND atm_transactions.transaction_type = 'withdraw'
-AND city = 'Fiftyville' AND phone_calls.duration < 60;
+AND city = 'Fiftyville' AND phone_calls.duration < 60 AND bake.day = 28 AND bake.month = 7 AND bake.year = 2023 AND bake.hour = 10 AND bake.minute BETWEEN 15 AND 25 AND bake.activity = 'exit';;
 
