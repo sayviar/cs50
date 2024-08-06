@@ -19,3 +19,5 @@ SELECT * FROM interviews WHERE year = 2023 AND month = 7 AND day = 28 AND transc
 
 -- Looking into bakery_security_logs database to see if the thief's car is clearly identifiable by looking for the day month year hour and the activity 'exit'
 SELECT * FROM bakery_security_logs WHERE day = 28 AND month = 7 AND year = 2023 AND hour = 10 AND minute BETWEEN 15 AND 25 AND activity = 'exit';
+
+
