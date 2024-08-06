@@ -30,8 +30,8 @@ SELECT * FROM atm_transactions WHERE day = 28 AND month = 7 AND year = 2023 AND 
 -- Find the names of the atm_transactions on that day at that atm and find the passengers on the flight on the day after if there are any correlations
 SELECT people.name FROM passengers
 JOIN flights ON flights.id = passengers.flight_id
-JOIN people ON passenger.passport_number = people.passport_number
+JOIN people ON passengers.passport_number = people.passport_number
 JOIN bank_accounts ON bank_accounts.person_id = people.id
 JOIN atm_transactions ON atm_transactions.account_number = bank_accounts.account_number
-WHERE atm_transactions.day = 28 AND atm_transactions.month = 7 AND atm_transactions.year = 2023 AND atm_transactions.atm_location = 'Leggett Street' AND atm_transactions.transaction_type = 'withdraw';
+WHERE atm_transactions.day = 29 AND atm_transactions.month = 7 AND atm_transactions.year = 2023 AND atm_transactions.atm_location = 'Leggett Street' AND atm_transactions.transaction_type = 'withdraw';
 
