@@ -84,3 +84,11 @@ JOIN people ON people.passport_number = passengers.passport_number
 WHERE (people.id = 864400 OR people.id = 686048) AND day = 29 AND month = 7 AND year = 2023
 GROUP BY city
 HAVING COUNT(*) = 2;
+
+
+-- I just realized that the complice isn't flying with the thief so I have to search for the flight differently
+SELECT city FROM flights
+JOIN airports ON airports.id = flights.destination_airport_id
+JOIN passengers ON passengers.flight_id = flights.id
+JOIN people ON people.passport_number = passengers.passport_number
+WHERE people.id = 686048 AND day = 29 AND month = 7 AND year = 2023
