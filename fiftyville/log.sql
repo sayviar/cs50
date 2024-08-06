@@ -10,6 +10,6 @@ SELECT description FROM crime_scene_reports WHERE street = 'Humphrey Street' AND
 SELECT * FROM interviews WHERE year = 2023 AND month = 7 AND day = 28;
 
 -- There is a lot to take in so I decide to further filter it with the word 'thief' in the transcript.
-
+SELECT * FROM interviews WHERE year = 2023 AND month = 7 AND day = 28 AND transcript like '%thief%';
 
 
