@@ -27,3 +27,6 @@ SELECT * FROM atm_transactions WHERE day = 28 AND month = 7 AND year = 2023;
 -- Now I get more specific to find the differen transactions in the Leggett Street on that day
 SELECT * FROM atm_transactions WHERE day = 28 AND month = 7 AND year = 2023 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw';
 
+-- Find the names of the atm_transactions on that day at that atm and find the passengers on the flight on the day after if there are any correlations
+
+
