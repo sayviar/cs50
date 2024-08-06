@@ -41,7 +41,7 @@ SELECT * FROM phone_calls WHERE day = 28 AND month = 7 AND year = 2023 AND durat
 
 -- Adjusting the earlier SQL Query to have more information to filter with for example airports and phone numbers
 
-SELECT people.name,  FROM passengers
+SELECT people.name, people.id FROM passengers
 JOIN flights ON flights.id = passengers.flight_id
 JOIN airports ON flights.origin_airport_id = airports.id
 JOIN people ON passengers.passport_number = people.passport_number
