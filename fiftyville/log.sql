@@ -4,5 +4,7 @@
 SELECT * FROM crime_scene_reports LIMIT 5;
 
 -- I search in the same table for the specific street name 'Humphrey Street' and date 'July 28, 2023'  to see what descriptions it holds
+SELECT description FROM crime_scene_reports WHERE street = 'Humphrey Street' AND day = 28 AND month = 7 AND year = 2023;
+
 
 
