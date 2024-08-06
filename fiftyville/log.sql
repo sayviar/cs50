@@ -9,7 +9,7 @@ SELECT description FROM crime_scene_reports WHERE street = 'Humphrey Street' AND
 -- I search for all the interviews that have taken place on the same day as the theft.
 SELECT * FROM interviews WHERE year = 2023 AND month = 7 AND day = 28;
 
--- There is a lot to take in so I decide to further filter it with the word theft in the transcript.
+-- There is a lot to take in so I decide to further filter it with the word 'thief' in the transcript.
 
 
 
