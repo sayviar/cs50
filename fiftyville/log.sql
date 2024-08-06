@@ -13,6 +13,7 @@ SELECT * FROM interviews WHERE year = 2023 AND month = 7 AND day = 28;
 SELECT * FROM interviews WHERE year = 2023 AND month = 7 AND day = 28 AND transcript like '%thief%';
 
 -- Information that I note down to continue: - Thief left parking lot, looking into security footage of bakery to find his car.
---                                           - Thief called someone less than a minute to take the 
+--                                           - Thief called someone less than a minute to take the earliest flight out of Fiftyville tomorrow
+--                                           - Thief 
 
 
