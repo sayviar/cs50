@@ -28,5 +28,5 @@ SELECT * FROM atm_transactions WHERE day = 28 AND month = 7 AND year = 2023;
 SELECT * FROM atm_transactions WHERE day = 28 AND month = 7 AND year = 2023 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw';
 
 -- Find the names of the atm_transactions on that day at that atm and find the passengers on the flight on the day after if there are any correlations
-
+SELECT name FROM passengers
 
