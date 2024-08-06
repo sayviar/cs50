@@ -2,3 +2,7 @@
 
 -- I search for the information in the chrim scene report to see what information are in general in there
 SELECT * FROM crime_scene_reports LIMIT 5;
+
+-- I search in the same table for the specific street name 'Humphrey Street' and date 'July 28, 2023'  to see what descriptions it holds
+
+
