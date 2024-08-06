@@ -67,5 +67,11 @@ WHERE flights.day = 29 AND flights.month = 7 AND flights.year = 2023 AND atm_tra
 AND city = 'Fiftyville' AND phone_calls.duration < 60 AND bake.day = 28 AND bake.month = 7 AND bake.year = 2023 AND bake.hour = 10 AND bake.minute BETWEEN 15 AND 25 AND bake.activity = 'exit';;
 
 
--- Bruce Flew 7 hours and 
+-- Bruce Flew 7 hours and 40 minutes earlier than Diana so it's safe to assume because it said that he booked the earliest flight out of fiftyville that he is the one with the earlier flight
+-- to clear things up I know search for the person Bruce tried to call and see if he also flew with that plane
+
+SELECT receiver.name, receiver.id FROM people
+JOIN phone_calls AS caller ON phone.caller = people.phone_number
+JOIN people AS receiver ON phone.receiver = people.phone_number
+WHERE people.id = 686048 AND day = 28 AND month = 7 AND year = 2023 AND duration < 60;
 
