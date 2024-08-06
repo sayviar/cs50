@@ -17,4 +17,4 @@ SELECT * FROM interviews WHERE year = 2023 AND month = 7 AND day = 28 AND transc
 --                                           - Thief thief withdrew money early morning ATM on Legget Street
 
 
-
+-- Looking into bakery_security_logs database to see if the 
