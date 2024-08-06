@@ -53,6 +53,19 @@ JOIN bakery_security_logs as bake ON bake.license_plate = people.license_plate
 WHERE flights.day = 29 AND flights.month = 7 AND flights.year = 2023 AND atm_transactions.atm_location = 'Leggett Street' AND atm_transactions.transaction_type = 'withdraw'
 AND city = 'Fiftyville' AND phone_calls.duration < 60 AND bake.day = 28 AND bake.month = 7 AND bake.year = 2023 AND bake.hour = 10 AND bake.minute BETWEEN 15 AND 25 AND bake.activity = 'exit';;
 
--- only two people remaining who could be the possible thief Bruce and Diana I consider adding the flight time to the
+-- only two people remaining who could be the possible thief Bruce and Diana I consider adding the flight time to the Query so I can see which of those two booked the earlier flight or if they flew with the same machine
+SELECT people.name, people.id, flights.hour, flights.minute
+FROM passengers
+JOIN flights ON flights.id = passengers.flight_id
+JOIN airports ON flights.origin_airport_id = airports.id
+JOIN people ON passengers.passport_number = people.passport_number
+JOIN bank_accounts ON bank_accounts.person_id = people.id
+JOIN atm_transactions ON atm_transactions.account_number = bank_accounts.account_number
+JOIN phone_calls ON phone_calls.caller = people.phone_number
+JOIN bakery_security_logs as bake ON bake.license_plate = people.license_plate
+WHERE flights.day = 29 AND flights.month = 7 AND flights.year = 2023 AND atm_transactions.atm_location = 'Leggett Street' AND atm_transactions.transaction_type = 'withdraw'
+AND city = 'Fiftyville' AND phone_calls.duration < 60 AND bake.day = 28 AND bake.month = 7 AND bake.year = 2023 AND bake.hour = 10 AND bake.minute BETWEEN 15 AND 25 AND bake.activity = 'exit';;
 
+
+-- Bruce Flew 7 hours and 
 
