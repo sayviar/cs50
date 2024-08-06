@@ -3,7 +3,7 @@
 -- I search for the information in the chrim scene report to see what information are in general in there.
 SELECT * FROM crime_scene_reports LIMIT 5;
 
--- I search in the same table for the specific street name 'Humphrey Street' and date 'July 28, 2023'  to see what descriptions it holds.
+-- I search in the same table for the specific street name 'Humphrey Street' and date 'July 28, 2023'  to see what descriptions it holds. 10.15 am
 SELECT description FROM crime_scene_reports WHERE street = 'Humphrey Street' AND day = 28 AND month = 7 AND year = 2023;
 
 -- I search for all the interviews that have taken place on the same day as the theft.
