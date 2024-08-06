@@ -12,4 +12,7 @@ SELECT * FROM interviews WHERE year = 2023 AND month = 7 AND day = 28;
 -- There is a lot to take in so I decide to further filter it with the word 'thief' in the transcript.
 SELECT * FROM interviews WHERE year = 2023 AND month = 7 AND day = 28 AND transcript like '%thief%';
 
+-- Information that I note down to continue: - Thief left parking lot, looking into security footage of bakery to find his car.
+--                                           - Thief called someone less than a minute to take the 
+
 
