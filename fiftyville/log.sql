@@ -35,3 +35,5 @@ JOIN bank_accounts ON bank_accounts.person_id = people.id
 JOIN atm_transactions ON atm_transactions.account_number = bank_accounts.account_number
 WHERE atm_transactions.day = 29 AND atm_transactions.month = 7 AND atm_transactions.year = 2023 AND atm_transactions.atm_location = 'Leggett Street' AND atm_transactions.transaction_type = 'withdraw';
 
+-- Look into phone calls to see which calls were less than a minute long on that day
+
