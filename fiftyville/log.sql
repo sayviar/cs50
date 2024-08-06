@@ -17,7 +17,13 @@ SELECT * FROM interviews WHERE year = 2023 AND month = 7 AND day = 28 AND transc
 --                                           - Thief thief withdrew money early morning ATM on Leggett Street
 
 
--- Looking into bakery_security_logs database to see if the thief's car is clearly identifiable by looking for the day month year hour and the activity 'exit'
+-- Looking into bakery_security_logs table to see if the thief's car is clearly identifiable by looking for the day month year hour and the activity 'exit'
 SELECT * FROM bakery_security_logs WHERE day = 28 AND month = 7 AND year = 2023 AND hour = 10 AND minute BETWEEN 15 AND 25 AND activity = 'exit';
 
+
+-- To find out what types of transactions there are in the atm_transaction table I search for all information '*'
+SELECT * FROM atm_transactions WHERE day = 28 AND month = 7 AND year = 2023;
+
+-- Now I get more specific to find the differen transactions in the Leggett Street on that day
+SELECT * FROM atm_transactions WHERE day = 28 AND month = 7 AND year = 2023 AND atm_location = 'Leggett Street' AND transaction_type = 'withdraw';
 
