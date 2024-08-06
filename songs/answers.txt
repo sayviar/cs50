@@ -1,1 +1,3 @@
-SELECT 
+SELECT AVG(energy), AVG(valence), AVG(danceability) FROM songs;
+
+This calculation only factors in the energy, danceability and valence but doesn't factor in the genre of the music which might be a better way to find out the audio aura.
