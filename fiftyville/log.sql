@@ -71,7 +71,16 @@ AND city = 'Fiftyville' AND phone_calls.duration < 60 AND bake.day = 28 AND bake
 -- to clear things up I know search for the person Bruce tried to call and see if he also flew with that plane
 
 SELECT receiver.name, receiver.id FROM people
-JOIN phone_calls AS caller ON phone.caller = people.phone_number
-JOIN people AS receiver ON phone.receiver = people.phone_number
+JOIN phone_calls AS caller ON caller.caller = people.phone_number
+JOIN people AS receiver ON caller.receiver = receiver.phone_number
 WHERE people.id = 686048 AND day = 28 AND month = 7 AND year = 2023 AND duration < 60;
 
+-- Robin is his complice now I only need to find out where they are heading which I do by searching for the flights with them on it
+
+SELECT city FROM flights
+JOIN airports ON airports.id = flights.destination_airport_id
+JOIN passengers ON passengers.flight_id = flights.id
+JOIN people ON people.passport_number = passengers.passport_number
+WHERE people.id = 864400 OR people.id = 686048 AND day = 29 AND month = 7 AND year = 2023
+GROUP BY city
+HAVING COUNT(*) = 2;
