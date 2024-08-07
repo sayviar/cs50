@@ -21,7 +21,13 @@
                 }
             function submitAnswer()
                 {
-                    let answer= document.getElementById('answer').value
+                    let answer= document.getElementById('answer').value;
+                    if (answer== '8')
+                    {
+                        document.getElementById('answer').backgroundColor = 'red';
+                        document.getElementById('check2').innerHTML = '
+
+                    }
                 }
             }
         </script>
@@ -48,6 +54,7 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
                  <h3>What is 15 - 4 * 2?</h3>
+                 <div id='check2'></div>
                  <input autofocus autocomplete='off' id= 'answer'>
                  <button onclick=submitAnswer()>Check Answer</button>
 
