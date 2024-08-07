@@ -24,13 +24,13 @@
                     let answer= document.getElementById('answer').value;
                     if (answer== '7')
                     {
-                        document.getElementById('answer').style.backgroundColor = 'red';
+                        document.getElementById('answer').style.backgroundColor = 'green';
                         document.getElementById('check2').innerHTML = 'Incorrect';
 
                     }
                     else
                     {
-                        document.getElementById('answer').style.backgroundColor = 'green';
+                        document.getElementById('answer').style.backgroundColor = 'red';
                         document.getElementById('check2').innerHTML = 'Correct!';
                     }
                 }
@@ -60,8 +60,8 @@
                 <!-- TODO: Add free response question here -->
                  <h3>What is 15 - 4 * 2?</h3>
                  <div id='check2'></div>
-                 <input autofocus autocomplete='off' id= 'answer'>
-                 <button onclick=submitAnswer()>Check Answer</button>
+                 <input autofocus autocomplete='off' id='answer'>
+                 <button onclick="submitAnswer()">Check Answer</button>
 
             </div>
         </div>
