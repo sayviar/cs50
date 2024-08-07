@@ -7,8 +7,16 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-            function buttonFunction(){
-                document.
+            function buttonFunction(e){
+                let answer = e.innerHTML;
+                if (answer == 164.8)
+                {
+                    e.style.backgroundColor = green;
+                }
+                else
+                {
+                    e.style.backgroundColor =red
+                }
             }
         </script>
     </head>
@@ -23,9 +31,9 @@
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
                 <h3>How long is the longest bridge in the world?</h3>
-                <button>192.1 km</button>
-                <button>164.8 km</button>
-                <button>90.3 km</button>
+                <button id='button1' onclick= buttonFunction(event)>192.1 km</button>
+                <button id='button2' onclick= buttonFunction(event)>164.8 km</button>
+                <button id='button3' onclick= buttonFunction(event)>90.3 km</button>
             </div>
 
             <div class="section">
