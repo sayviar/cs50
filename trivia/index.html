@@ -12,10 +12,12 @@
                 if (answer == '164.8 km')
                 {
                     e.style.backgroundColor = 'green';
+                    document.getElementById('check').innerHTML = 'Correct!';
                 }
                 else
                 {
                     e.style.backgroundColor = 'red';
+                    document.getElementById('check').innerHTML = 'Incorrect';
                 }
             }
         </script>
@@ -31,6 +33,7 @@
                 <hr>
                 <!-- TODO: Add multiple choice question here -->
                 <h3>How long is the longest bridge in the world?</h3>
+                <div id='check'></div>
                 <button id='button1' onclick= buttonFunction(this)>192.1 km</button>
                 <button id='button2' onclick= buttonFunction(this)>164.8 km</button>
                 <button id='button3' onclick= buttonFunction(this)>90.3 km</button>
