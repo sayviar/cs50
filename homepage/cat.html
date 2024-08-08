@@ -10,8 +10,9 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <link href="styles.css" rel="stylesheet">
 <script>
-    window.onload =
+    window.onload = function() {
     document.getElementById('commentButton').addEventListener("click", addComment);
+    };
     function randomCat()
     {
         let x = Math.floor(Math.random()*4);
