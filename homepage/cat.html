@@ -10,6 +10,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <link href="styles.css" rel="stylesheet">
 <script>
+    document.getElementById('commentButton').addEventListener("click", addComment);
     function randomCat()
     {
         let x = Math.floor(Math.random()*4);
@@ -32,6 +33,13 @@
         }
 
     }
+    function addComment()
+    {
+        let comment = document.getElementById('comment').value;
+        let existingcomment = document.getElementById('commentList').innerHTML;
+        if (comment)
+    }
+
 </script>
 </head>
 <body onload="randomCat()">
@@ -47,8 +55,11 @@
 
 <img id="catimage" alt="Cat Image">
 <div>
-    <input>
-    <button class="btn btn-primary"></button>
+    <input id='comment'>
+    <button class="btn btn-primary" id='commentButton'>Comment</button>
 </div>
+<ul id='commentList'>
+
+</ul>
 </body>
 </html>
