@@ -1,5 +1,5 @@
-th {
-    height: 50px; /* Set a fixed height */
+th, td {
+    height: Auto; /* Set a fixed height */
     vertical-align: middle; /* Center align text vertically */
 }
 .large-text {
