@@ -9,7 +9,7 @@
     font-size:40px;
     background-color: green;
 }
-th, td, img {
+th, td{
     height: Auto;
     vertical-align: middle;
 }
