@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
     <head>
         <title>
             Cat person or dog person?
@@ -13,67 +14,67 @@
 
 
     </head>
+
     <body>
 
         <button class="btn btn-secondary dropdown-toggle menus" type="button" data-bs-toggle="dropdown">
             Website Menu
         </button>
         <ul class="dropdown-menu">
-            <li class="dropdown-item" id='main' onclick= "window.location = 'index.html'">Main Page</li>
-            <li class="dropdown-item" id='cat' onclick= "window.location = 'cat.html'">Cat Picture</li>
-            <li class="dropdown-item" id='dog' onclick= "window.location = 'dog.html'">Dog Picture</li>
+            <li class="dropdown-item" id='main' onclick="window.location = 'index.html'">Main Page</li>
+            <li class="dropdown-item" id='cat' onclick="window.location = 'cat.html'">Cat Picture</li>
+            <li class="dropdown-item" id='dog' onclick="window.location = 'dog.html'">Dog Picture</li>
             <li class="dropdown-item" id='surprise' onclick="window.location= 'surprise.html'">Surprise</li>
         </ul>
-        <div style ="display: flex; justify-content: center; align-items: center; height: 100vh;">
+        <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
             <table class="table table-dark table-striped" style="margin: auto; text-align: center; width:100%; height:100%">
-            <tr>
-                <th><span class='large-text'>Cats!</span></th>
-                <th><span class='large-text'>Dogs!</span></th>
-            </tr>
-            <tr>
-                <td id='catPoints' >0</td>
-                <td id='dogPoints' >0</td>
-            </tr>
-            <tr>
-                <td><button type='button' class='btn btn-primary' id='catclick'>+1</button></td>
-                <td><button type='button' class='btn btn-danger' id='dogclick'>+1</button></td>
-            </tr>
+                <tr>
+                    <th><span class='large-text'>Cats!</span></th>
+                    <th><span class='large-text'>Dogs!</span></th>
+                </tr>
+                <tr>
+                    <td id='catPoints'>0</td>
+                    <td id='dogPoints'>0</td>
+                </tr>
+                <tr>
+                    <td><button type='button' class='btn btn-primary' id='catclick'>+1</button></td>
+                    <td><button type='button' class='btn btn-danger' id='dogclick'>+1</button></td>
+                </tr>
 
-        </table>
-    </div>
-    <script>
-        document.getElementById('catclick').addEventListener('click', catIncrease);
-        document.getElementById('dogclick').addEventListener('click', dogIncrease);
-        function catIncrease()
-        {
-            let catPoints = parseInt(document.getElementById('catPoints').innerHTML);
-            if(catPoints < 5){
-                catPoints++
-                document.getElementById('catPoints').innerHTML = catPoints;
-                if (catPoints == 5)
-                {
-                    alert("Cats Win!");
-                    document.getElementById('catclick').removeEventListener('click', catIncrease);
-                    document.getElementById('dogclick').removeEventListener('click', dogIncrease);
+            </table>
+        </div>
+        <script>
+            document.getElementById('catclick').addEventListener('click', catIncrease);
+            document.getElementById('dogclick').addEventListener('click', dogIncrease);
 
+            function catIncrease() {
+                let catPoints = parseInt(document.getElementById('catPoints').innerHTML);
+                if (catPoints < 5) {
+                    catPoints++
+                    document.getElementById('catPoints').innerHTML = catPoints;
+                    if (catPoints == 5) {
+                        alert("Cats Win!");
+                        document.getElementById('catclick').removeEventListener('click', catIncrease);
+                        document.getElementById('dogclick').removeEventListener('click', dogIncrease);
+
+                    }
                 }
             }
-        }
-        function dogIncrease()
-        {
-            let dogPoints = parseInt(document.getElementById('dogPoints').innerHTML);
-            if(dogPoints < 5){
-                dogPoints++
-                document.getElementById('dogPoints').innerHTML = dogPoints;
-                if (dogPoints == 5)
-                {
-                    alert("Dogs Win!");
-                    document.getElementById('catclick').removeEventListener('click', catIncrease);
-                    document.getElementById('dogclick').removeEventListener('click', dogIncrease);
 
+            function dogIncrease() {
+                let dogPoints = parseInt(document.getElementById('dogPoints').innerHTML);
+                if (dogPoints < 5) {
+                    dogPoints++
+                    document.getElementById('dogPoints').innerHTML = dogPoints;
+                    if (dogPoints == 5) {
+                        alert("Dogs Win!");
+                        document.getElementById('catclick').removeEventListener('click', catIncrease);
+                        document.getElementById('dogclick').removeEventListener('click', dogIncrease);
+
+                    }
                 }
             }
-        }
-    </script>
+        </script>
     </body>
+
 </html>

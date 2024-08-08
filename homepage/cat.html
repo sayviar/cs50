@@ -1,78 +1,75 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
     <head>
         <title>
             Cats!
         </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<link href="styles.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
 
-</head>
-<body onload="randomCat()">
-    <button class="btn btn-secondary dropdown-toggle menus" type="button" data-bs-toggle="dropdown">
-        Website Menu
-    </button>
-    <ul class="dropdown-menu">
-        <li class="dropdown-item" id='main' onclick= "window.location = 'index.html'">Main Page</li>
-        <li class="dropdown-item" id='cat' onclick= "randomCat()">Cat Picture</li>
-        <li class="dropdown-item" id='dog' onclick= "window.location = 'dog.html'">Dog Picture</li>
-        <li class="dropdown-item" id='surprise' onclick= "window.location = 'surprise.html'">Surprise</li>
-    </ul>
+    </head>
 
-<img id="catimage" src='https://miro.medium.com/v2/resize:fit:1260/1*ngNzwrRBDElDnf2CLF_Rbg.gif' alt="Cat Image">
-<div>
-    <input id='comment'>
-    <button class="btn btn-primary" id='commentButton'>Comment</button>
-</div>
-<ul id='commentList'>
+    <body onload="randomCat()">
+        <button class="btn btn-secondary dropdown-toggle menus" type="button" data-bs-toggle="dropdown">
+            Website Menu
+        </button>
+        <ul class="dropdown-menu">
+            <li class="dropdown-item" id='main' onclick="window.location = 'index.html'">Main Page</li>
+            <li class="dropdown-item" id='cat' onclick="randomCat()">Cat Picture</li>
+            <li class="dropdown-item" id='dog' onclick="window.location = 'dog.html'">Dog Picture</li>
+            <li class="dropdown-item" id='surprise' onclick="window.location = 'surprise.html'">Surprise</li>
+        </ul>
 
-</ul>
-<script>
+        <img id="catimage" src='https://miro.medium.com/v2/resize:fit:1260/1*ngNzwrRBDElDnf2CLF_Rbg.gif' alt="Cat Image">
+        <div>
+            <input id='comment'>
+            <button class="btn btn-primary" id='commentButton'>Comment</button>
+        </div>
+        <ul id='commentList'>
 
-
-    document.getElementById('commentButton').addEventListener("click", addComment);
-
+        </ul>
+        <script>
+            document.getElementById('commentButton').addEventListener("click", addComment);
 
 
-    function addComment() {
 
-     let comment = document.getElementById('comment');
-     let existingComments = document.getElementById('commentList');
-     if (comment.value) {
-      existingComments.innerHTML = existingComments.innerHTML + '<li>' + comment.value + '</li>';
-      comment.value= '';
+            function addComment() {
 
-
-    }
-    }
-
-    function randomCat()
-    {
-        let x = Math.floor(Math.random()*4);
-        let img = document.getElementById('catimage')
-        switch (x)
-        {
-            case 0:
-                img.src = "https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg";
-                break;
-            case 1:
-                img.src = "https://www.shutterstock.com/image-photo/funny-large-longhair-gray-kitten-600nw-1842198919.jpg";
-                break;
-            case 2:
-                img.src = "https://t4.ftcdn.net/jpg/02/66/72/41/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg";
-                break;
-            case 3:
-                img.src = "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg";
-                break;
-
-        }
-
-    }
+                let comment = document.getElementById('comment');
+                let existingComments = document.getElementById('commentList');
+                if (comment.value) {
+                    existingComments.innerHTML = existingComments.innerHTML + '<li>' + comment.value + '</li>';
+                    comment.value = '';
 
 
-</script>
-</body>
+                }
+            }
+
+            function randomCat() {
+                let x = Math.floor(Math.random() * 4);
+                let img = document.getElementById('catimage')
+                switch (x) {
+                    case 0:
+                        img.src = "https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg";
+                        break;
+                    case 1:
+                        img.src = "https://www.shutterstock.com/image-photo/funny-large-longhair-gray-kitten-600nw-1842198919.jpg";
+                        break;
+                    case 2:
+                        img.src = "https://t4.ftcdn.net/jpg/02/66/72/41/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg";
+                        break;
+                    case 3:
+                        img.src = "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg";
+                        break;
+
+                }
+
+            }
+        </script>
+    </body>
+
 </html>

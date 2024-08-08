@@ -1,18 +1,20 @@
-.menus
-{
+.menus {
     position: absolute;
     z-index: 1000;
 }
-#headerMain
-{
+
+#headerMain {
     font-weight: bold;
-    font-size:40px;
+    font-size: 40px;
     background-color: green;
 }
-th, td{
+
+th,
+td {
     height: Auto;
     vertical-align: middle;
 }
+
 .large-text {
     font-size: 20px;
     display: inline-block;
@@ -20,10 +22,13 @@ th, td{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-table, img{
+
+table,
+img {
     position: relative
 }
-.middleAlign{
+
+.middleAlign {
     justify-content: center;
     display: flex;
 
@@ -31,12 +36,13 @@ table, img{
     padding-top: 50px;
 
 }
-#arrowleft
-{
+
+#arrowleft {
     transform: scaleX(-1)
 }
-.arrow{
-    width : 50vh;
+
+.arrow {
+    width: 50vh;
 }
 
 .container {
@@ -60,8 +66,8 @@ table, img{
 
 
 
-#catclick,#dogclick
-{
-    width : 20%;
+#catclick,
+#dogclick {
+    width: 20%;
     height: 50%
 }
