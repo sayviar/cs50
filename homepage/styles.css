@@ -1,3 +1,8 @@
+#menu
+{
+    position: absolute;
+    z-index: 1000;
+}
 th, td {
     height: Auto; /* Set a fixed height */
     vertical-align: middle; /* Center align text vertically */
@@ -8,4 +13,7 @@ th, td {
     overflow: hidden; /* Prevent overflow */
     white-space: nowrap;
     text-overflow: ellipsis; /* Add ellipsis if text is too long */
+}
+table{
+    position: relative
 }
