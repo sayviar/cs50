@@ -31,3 +31,10 @@ table, img{
     padding-top: 50px;
 
 }
+#arrowleft
+{
+    style="transform: scaleX(-1)"
+}
+.arrow{
+    width : 50vh;
+}
