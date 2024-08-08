@@ -37,7 +37,9 @@
     {
         let comment = document.getElementById('comment').value;
         let existingcomment = document.getElementById('commentList').innerHTML;
-        if (comment)
+        if (comment){
+            document.getElementById('commentList').innerHTML = existingcomment + '<li>' + comment + '</li>';
+        }
     }
 
 </script>
