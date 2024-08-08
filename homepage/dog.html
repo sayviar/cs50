@@ -7,30 +7,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <link href="styles.css" rel="stylesheet">
-<script>
-    function randomDog()
-    {
-        let x = Math.floor(Math.random()*4);
-        let img = document.getElementById('dogimage')
-        switch (x)
-        {
-            case 0:
-                img.src = "https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg";
-                break;
-            case 1:
-                img.src = "https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg";
-                break;
-            case 2:
-                img.src = "https://img.freepik.com/free-photo/beautiful-pet-portrait-dog_23-2149218450.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1723075200&semt=ais_hybrid";
-                break;
-            case 3:
-                img.src = "https://www.shutterstock.com/image-photo/happy-puppy-welsh-corgi-14-600nw-2270841247.jpg";
-                break;
 
-        }
-
-    }
-</script>
 </head>
 <body onload="randomDog()">
     <button class="btn btn-secondary dropdown-toggle menus" type="button" data-bs-toggle="dropdown">
@@ -43,5 +20,52 @@
         <li class="dropdown-item" id='surprise' onclick= "window.location = 'surprise.html'">Surprise</li>
     </ul>
     <img id="dogimage" alt="Dog Image">
+    <div>
+        <input id='comment'>
+        <button class="btn btn-primary" id='commentButton'>Comment</button>
+    </div>
+    <ul id='commentList'>
+
+    </ul>
+    <script>
+
+    document.getElementById('commentButton').addEventListener("click", addComment);
+
+
+
+function addComment() {
+
+ let comment = document.getElementById('comment');
+ let existingComments = document.getElementById('commentList');
+ if (comment.value) {
+  existingComments.innerHTML = existingComments.innerHTML + '<li>' + comment.value + '</li>';
+  comment.value= '';
+
+
+}
+}
+        function randomDog()
+        {
+            let x = Math.floor(Math.random()*4);
+            let img = document.getElementById('dogimage')
+            switch (x)
+            {
+                case 0:
+                    img.src = "https://www.akc.org/wp-content/uploads/2017/11/Golden-Retriever-Puppy.jpg";
+                    break;
+                case 1:
+                    img.src = "https://thumbor.forbes.com/thumbor/fit-in/900x510/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg";
+                    break;
+                case 2:
+                    img.src = "https://img.freepik.com/free-photo/beautiful-pet-portrait-dog_23-2149218450.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1723075200&semt=ais_hybrid";
+                    break;
+                case 3:
+                    img.src = "https://www.shutterstock.com/image-photo/happy-puppy-welsh-corgi-14-600nw-2270841247.jpg";
+                    break;
+
+            }
+
+        }
+    </script>
 </body>
 </html>
