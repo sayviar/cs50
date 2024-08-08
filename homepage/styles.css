@@ -1,4 +1,4 @@
-.tableborder
+table, th, td
 {
- border: 1ptx solid black;
+ border: 2px solid black;
 }
