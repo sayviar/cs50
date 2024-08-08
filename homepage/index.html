@@ -7,13 +7,22 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <link href="styles.css" rel="stylesheet">
         <title>My Webpage</title>
+        <script>
+            function testfunction(e)
+            {
+                if (e.id == 'cat')
+                {
+                   document.
+                }
+            }
+        </script>
     </head>
     <body>
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
             Website Menu
         </button>
         <ul class="dropdown-menu">
-            <li class="dropdown-item" id='cat'>Cat Picture</li>
+            <li class="dropdown-item" id='cat' onclick= "testfunction(this)">Cat Picture</li>
             <li class="dropdown-item" id='dog'>Dog Picture</li>
             <li class="dropdown-item" id='surprise'>Surprise</li>
         </ul>
