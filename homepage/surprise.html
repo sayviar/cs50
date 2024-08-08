@@ -15,11 +15,11 @@
             dogclick.addEventListener('click', dogIncrease);
             function catIncrease()
             {
-                let catPoints = document.getElementById('catPoints').innerHTML;
+                let catPoints = parseInt(document.getElementById('catPoints').innerHTML);
                 if(catPoints < 5){
-                    catpoints++;
+                    catPoints++;
                     document.getElementById('catPoints').innerHTML = catPoints;
-                    if (catpoints == 5)
+                    if (catPoints == 5)
                     {
                         alert("Cats Win!");
                         catclick.removeEventListener('click', catIncrease);
@@ -30,11 +30,11 @@
             }
             function dogIncrease()
             {
-                let dogPoints = document.getElementById('dogPoints').innerHTML;
+                let dogPoints = parseInt(document.getElementById('dogPoints').innerHTML);
                 if(dogPoints < 5){
-                    dogpoints++;
+                    dogPoints++;
                     document.getElementById('dogPoints').innerHTML = dogPoints;
-                    if (dogpoints == 5)
+                    if (dogPoints == 5)
                     {
                         alert("Dogs Win!");
                         removeEventListener('click', catIncrease);
