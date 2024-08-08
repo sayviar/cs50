@@ -1,3 +1,4 @@
+html tags:
 <ul>
 <li>
 <div>
@@ -5,4 +6,20 @@
 <img>
 <button>
 <table>
+<th>
+<tr>
+<span>
 
+
+
+css properties:
+z-index
+font-weight
+font-size
+background-color
+transform
+
+Short description:
+
+I used Javascript to make a page with cats and dogs where you can click on a few things and it will lead your to different pages or increase the scores,
+while Bootstraps made the tables and the menu button prettier.
