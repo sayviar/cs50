@@ -22,7 +22,24 @@
                     if (catpoints == 5)
                     {
                         alert("Cats Win!");
-                        
+                        catclick.removeEventListener('click', catIncrease);
+                        dogclick.removeEventListener('click', dogIncrease);
+
+                    }
+                }
+            }
+            function dogIncrease()
+            {
+                let dogPoints = document.getElementById('dogPoints').innerHTML;
+                if(dogPoints < 5){
+                    dogpoints++;
+                    document.getElementById('dogPoints').innerHTML = dogPoints;
+                    if (dogpoints == 5)
+                    {
+                        alert("Dogs Win!");
+                        removeEventListener('click', catIncrease);
+                        removeEventListener('click', dogIncrease);
+
                     }
                 }
             }
