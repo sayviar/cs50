@@ -39,10 +39,13 @@
 
     function addComment() {
 
-     let comment = document.getElementById('comment').value;
-     let existingComments = document.getElementById('commentList').innerHTML;
-     if (comment) {
-      document.getElementById('commentList').innerHTML = existingComments + '<li>' + comment + '</li>';
+     let comment = document.getElementById('comment');
+     let existingComments = document.getElementById('commentList');
+     if (comment.value) {
+      existingComments.innerHTML = existingComments.innerHTML + '<li>' + comment.value + '</li>';
+      comment.value= '';
+
+
     }
     }
 
