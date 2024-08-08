@@ -3,6 +3,11 @@
     position: absolute;
     z-index: 1000;
 }
+#headerMain
+{
+    font-weight: bold;
+    font-size:40px;
+}
 th, td {
     height: Auto; /* Set a fixed height */
     vertical-align: middle; /* Center align text vertically */
