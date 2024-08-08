@@ -17,7 +17,12 @@
             {
                 let catPoints = document.getElementById('catPoints').innerHTML;
                 if(catPoints < 5){
-                    catPoints++
+                    catpoints++;
+                    document.getElementById('catPoints').innerHTML = catPoints;
+                    if (catpoints == 5)
+                    {
+                        
+                    }
                 }
             }
         </script>
