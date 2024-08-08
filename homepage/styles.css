@@ -20,6 +20,6 @@ th, td{
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-table{
+table, img{
     position: relative
 }
