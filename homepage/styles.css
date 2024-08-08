@@ -1,7 +1,11 @@
-th{
-    padding: 0;
-    margin: 0;
+th {
+    height: 50px; /* Set a fixed height */
+    vertical-align: middle; /* Center align text vertically */
 }
-.large-text{
-    font-size: 3em;
+.large-text {
+    font-size: 20px; /* Control text size */
+    display: inline-block;
+    overflow: hidden; /* Prevent overflow */
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Add ellipsis if text is too long */
 }
