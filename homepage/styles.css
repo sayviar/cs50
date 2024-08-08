@@ -33,7 +33,7 @@ table, img{
 }
 #arrowleft
 {
-    style="transform: scaleX(-1)"
+    transform: scaleX(-1)
 }
 .arrow{
     width : 50vh;
