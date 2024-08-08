@@ -15,14 +15,7 @@
         </script>
     </head>
     <body>
-        <tr>
-            <th>Cats!</th>
-            <th>Dogs!</th>
-        </tr>
-        <tr>
-            <td id='catPoints'>0</td>
-            <td id='dogPoints'>0</td>
-        </tr>
+
         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
             Website Menu
         </button>
@@ -31,6 +24,19 @@
             <li class="dropdown-item" id='dog' onclick= "window.location = 'dog.html'">Dog Picture</li>
             <li class="dropdown-item" id='surprise' onclick="window.location= 'surprise.html'">Surprise</li>
         </ul>
-        <div style= "text-align: center;">hello, homepage</div>
+        <div style= 'text-align: centered'>
+            <table style="width:100%">
+            <tr>
+                <th>Cats!</th>
+                <th>Dogs!</th>
+            </tr>
+            <tr>
+                <td id='catPoints'>0</td>
+                <td id='dogPoints'>0</td>
+            </tr>
+
+        </table>
+    </div>
+
     </body>
 </html>
