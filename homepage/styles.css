@@ -1,4 +1,4 @@
-#menu
+.menus
 {
     position: absolute;
     z-index: 1000;
@@ -8,16 +8,16 @@
     font-weight: bold;
     font-size:40px;
 }
-th, td {
-    height: Auto; /* Set a fixed height */
-    vertical-align: middle; /* Center align text vertically */
+th, td, img {
+    height: Auto;
+    vertical-align: middle;
 }
 .large-text {
-    font-size: 20px; /* Control text size */
+    font-size: 20px;
     display: inline-block;
-    overflow: hidden; /* Prevent overflow */
+    overflow: hidden;
     white-space: nowrap;
-    text-overflow: ellipsis; /* Add ellipsis if text is too long */
+    text-overflow: ellipsis;
 }
 table{
     position: relative
