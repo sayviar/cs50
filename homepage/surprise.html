@@ -11,6 +11,8 @@
         <link href="styles.css" rel="stylesheet">
         <title>My Webpage</title>
         <script>
+            catclick.addEventListener('click', catIncrease());
+            dogclick.addEventListener('click', dogIncrease());
 
         </script>
     </head>
@@ -36,8 +38,8 @@
                 <td id='dogPoints' >0</td>
             </tr>
             <tr>
-                <td><button type='button' class='btn btn-primary' onclick='>+1</button></td>
-                <td><button type='button' class='btn btn-danger'>+1</button></td>
+                <td><button type='button' class='btn btn-primary' id='catclick'>+1</button></td>
+                <td><button type='button' class='btn btn-danger' id='dogclick'>+1</button></td>
             </tr>
 
         </table>
