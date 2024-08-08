@@ -11,7 +11,7 @@
         <link href="styles.css" rel="stylesheet">
         <title>My Webpage</title>
         <script>
-            catclick.addEventListener('click', catIncrease);
+            document.getElementById('catclick').addEventListener('click', catIncrease);
             dogclick.addEventListener('click', dogIncrease);
             function catIncrease()
             {
@@ -22,8 +22,8 @@
                     if (catPoints == 5)
                     {
                         alert("Cats Win!");
-                        catclick.removeEventListener('click', catIncrease);
-                        dogclick.removeEventListener('click', dogIncrease);
+                        document.getElementById('catclick').removeEventListener('click', catIncrease);
+                        document.getElementById('dogclick').removeEventListener('click', dogIncrease);
 
                     }
                 }
@@ -37,8 +37,8 @@
                     if (dogPoints == 5)
                     {
                         alert("Dogs Win!");
-                        removeEventListener('click', catIncrease);
-                        removeEventListener('click', dogIncrease);
+                        document.getElementById('catclick').removeEventListener('click', catIncrease);
+                        document.getElementById('dogclick').removeEventListener('click', dogIncrease);
 
                     }
                 }
