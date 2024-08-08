@@ -60,4 +60,8 @@ table, img{
 
 
 
-
+#catclick,#dogclick
+{
+    width : 20%;
+    height: 50%
+}
