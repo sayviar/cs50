@@ -23,3 +23,8 @@ th, td{
 table, img{
     position: relative
 }
+.middleAlign{
+    text-align: center;
+    vertical-align: middle;
+    height: 100vh;
+}
