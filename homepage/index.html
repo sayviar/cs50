@@ -8,19 +8,7 @@
         <link href="styles.css" rel="stylesheet">
         <title>My Webpage</title>
         <script>
-            function testfunction(e)
-            {
-                switch(e.id)
-                {
-                    case 'cat':
-                        window.location = 'cat.html';
-                        break;
-                    case 'dog':
-                        window.location = 'dog.html';
 
-                }
-
-            }
         </script>
     </head>
     <body>
@@ -28,9 +16,9 @@
             Website Menu
         </button>
         <ul class="dropdown-menu">
-            <li class="dropdown-item" id='cat' onclick= "testfunction(this)">Cat Picture</li>
-            <li class="dropdown-item" id='dog'>Dog Picture</li>
-            <li class="dropdown-item" id='surprise'>Surprise</li>
+            <li class="dropdown-item" id='cat' onclick= "window.location = 'cat.html'">Cat Picture</li>
+            <li class="dropdown-item" id='dog' onclick= "window.location = 'dog.html'">Dog Picture</li>
+            <li class="dropdown-item" id='surprise' onclick="window.location= 'surprise.html'">Surprise</li>
         </ul>
         <div style= "text-align: center;">hello, homepage</div>
     </body>
