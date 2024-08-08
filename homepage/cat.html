@@ -9,6 +9,27 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <link href="styles.css" rel="stylesheet">
+
+</head>
+<body onload="randomCat()">
+    <button class="btn btn-secondary dropdown-toggle menus" type="button" data-bs-toggle="dropdown">
+        Website Menu
+    </button>
+    <ul class="dropdown-menu">
+        <li class="dropdown-item" id='main' onclick= "window.location = 'index.html'">Main Page</li>
+        <li class="dropdown-item" id='cat' onclick= "randomCat()">Cat Picture</li>
+        <li class="dropdown-item" id='dog' onclick= "window.location = 'dog.html'">Dog Picture</li>
+        <li class="dropdown-item" id='surprise' onclick= "window.location = 'surprise.html'">Surprise</li>
+    </ul>
+
+<img id="catimage" alt="Cat Image">
+<div>
+    <input id='comment'>
+    <button class="btn btn-primary" id='commentButton'>Comment</button>
+</div>
+<ul id='commentList'>
+
+</ul>
 <script>
 
 
@@ -50,26 +71,5 @@
 
 
 </script>
-</head>
-<body onload="randomCat()">
-    <button class="btn btn-secondary dropdown-toggle menus" type="button" data-bs-toggle="dropdown">
-        Website Menu
-    </button>
-    <ul class="dropdown-menu">
-        <li class="dropdown-item" id='main' onclick= "window.location = 'index.html'">Main Page</li>
-        <li class="dropdown-item" id='cat' onclick= "randomCat()">Cat Picture</li>
-        <li class="dropdown-item" id='dog' onclick= "window.location = 'dog.html'">Dog Picture</li>
-        <li class="dropdown-item" id='surprise' onclick= "window.location = 'surprise.html'">Surprise</li>
-    </ul>
-
-<img id="catimage" alt="Cat Image">
-<div>
-    <input id='comment'>
-    <button class="btn btn-primary" id='commentButton'>Comment</button>
-</div>
-<ul id='commentList'>
-
-</ul>
-
 </body>
 </html>
