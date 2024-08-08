@@ -12,9 +12,13 @@
             {
                 if (e.id == 'cat')
                 {
-                   let div =document.getElementsByTagName('div');
-                   div.backgroundColor = 'red';
+                   let divs =document.getElementsByTagName('div');
+                   for (let i = 0; i< divs.length; i++)
+                   {
+                    divs[i].style.backgroundColor = 'red';
+                   }
                 }
+
             }
         </script>
     </head>
