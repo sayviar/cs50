@@ -36,9 +36,9 @@
                     <tbody>
                         <!-- TODO: Loop through the database entries to display them in this table -->
                          {% for birthday in birthdays %}
-                            <tr>
+                            <tr onclick>
                                 <form action="/delete" method="post">
-                                <td onclick=>
+                                <td>
                                     {{birthday.name}}
                                 </td>
                                 <td>
