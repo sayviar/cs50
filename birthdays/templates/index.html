@@ -38,6 +38,7 @@
                          {% for birthday in birthdays %}
                             <tr>
                                 <form action="/delete" method="post">
+                                <form action="/edit" method="post">
                                 <td>
                                     {{birthday.name}}
                                 </td>
@@ -45,7 +46,10 @@
                                     {{birthday.day}}/{{birthday.month}}
                                 </td>
                                 <td>
+
                                     <input autocomplete="off" name="id" value={{birthday.id}} type="hidden">
+                                    <button type="submit">Edit</button>
+                                </form>
                                     <button type="submit">Delete</button>
                                 </td>
                             </form>

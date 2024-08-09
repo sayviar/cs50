@@ -49,4 +49,13 @@ def delete():
             db.execute("DELETE FROM birthdays WHERE id = ?", id)
         return redirect("/")
 
+@app.route("/edit", methods=["POST"])
+def edit():
+    if request.method =="POST":
+        id = int(request.form.get("id"))
+        name=request.form.get("name")
+        day= request.form.get("day")
+        month= request.form.get("month")
+        if id and name and day and month:
+            return render_template("edit.html", id=id, name =name, day=day, month=month)
 
