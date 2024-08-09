@@ -48,9 +48,9 @@
 
                                     <input autocomplete="off" name="id" value={{birthday.id}} type="hidden">
                                     <input type="hidden" id="action-{{ birthday.id }}" name="action">
-                                    <button type="submit" onclick="document.getElementById('action').value='edit'">Edit</button>
+                                    <button type="submit" onclick="document.getElementById('action-{{birthday.id}}').value='edit'">Edit</button>
 
-                                <button type="submit" onclick="document.getElementById('action').value='delete'">Delete</button>
+                                <button type="submit" onclick="document.getElementById('action-{{birthday.id}}').value='delete'">Delete</button>
                                 </td>
                             </form>
                             </tr>
