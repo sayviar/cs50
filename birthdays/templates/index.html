@@ -37,12 +37,18 @@
                         <!-- TODO: Loop through the database entries to display them in this table -->
                          {% for birthday in birthdays %}
                             <tr>
+                                <form action="/delete" method="post"></form>>
                                 <td>
                                     {{birthday.name}}
                                 </td>
                                 <td>
                                     {{birthday.day}}/{{birthday.month}}
                                 </td>
+                                <td>
+                                    <input autocomplete="off" name="id" value={{birthday.id}} type="int hidden">
+                                    <button>Delete</button>
+                                </td>
+                            </form>
                             </tr>
                             {% endfor %}
 
