@@ -28,8 +28,10 @@ def index():
 
         # TODO: Add the user's entry into the database
         name = request.form.get("name")
-        day = request.form.get("name")
-
+        day = request.form.get("day")
+        month = request.form.get("month")
+        if name  and day and month:
+            db.execute("INSERT INTO birthdays (name, day, month) values(?, ?, ?)",name, day, month)
         return redirect("/")
 
     else:
