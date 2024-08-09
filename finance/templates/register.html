@@ -14,10 +14,12 @@
 </form>
 <script>
     function validateRegistration(){
+        username = document.getElementByName("username");
         password = document.getElementByName("password");
         confirmation = document.getElementByName("confirmation");
-
-        if password == confirmation
+        if !password && !username:
+            alert("Please fill in the form!")
+        else if password == confirmation
     }
 
 </script>
