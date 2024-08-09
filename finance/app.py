@@ -117,11 +117,12 @@ def register():
         password=generate_password_hash(request.form.get("password"), method='pbkdf2', salt_length=16)
         userExists= db.execute("SELECT * FROM users WHERE username=?", username)
         if not userExists:
-            try:
-                db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
-            except ValueError as err:
-                flash("Username is taken!");
-                return redirect("/register")
+            db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
+        else:
+            flash("User is already taken!")
+            return redirect("/register");
+
+
 
     return render_template("register.html")
 
