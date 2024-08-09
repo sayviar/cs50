@@ -53,11 +53,17 @@ def edit():
         action = request.form.get("action")
 
         if id and name and day and month:
-            if action == "edit":
-                db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?", name, day, month, id)
+            try:
+                if action == "edit":
+                    db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?", name, day, month, id)
 
-            elif action== "delete":
-                db.execute("DELETE FROM birthdays WHERE id = ?", id)
+                elif action== "delete":
+                    db.execute("DELETE FROM birthdays WHERE id = ?", id)
+                db.commit()
+            except Exception as e:
+                db,rollback()
+                print(f"Error:{e}")
+
         return redirect("/")
 
 
