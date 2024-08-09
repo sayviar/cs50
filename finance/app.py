@@ -117,7 +117,8 @@ def register():
         password=generate_password_hash(request.form.get("password"), method='pbkdf2', salt_length=16)
         try:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
-            
+        except ValueError as err:
+            return redirect("/register
 
     return render_template("register.html")
 
