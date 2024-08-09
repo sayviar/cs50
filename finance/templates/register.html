@@ -6,11 +6,6 @@
 {% endblock %}
 
 {% block main %}
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-    <div>{{ messages }}</div>
-{% endif %}
-{% endwith %}
 <form id="register" method="post" action="/register">
     <div class="mb-3">
         <input autocomplete="off" class="form-control mx-auto w-auto" autofocus name="username" type="text" placeholder="Username">
@@ -35,7 +30,7 @@
         }
         else if (!password)
         {
-            alert("Please fill in the Password!");
+            flash("Please fill in the Password!");
         }
         else if (!username)
         {
