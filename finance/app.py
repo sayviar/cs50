@@ -113,7 +113,7 @@ def quote():
 def register():
     """Register user"""
     if request.method == "POST":
-
+        
     return render_template("register.html")
     #return apology("TODO")
 
