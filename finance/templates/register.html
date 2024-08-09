@@ -17,9 +17,17 @@
         username = document.getElementByName("username");
         password = document.getElementByName("password");
         confirmation = document.getElementByName("confirmation");
-        if !password && !username:
-            alert("Please fill in the form!")
-        else if password == confirmation
+        if (!password && !username):
+            alert("Please fill in the form!");
+        else if !password:
+            alert("Please fill in the Password!");
+        else if !username:
+            alert("Please fill in the Username!");
+        else if (password !== confirmation):
+            alert("Password and confirmation has the be equal");
+        else:
+            
+
     }
 
 </script>
