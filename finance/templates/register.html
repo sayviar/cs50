@@ -5,5 +5,10 @@
 {% endblock %}
 
 {% block main %}
- <input autcomplete="off" autofocus name="username">
+<form action="/register" method="post">
+    <input autocomplete="off" autofocus name="username" placeholder="Username">
+    <input autocomplete="off" name="password" placeholder="Password">
+    <input autocomplete="off" name="confirmation" placeholder="Confirmation">
+    <button type="submit">Register</button>
+</form>
 {% endblock %}
