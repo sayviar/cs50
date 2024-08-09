@@ -115,7 +115,8 @@ def register():
     if request.method == "POST":
         username=request.form.get("username")
         password=generate_password_hash(request.form.get("password"), method='pbkdf2', salt_length=16)
-        userExists= users
+        userExists= users.query.filter_by(username=username).first()
+        if not userExists:
         try:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
         except ValueError as err:
