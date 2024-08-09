@@ -37,7 +37,7 @@
                         <!-- TODO: Loop through the database entries to display them in this table -->
                          {% for birthday in birthdays %}
                             <tr>
-                                <form action="/handle_action" method="post">
+                                <form action="/delete" method="post">
                                 <td>
                                     {{birthday.name}}
                                 </td>
@@ -47,10 +47,7 @@
                                 <td>
 
                                     <input autocomplete="off" name="id" value={{birthday.id}} type="hidden">
-                                    <input type="hidden" id="action-{{ birthday.id }}" name="action">
-                                    <button type="submit" onclick="document.getElementById('action-{{birthday.id}}').value='edit'">Edit</button>
-
-                                <button type="submit" onclick="document.getElementById('action-{{birthday.id}}').value='delete'">Delete</button>
+                                    <button type="submit">Delete</button>
                                 </td>
                             </form>
                             </tr>

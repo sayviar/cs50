@@ -41,33 +41,12 @@ def index():
 
         return render_template("index.html", birthdays=birthdays)
 
-
-
-@app.route("/handle_action", methods=["POST"])
-def edit():
-    if request.method =="POST":
-        id = request.form.get("id")
-        name=request.form.get("name")
-        day= request.form.get("day")
-        month= request.form.get("month")
-        action = request.form.get("action")
-
-        if id and name and day and month:
-            try:
-                id = int(id)
-                day = int(day)
-                month = int(month)
-                if action == "edit":
-                    db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?", name, day, month, id)
-
-                elif action== "delete":
-                    db.execute("DELETE FROM birthdays WHERE id = ?", id)
-                db.commit()
-            except Exception as e:
-                db.rollback()
-                print(f"Error:{e}")
-
+@app.route("/delete", methods=["POST"])
+def delete():
+    if request.method == "POST":
+        id = int(request.form.get("id"))
+        if id:
+            db.execute("DELETE FROM birthdays WHERE id = ?", id)
         return redirect("/")
-
 
 
