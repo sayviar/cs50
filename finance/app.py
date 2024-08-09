@@ -118,7 +118,8 @@ def register():
         try:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
         except ValueError as err:
-            return redirect("/register
+            flash("Username is taken!");
+            return redirect("/register")
 
     return render_template("register.html")
 
