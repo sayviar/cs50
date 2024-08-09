@@ -41,13 +41,7 @@ def index():
 
         return render_template("index.html", birthdays=birthdays)
 
-@app.route("/delete", methods=["POST"])
-def delete():
-    if request.method == "POST":
-        id = int(request.form.get("id"))
-        if id:
-            db.execute("DELETE FROM birthdays WHERE id = ?", id)
-        return redirect("/")
+
 
 @app.route("/handle_action", methods=["POST"])
 def edit():
@@ -57,6 +51,14 @@ def edit():
         day= request.form.get("day")
         month= request.form.get("month")
         action = request.form.get("action")
+
         if id and name and day and month:
-            return render_template("edit.html", id=id, name =name, day=day, month=month)
+            if action == "edit":
+                db.execute("UPDATE birthdays (name = ?, day = ?, month = ?) WHERE id = ?", name, day, month, id)
+
+            elif action== "delete":
+                db.execute("DELETE FROM birthdays WHERE id = ?", id)
+        return redirect("/")
+
+
 
