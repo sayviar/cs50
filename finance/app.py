@@ -114,7 +114,10 @@ def register():
     """Register user"""
     if request.method == "POST":
         username=request.form.get("username")
-        password=generate_password_hash(request.form.get("password")
+        password=generate_password_hash(request.form.get("password"), method='pbkdf2', salt_length=16)
+        try:
+            db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
+            
 
     return render_template("register.html")
 
