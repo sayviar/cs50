@@ -18,16 +18,25 @@
         password = document.getElementByName("input[name='password']").value;
         confirmation = document.getElementByName("input[name='confirmation']").value;
         if (!password && !username):
+        {
             alert("Please fill in the form!");
-        else if !password:
+        }
+        else if (!password):
+        {
             alert("Please fill in the Password!");
-        else if !username:
+        }
+        else if (!username):
+        {
             alert("Please fill in the Username!");
+        }
         else if (password !== confirmation):
+        {
             alert("Password and confirmation has the be equal");
+        }
         else:
+        {
             document.getElementById("register").submit();
-
+        }
 
     }
 
