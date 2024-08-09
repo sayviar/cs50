@@ -10,11 +10,15 @@
     <input autocomplete="off" autofocus name="username" placeholder="Username">
     <input autocomplete="off" name="password" type="password" placeholder="Password">
     <input autocomplete="off" name="confirmation" type="password" placeholder="Confirmation">
-    <button type="submit">Register</button>
+    <button type="submit" onclick="validateRegistration()">Register</button>
 </form>
 <script>
-    password = document.getElementByName("password");
-    confirmation = document.getElementByName("confirmation")
-    
+    function validateRegistration(){
+        password = document.getElementByName("password");
+        confirmation = document.getElementByName("confirmation");
+
+        if password == confirmation
+    }
+
 </script>
 {% endblock %}
