@@ -64,7 +64,7 @@ def edit():
                     db.execute("DELETE FROM birthdays WHERE id = ?", id)
                 db.commit()
             except Exception as e:
-                db,rollback()
+                db.rollback()
                 print(f"Error:{e}")
 
         return redirect("/")
