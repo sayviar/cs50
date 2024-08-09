@@ -54,7 +54,7 @@ def edit():
 
         if id and name and day and month:
             if action == "edit":
-                db.execute("UPDATE birthdays (name = ?, day = ?, month = ?) WHERE id = ?", name, day, month, id)
+                db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?", name, day, month, id)
 
             elif action== "delete":
                 db.execute("DELETE FROM birthdays WHERE id = ?", id)
