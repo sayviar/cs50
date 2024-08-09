@@ -43,7 +43,7 @@ def index():
 @app.route("/delete", methods=["POST"])
 def delete():
     if request.method == "POST":
-        id = request.form.get("id")
+        id = parseInt(request.form.get("id"))
         if id:
             db.execute("DELETE FROM birthdays WHERE id = ?", id)
         return redirect("/")
