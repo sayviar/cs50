@@ -46,7 +46,7 @@ def index():
 @app.route("/handle_action", methods=["POST"])
 def edit():
     if request.method =="POST":
-        id = int(request.form.get("id"))
+        id = request.form.get("id")
         name=request.form.get("name")
         day= request.form.get("day")
         month= request.form.get("month")
@@ -54,6 +54,9 @@ def edit():
 
         if id and name and day and month:
             try:
+                id = int(id)
+                day = int(day)
+                month = int(month)
                 if action == "edit":
                     db.execute("UPDATE birthdays SET name = ?, day = ?, month = ? WHERE id = ?", name, day, month, id)
 
