@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block main %}
-<form id="register">
+<form id="register" method="post">
     <input autocomplete="off" autofocus name="username" placeholder="Username">
     <input autocomplete="off" name="password" type="password" placeholder="Password">
     <input autocomplete="off" name="confirmation" type="password" placeholder="Confirmation">
@@ -14,9 +14,9 @@
 </form>
 <script>
     function validateRegistration(){
-        username = document.getElementByName("username");
-        password = document.getElementByName("password");
-        confirmation = document.getElementByName("confirmation");
+        username = document.querySelector("input[name='username']").value;
+        password = document.getElementByName("input[name='password']").value;
+        confirmation = document.getElementByName("input[name='confirmation']").value;
         if (!password && !username):
             alert("Please fill in the form!");
         else if !password:
@@ -26,7 +26,7 @@
         else if (password !== confirmation):
             alert("Password and confirmation has the be equal");
         else:
-            document.getElementById
+            document.getElementById("register").submit();
 
 
     }
