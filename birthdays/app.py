@@ -40,11 +40,11 @@ def index():
         birthdays = db.execute("SELECT * FROM birthdays")
 
         return render_template("index.html", birthdays=birthdays)
-    
+
 @app.route("/delete", methods=["POST"])
 def delete():
     if request.method == "POST":
-        id = parseInt(request.form.get("id"))
+        id = int(request.form.get("id"))
         if id:
             db.execute("DELETE FROM birthdays WHERE id = ?", id)
         return redirect("/")
