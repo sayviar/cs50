@@ -108,7 +108,8 @@ def logout():
 def quote():
     """Get stock quote."""
     if request.method == "POST":
-        return
+        symbol = 
+        quoteList = lookup()
     return render_template("quote.html")
 
 
