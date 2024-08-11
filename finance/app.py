@@ -55,7 +55,8 @@ def buy():
         if not quote:
             flash("The stock couldn't be found.")
             redirect("/buy")
-        
+        money = db.execute("SELECT cash FROM user WHERE id = ?", session["user_id"])
+        if 
     return render_template("buy.html")
 
 
