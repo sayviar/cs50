@@ -117,7 +117,7 @@ def quote():
         if not quoteList:
             flash("Please type in a valid symbol")
             return redirect("/quote")
-        print
+        
         return render_template("quoted.html", quoteList=quoteList)
     return render_template("quote.html")
 
