@@ -24,10 +24,10 @@
                         {% for quote in quoteList %}
                         <tr>
                             <td>
-                                {{quote.symbol}}
+                                {{quote["symbol"]}}
                             </td>
                             <td>
-                                {{quote.price}}
+                                {{quote["price"]}}
                             </td>
                         </tr>
                         {% endfor %}
