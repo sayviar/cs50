@@ -22,6 +22,7 @@
                     <tbody>
                         {% if quoteList %}
                         {% for quote in quoteList %}
+
                         <tr>
                             <td>
                                 {{quote["symbol"]}}
@@ -34,6 +35,7 @@
                         {% endif %}
                     </tbody>
                 </table>
+                <p>{{ quoteList }}</p>
             </div>
         </form>
 
