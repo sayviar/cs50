@@ -53,7 +53,9 @@ def buy():
             redirect ("/buy")
         quote=lookup(symbol)
         if not quote:
-            flash("The )
+            flash("The stock couldn't be found.")
+            redirect("/buy")
+        
     return render_template("buy.html")
 
 
