@@ -125,19 +125,17 @@ def quote():
 def register():
     """Register user"""
     if request.method == "POST":
-        username=request.form.get("username")
-        password=generate_password_hash(request.form.get("password"), method='pbkdf2', salt_length=16)
-        userExists= db.execute("SELECT * FROM users WHERE username=?", username)
+        username = request.form.get("username")
+        password = generate_password_hash(request.form.get(
+            "password"), method='pbkdf2', salt_length=16)
+        userExists = db.execute("SELECT * FROM users WHERE username=?", username)
         if not userExists:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
         else:
             flash("User is already taken!")
-            return redirect("/register");
-
-
+            return redirect("/register")
 
     return render_template("register.html")
-
 
 
 @app.route("/sell", methods=["GET", "POST"])
