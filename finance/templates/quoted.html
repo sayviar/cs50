@@ -1,0 +1,25 @@
+
+{% extends "layout.html" %}
+
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    {% if quotedList %}
+        {% for quote in quotedList}
+        <form>
+            <div class="mb-3">
+                <table>
+                    <theader>
+                        <th>
+                            
+                        </th>
+                    </theader>
+                </table>
+            </div>
+        </form>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
