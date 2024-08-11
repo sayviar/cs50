@@ -21,17 +21,15 @@
                     </thead>
                     <tbody>
                         {% if quoteList %}
-                        {% for quote in quoteList %}
 
                         <tr>
                             <td>
-                                {{quote["symbol"]}}
+                                {{quoteList["symbol"]}}
                             </td>
                             <td>
-                                {{quote["price"]}}
+                                {{quoteList["price"]}}
                             </td>
                         </tr>
-                        {% endfor %}
                         {% endif %}
                     </tbody>
                 </table>
