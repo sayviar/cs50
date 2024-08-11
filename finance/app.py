@@ -57,7 +57,8 @@ def buy():
             redirect("/buy")
         money = db.execute("SELECT cash FROM user WHERE id = ?", session["user_id"])
         if money < quote["price"] * shares:
-            
+            flash("Sorry, your balance isn't enough for this purchase.")
+            redirect("/buy")
     return render_template("buy.html")
 
 
