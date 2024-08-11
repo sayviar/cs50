@@ -9,7 +9,7 @@
         <form>
             <div class="mb-3">
                 <table>
-                    <theader>
+                    <thead>
                         <tr>
                             <th>
                                 Symbol
@@ -18,7 +18,7 @@
                                 Price
                             </th>
                         </tr>
-                    </theader>
+                    </thead>
                     <tbody>
                         {% if quotedList %}
                         {% for quote in quotedList %}
@@ -31,10 +31,11 @@
                             </td>
                         </tr>
                         {% endfor %}
+                        {% endif %}
                     </tbody>
                 </table>
             </div>
         </form>
 
-{% endif %}
+
 {% endblock %}
