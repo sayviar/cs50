@@ -51,7 +51,9 @@ def buy():
         if shares < 1:
             flash ("Please choose the numbers of shares at lease 1.")
             redirect ("/buy")
-        lookup(symbol)
+        quote=lookup(symbol)
+        if not quote:
+            flash("The )
     return render_template("buy.html")
 
 
