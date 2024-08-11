@@ -1,4 +1,3 @@
-
 {% extends "layout.html" %}
 
 
@@ -7,19 +6,35 @@
 {% endblock %}
 
 {% block main %}
-    {% if quotedList %}
-        {% for quote in quotedList}
         <form>
             <div class="mb-3">
                 <table>
                     <theader>
-                        <th>
-                            
-                        </th>
+                        <tr>
+                            <th>
+                                Symbol
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                        </tr>
                     </theader>
+                    <tbody>
+                        {% if quotedList %}
+                        {% for quote in quotedList}
+                        <tr>
+                            <td>
+                                {{quote.symbol}}
+                            </td>
+                            <td>
+                                {{quote.price}}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
                 </table>
             </div>
         </form>
-        {% endfor %}
-    {% endif %}
+
+{% endif %}
 {% endblock %}
