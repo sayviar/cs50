@@ -198,7 +198,8 @@ def sell():
             db.execute("DELETE FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
         else:
             db.execute("UPDATE portfolio SET shares = shares - ? WHERE user_id = ? AND symbol = ?", shares, session["user_id"], symbol)
-        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, ownedShares[0]["share_price"], ownedShares[0]["share_price"] * shares)
+        history = ("SELECT * FROM history WHERE user_id =? AND symbol =?", session["user_id"], symbol)
+        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, history[0]["share_price"], history[0]["share_price"] * shares)
         flash("Sold!")
         return redirect("/history")
 
