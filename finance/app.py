@@ -35,7 +35,9 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+    portfolio = db.execute("SELECT )
+    return render_template("portfolio.html")
+
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -62,10 +64,10 @@ def buy():
         stock = db.execute("SELECT * FROM portfolio WHERE id = ? AND symbol = ?", session["user_id"], symbol)
         if len(stock) < 1:
             db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES(?,?,?)", session["user_id"], symbol, shares)
-            db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * shares)
-            return redirect("/")
-        db.execute("UPDATE portfolio SET shares = shares + ? WHERE user_id = ? AND symbol = ?", shares, session["user_id"], symbol)
+        else:
+            db.execute("UPDATE portfolio SET shares = shares + ? WHERE user_id = ? AND symbol = ?", shares, session["user_id"], symbol)
         db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * shares"
+        return redirect("/")
 
     return render_template("buy.html")
 
