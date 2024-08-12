@@ -178,6 +178,8 @@ def register():
         userExists = db.execute("SELECT * FROM users WHERE username=?", username)
         if not userExists:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
+            flash("User has been created!")
+            return redirect("/login")
         else:
             flash("User is already taken!")
             return redirect("/register")
