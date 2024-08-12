@@ -35,7 +35,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    portfolio = db.execute("""SELECT Unique port.symbol, port.shares, hist.share_price, (port.shares * hist.share_price) as total
+    portfolio = db.execute("""SELECT DISTINCT port.symbol, port.shares, hist.share_price, (port.shares * hist.share_price) as total
                            FROM portfolio as port
                            JOIN users ON users.id = port.user_id
                            JOIN history hist ON hist.user_id = port.user_id AND hist.symbol = port.symbol
@@ -70,7 +70,7 @@ def buy():
             db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES(?,?,?)", session["user_id"], symbol, shares)
         else:
             db.execute("UPDATE portfolio SET shares = shares + ? WHERE user_id = ? AND symbol = ?", shares, session["user_id"], symbol)
-        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * shares"
+        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * shares)
         return redirect("/")
 
     return render_template("buy.html")
