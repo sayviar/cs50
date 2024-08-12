@@ -68,6 +68,7 @@ def buy():
             return apology("The stock couldn't be found.")
 
         money = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        spent = db.execute("SELECT SUM()
         if money[0]["cash"] * 100 < quote["price"] * 100 * shares:
             return apology("Sorry, your balance isn't enough for this purchase.")
 
