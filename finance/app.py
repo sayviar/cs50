@@ -70,7 +70,8 @@ def buy():
 
         money = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         spent = db.execute("SELECT SUM(round(shares * share_price,2)) as spent FROM history WHERE user_id = ?", session["user_id"])
-        money = money[0]["cash"] - spent[0]["spent"]
+        if spent:
+            money = money[0]["cash"] - spent[0]["spent"]
         if money * 100 < quote["price"] * 100 * shares:
             return apology("Sorry, your balance isn't enough for this purchase.")
 
