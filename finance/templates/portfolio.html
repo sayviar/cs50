@@ -37,7 +37,7 @@
                     {{row["share_price"]}}
                 </td>
                 <td class="text-end">
-                    {{row["total"]}}
+                    {{round(row["total"],2)}}
                 </td>
             </tr>
             {% endfor %}
