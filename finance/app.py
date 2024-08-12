@@ -61,7 +61,7 @@ def buy():
             redirect("/buy")
         stock = db.execute("SELECT * FROM portfolio WHERE id = ? AND symbol = ?", session["user_id"], symbol)
         if len(stock) < 1:
-            db.execute("INSERT INTO portfolio )
+            db.execute("INSERT INTO portfolio (user_id, symbol, shares))
     return render_template("buy.html")
 
 
