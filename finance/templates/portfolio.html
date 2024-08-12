@@ -49,10 +49,11 @@
                 </td>
                 <td>
                     {% if portfolio %}
-                    {% set money = portfolio[0][users.cash]}
-                    {% for row in portfolio %}
-                    {% money -= row["total"] %}
-                    {% endfor %}
+                        {% set money = portfolio[0][users.cash] %}
+                        {% for row in portfolio %}
+                            {% money -= row["total"] %}
+                            {{money}}
+                        {% endfor %}
                     {% endif %}
 
                 </td>
