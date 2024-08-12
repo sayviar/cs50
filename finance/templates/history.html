@@ -19,6 +19,9 @@
                     Price
                 </th>
                 <th class="text-end">
+                    Total
+                </th>
+                <th class="text-end">
                     Transacted
                 </th>
             </tr>
@@ -35,6 +38,9 @@
                 </td>
                 <td class="text-end">
                     {{row["share_price"] | usd}}
+                </td>
+                <td class="text-end">
+                    {{row["total"] / 100 | usd}}
                 </td>
                 <td class="text-end">
                     {{row["timestamp"]}}
