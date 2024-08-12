@@ -221,6 +221,6 @@ def changePassword():
         if len(rows) != 1 or not check_password_hash(
             rows[0]["hash"], request.form.get("oldPassword")
         ):
-            return apology("invalid username and/or password", 403)
+            return apology("Old password not ", 420)
 
 
