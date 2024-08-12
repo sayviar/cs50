@@ -49,7 +49,7 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        shares = request.form.get("shares")
+        shares = int(request.form.get("shares"))
         symbol = request.form.get("symbol")
         if not symbol or not shares:
             flash("Please fill in the text fields.")
@@ -62,10 +62,10 @@ def buy():
             flash("The stock couldn't be found.")
             redirect("/buy")
         money = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-        if money < quote["price"] * shares:
+        if money[0]["cash"] * 100 < quote["price"] * 100 * shares:
             flash("Sorry, your balance isn't enough for this purchase.")
             redirect("/buy")
-        stock = db.execute("SELECT * FROM portfolio WHERE id = ? AND symbol = ?", session["user_id"], symbol)
+        stock = db.execute("SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
         if len(stock) < 1:
             db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES(?,?,?)", session["user_id"], symbol, shares)
         else:

@@ -9,34 +9,34 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <td>
+                <th class="text-start">
                     Symbol
-                </td>
-                <td>
+                </th>
+                <th class="text-end">
                     Shares
-                </td>
-                <td>
+                </th>
+                <th class="text-end">
                     Price
-                </td>
-                <td>
+                </th>
+                <th class="text-end">
                     TOTAL
-                </td>
+                </th>
             </tr>
         </thead>
         <tbody>
             {% if portfolio %}
             {% for row in portfolio %}
             <tr>
-                <td>
+                <td class="text-start">
                     {{row["symbol"]}}
                 </td>
-                <td>
+                <td class="text-end">
                     {{row["shares"]}}
                 </td>
-                <td>
+                <td class="text-end">
                     {{row["share_price"]}}
                 </td>
-                <td>
+                <td class="text-end">
                     {{row["total"]}}
                 </td>
             </tr>
