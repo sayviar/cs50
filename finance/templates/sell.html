@@ -9,8 +9,10 @@
     <form action="/sell" method="post">
         <div class="mb-3">
             {% if stocks %}
-            {% for stock in stocks %}
-            <input class="form-control mx-auto w-auto" name="symbol" placeholder="" type="select">
+            {% for symbol in stocks %}
+            <input class="form-control mx-auto w-auto" name="symbol" value='{{symbol["symbol"]}}' type="select">
+            {% endfor %}
+            {% endif %}
         </div>
         <button class="btn btn-primary" type="submit">Quote</button>
 
