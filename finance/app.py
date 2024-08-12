@@ -40,7 +40,11 @@ def index():
                            JOIN users ON users.id = port.user_id
                            JOIN history hist ON hist.user_id = port.user_id AND hist.symbol = port.symbol
                            WHERE users.id = ?""", session["user_id"])
-    return render_template("portfolio.html", portfolio = portfolio)
+    cash = portfolio[0]["users.cash"]
+    for row in portfolio:
+        cash -= row["total"]
+    total = portfolio[0]["users.cash"]
+    return render_template("portfolio.html", portfolio = portfolio, cash = cash, total = total)
 
 
 

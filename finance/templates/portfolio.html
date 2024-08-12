@@ -48,14 +48,7 @@
                     Cash
                 </td>
                 <td>
-                    {% if portfolio %}
-                        {% set money = portfolio[0][users.cash] %}
-                        {% for row in portfolio %}
-                            {% money -= row["total"] %}
-                            {{money}}
-                        {% endfor %}
-                    {% endif %}
-
+                    {{cash}}
                 </td>
             </tr>
         </tfooter>
