@@ -8,11 +8,11 @@
 {% block main %}
     <form action="/sell" method="post">
         <div class="mb-3">
-            <select type="select">
+            <select class="form-control mx-auto w-auto" name="symbol">
                 <option style="diplay:none" selected disabled>Symbol</option>
             {% if stocks %}
             {% for symbol in stocks %}
-                <option value='{{symbol["symbol"]}}' name="symbol">{{symbol["symbol"]}}</option>
+                <option value='{{symbol["symbol"]}}'>{{symbol["symbol"]}}</option>
             {% endfor %}
             {% endif %}
         </select>
