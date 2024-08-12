@@ -188,14 +188,17 @@ def sell():
          ownedShares = db.execute("SELECT shares FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
          if not symbol:
              return apology("Missing Symbol")
-         if not shares:
+         elif not shares:
              return apology("Missing Shares")
-         if shares < 0:
+         elif shares < 0:
              return apology("Invalid Shares")
-         if shares < ownedShares[0]["shares"]:
+         elif shares < ownedShares[0]["shares"]:
              return apology("Too many shares.")
-         if shares = ownedShares[0]["shares"]:
-            db.execute("DELETE FROM )
+         elif shares = ownedShares[0]["shares"]:
+            db.execute("DELETE FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+        else:
+            db.execute("UPDATE portfolio SET shares = shares - ? WHERE user_id = ? AND symbol = ?", shares, session["user_id"], symbol)
+        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * shares)
 
          return apology("TODO")
     stocks = db.execute("SELECT symbol FROM portfolio WHERE user_id = ?", session["user_id"])
