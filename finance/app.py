@@ -210,3 +210,8 @@ def sell():
     stocks = db.execute("SELECT symbol FROM portfolio WHERE user_id = ?", session["user_id"])
     return render_template("sell.html", stocks = stocks)
 
+@app.rout("/changePassword", methods=["GET","POST"])
+@login_required
+def changePassword():
+    """Change Password"""
+
