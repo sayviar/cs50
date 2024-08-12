@@ -182,4 +182,8 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    return apology("TODO")
+    if request.method == "POST":
+         return apology("TODO")
+    stocks = db.execute("SELECT symbol FROM portfolio WHERE user_id = ?", session["user_id"])
+    return render_template("sell.html", stocks = stocks)
+
