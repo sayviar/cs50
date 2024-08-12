@@ -220,9 +220,11 @@ def changePassword():
         if not check_password_hash(
             rows[0]["hash"], request.form.get("oldPassword")
         ):
-            return apology("Old password wrong!", 420)
+        return apology("Old password wrong!", 420)
         else:
-            db.execute("UPDATE users SET hash = ? WHERE user_id = ?", generate_password_hash(newPassword, method='pbkdf2'))
+            db.execute("UPDATE users SET hash = ? WHERE user_id = ?", generate_password_hash(newPassword, method='pbkdf2', salt_length=16), session["user_id"])
+            flash("Password has been changed!")
+            return redirect("/portfolio")
 
 
 
