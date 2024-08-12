@@ -51,7 +51,7 @@
                     {% if portfolio %}
                     {% set money = portfolio[0][users.cash]}
                     {% for row in portfolio %}
-                    {% money =}
+                    {% money -= row["total"] %}
                     {% endfor %}
                     {% endif %}
 
