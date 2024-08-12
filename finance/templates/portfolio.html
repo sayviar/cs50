@@ -25,43 +25,43 @@
         </thead>
         <tbody>
             {% if portfolio %}
-            {% for row in portfolio %}
-            <tr>
-                <td class="text-start">
-                    {{row["symbol"]}}
-                </td>
-                <td class="text-end">
-                    {{row["shares"]}}
-                </td>
-                <td class="text-end">
-                    {{row["share_price"] | usd}}
-                </td>
-                <td class="text-end">
-                    {{row["total"] | usd}}
-                </td>
-            </tr>
-            {% endfor %}
+                {% for row in portfolio %}
+                    <tr>
+                        <td class="text-start">
+                            {{row["symbol"]}}
+                        </td>
+                        <td class="text-end">
+                            {{row["shares"]}}
+                        </td>
+                        <td class="text-end">
+                            {{row["share_price"] | usd}}
+                        </td>
+                        <td class="text-end">
+                            {{row["total"] | usd}}
+                        </td>
+                    </tr>
+                {% endfor %}
 
-        <tfooter>
-            <tr>
-                <td class="text-end fw-bold" colspan ="3">
-                    Cash
-                </td>
-                <td class="text-end">
-                    {{cash | usd}}
-                </td>
-            </tr>
-            <tr>
-                <td class="border-0 text-end fw-bold" colspan ="3">
-                    TOTAL
-                </td>
-                <td class="border-0 text-end">
-                    {{total | usd}}
-                </td>
-            </tr>
-            </tfooter>
+                <tfooter>
+                    <tr>
+                        <td class="text-end fw-bold" colspan="3">
+                            Cash
+                        </td>
+                        <td class="text-end">
+                            {{cash | usd}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="border-0 text-end fw-bold" colspan="3">
+                            TOTAL
+                        </td>
+                        <td class="border-0 text-end">
+                            {{total | usd}}
+                        </td>
+                    </tr>
+                </tfooter>
             {% endif %}
         </tfooter>
-        </tbody>
+    </tbody>
     </table>
 {% endblock %}

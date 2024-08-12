@@ -46,8 +46,7 @@ def index():
     for row in portfolio:
         cash -= row["total"]
     total = portfolio[0]["cash"]
-    return render_template("portfolio.html", portfolio = portfolio, cash = cash, total = total)
-
+    return render_template("portfolio.html", portfolio=portfolio, cash=cash, total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -60,28 +59,32 @@ def buy():
         if not symbol or not shares:
             return apology("Please provide a valid symbol!")
 
-
         if shares < 1:
-            return apology ("Please choose the numbers of shares at lease 1.")
+            return apology("Please choose the numbers of shares at lease 1.")
 
-        quote=lookup(symbol)
+        quote = lookup(symbol)
         if not quote:
             return apology("The stock couldn't be found.")
 
         money = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-        spent = db.execute("SELECT SUM(round(shares * share_price,2)) as spent FROM history WHERE user_id = ?", session["user_id"])[0]["spent"]
+        spent = db.execute(
+            "SELECT SUM(round(shares * share_price,2)) as spent FROM history WHERE user_id = ?", session["user_id"])[0]["spent"]
         if spent == None:
             spent = 0
         money = money[0]["cash"] - spent
         if money * 100 < quote["price"] * 100 * shares:
             return apology("Sorry, your balance isn't enough for this purchase.")
 
-        stock = db.execute("SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+        stock = db.execute(
+            "SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
         if len(stock) < 1:
-            db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES(?,?,?)", session["user_id"], symbol, shares)
+            db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES(?,?,?)",
+                       session["user_id"], symbol, shares)
         else:
-            db.execute("UPDATE portfolio SET shares = shares + ? WHERE user_id = ? AND symbol = ?", shares, session["user_id"], symbol)
-        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * (-shares))
+            db.execute("UPDATE portfolio SET shares = shares + ? WHERE user_id = ? AND symbol = ?",
+                       shares, session["user_id"], symbol)
+        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
+                   session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * (-shares))
         return redirect("/")
 
     return render_template("buy.html")
@@ -91,8 +94,8 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    history=db.execute("SELECT * FROM history WHERE user_id = ?", session["user_id"])
-    return render_template("history.html", history= history)
+    history = db.execute("SELECT * FROM history WHERE user_id = ?", session["user_id"])
+    return render_template("history.html", history=history)
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -189,41 +192,45 @@ def sell():
     if request.method == "POST":
         symbol = request.form.get("symbol")
         shares = int(request.form.get("shares"))
-        ownedShares = db.execute("SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+        ownedShares = db.execute(
+            "SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
         if not symbol:
-             return apology("Missing Symbol")
+            return apology("Missing Symbol")
         elif not shares:
-             return apology("Missing Shares")
+            return apology("Missing Shares")
         elif shares < 0:
-             return apology("Invalid Shares")
+            return apology("Invalid Shares")
         elif shares > ownedShares[0]["shares"]:
-             return apology("Too many shares.")
+            return apology("Too many shares.")
         elif shares == ownedShares[0]["shares"]:
-            db.execute("DELETE FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+            db.execute("DELETE FROM portfolio WHERE user_id = ? AND symbol = ?",
+                       session["user_id"], symbol)
         else:
-            db.execute("UPDATE portfolio SET shares = shares - ? WHERE user_id = ? AND symbol = ?", shares, session["user_id"], symbol)
-        history = db.execute("SELECT * FROM history WHERE user_id =? AND symbol =?", session["user_id"], symbol)
-        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, -shares, history[0]["share_price"], history[0]["share_price"] * 100 * shares)
+            db.execute("UPDATE portfolio SET shares = shares - ? WHERE user_id = ? AND symbol = ?",
+                       shares, session["user_id"], symbol)
+        history = db.execute(
+            "SELECT * FROM history WHERE user_id =? AND symbol =?", session["user_id"], symbol)
+        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
+                   session["user_id"], symbol, -shares, history[0]["share_price"], history[0]["share_price"] * 100 * shares)
         flash("Sold!")
         return redirect("/history")
 
     stocks = db.execute("SELECT symbol FROM portfolio WHERE user_id = ?", session["user_id"])
-    return render_template("sell.html", stocks = stocks)
+    return render_template("sell.html", stocks=stocks)
 
-@app.route("/changePassword", methods=["GET","POST"])
+
+@app.route("/changePassword", methods=["GET", "POST"])
 @login_required
 def changePassword():
     """Change Password"""
-    if request.method =="POST":
+    if request.method == "POST":
         newPassword = request.form.get("newPassword")
         rows = db.execute("SELECT * FROM users WHERE id = ?", session["user_id"])
         if not check_password_hash(rows[0]["hash"], request.form.get("oldPassword")):
             return apology("Old password wrong!", 420)
         else:
-            db.execute("UPDATE users SET hash = ? WHERE id = ?", generate_password_hash(newPassword, method='pbkdf2', salt_length=16), session["user_id"])
+            db.execute("UPDATE users SET hash = ? WHERE id = ?", generate_password_hash(
+                newPassword, method='pbkdf2', salt_length=16), session["user_id"])
             flash("Password has been changed!")
             return redirect("/portfolio")
     return render_template("changePassword.html")
-
-
-

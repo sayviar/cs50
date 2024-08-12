@@ -6,46 +6,36 @@
 {% endblock %}
 
 {% block main %}
-<form id="register" method="post" action="/register">
-    <div class="mb-3">
-        <input autocomplete="off" class="form-control mx-auto w-auto" autofocus name="username" type="text" placeholder="Username">
-    </div>
-    <div class="mb-3">
-        <input class="form-control mx-auto w-auto" name="password" type="password" placeholder="Password">
-    </div>
-    <div class="mb-3">
-        <input class="form-control mx-auto w-auto" name="confirmation" type="password" placeholder="Confirmation">
-    </div>
-    <button class="btn btn-primary" type="submit" onclick="validateRegistration(event)">Register</button>
-</form>
-<script>
-    function validateRegistration(event){
-        event.preventDefault();
-        username = document.querySelector("input[name='username']").value;
-        password = document.querySelector("input[name='password']").value;
-        confirmation = document.querySelector("input[name='confirmation']").value;
-        if (!password && !username)
-        {
-            alert("Please fill in the form!");
-        }
-        else if (!password)
-        {
-            alert("Please fill in the Password!");
-        }
-        else if (!username)
-        {
-            alert("Please fill in the Username!");
-        }
-        else if (password !== confirmation)
-        {
-            alert("Password and confirmation has the be equal");
-        }
-        else
-        {
-            document.getElementById("register").submit();
-        }
+    <form id="register" method="post" action="/register">
+        <div class="mb-3">
+            <input autocomplete="off" class="form-control mx-auto w-auto" autofocus name="username" type="text" placeholder="Username">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" type="password" placeholder="Password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="confirmation" type="password" placeholder="Confirmation">
+        </div>
+        <button class="btn btn-primary" type="submit" onclick="validateRegistration(event)">Register</button>
+    </form>
+    <script>
+        function validateRegistration(event) {
+            event.preventDefault();
+            username = document.querySelector("input[name='username']").value;
+            password = document.querySelector("input[name='password']").value;
+            confirmation = document.querySelector("input[name='confirmation']").value;
+            if (!password && !username) {
+                alert("Please fill in the form!");
+            } else if (!password) {
+                alert("Please fill in the Password!");
+            } else if (!username) {
+                alert("Please fill in the Username!");
+            } else if (password !== confirmation) {
+                alert("Password and confirmation has the be equal");
+            } else {
+                document.getElementById("register").submit();
+            }
 
-    }
-
-</script>
+        }
+    </script>
 {% endblock %}

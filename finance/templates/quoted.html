@@ -6,21 +6,21 @@
 {% endblock %}
 
 {% block main %}
-        <form>
-            <div class="mb-3">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>
-                                Symbol
-                            </th>
-                            <th>
-                                Price
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% if quote %}
+    <form>
+        <div class="mb-3">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Symbol
+                        </th>
+                        <th>
+                            Price
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if quote %}
 
                         <tr>
                             <td>
@@ -30,11 +30,11 @@
                                 {{quote["price"] | usd}}
                             </td>
                         </tr>
-                        {% endif %}
-                    </tbody>
-                </table>
-            </div>
-        </form>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </form>
 
 
 {% endblock %}
