@@ -189,9 +189,13 @@ def sell():
          if not symbol:
              return apology("Missing Symbol")
          if not shares:
-             return
+             return apology("Missing Shares")
+         if shares < 0:
+             return apology("Invalid Shares")
          if shares < ownedShares[0]["shares"]:
              return apology("Too many shares.")
+         if shares = ownedShares[0]["shares"]:
+            db.execute("DELETE FROM )
 
          return apology("TODO")
     stocks = db.execute("SELECT symbol FROM portfolio WHERE user_id = ?", session["user_id"])
