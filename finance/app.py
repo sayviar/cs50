@@ -35,7 +35,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    portfolio = db.execute("SELECT port.symbol, port.shares FROM portfolio as port JOIN )
+    portfolio = db.execute("SELECT port.symbol, port.shares FROM portfolio as port JOIN users ON users.id = )
     return render_template("portfolio.html")
 
 
