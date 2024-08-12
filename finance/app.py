@@ -214,4 +214,9 @@ def sell():
 @login_required
 def changePassword():
     """Change Password"""
+    if request.method =="POST":
+        oldPassword = request.form.get("oldPassword")
+        newPassword = request.form.get("newPassword")
+        confirmPassword = request.form.get("confirmPassword")
+        user = db.execute("SELECT * FROM users WHERE id = ? AND)
 
