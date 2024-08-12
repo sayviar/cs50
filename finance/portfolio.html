@@ -6,5 +6,42 @@
 {% endblock %}
 
 {% block main %}
-    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>
+                    Symbol
+                </td>
+                <td>
+                    Shares
+                </td>
+                <td>
+                    Price
+                </td>
+                <td>
+                    TOTAL
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            {% if portfolio %}
+            {% for row in portfolio %}
+            <tr>
+                <td>
+                    {{row["symbol"]}}
+                </td>
+                <td>
+                    {{row["shares"]}}
+                </td>
+                <td>
+                    {{row["share_price"]}}
+                </td>
+                <td>
+                    {{row["total"]}}
+                </td>
+            </tr>
+            {% enfor %}
+            {% endif %}
+        </tbody>
+    </table>
 {% endblock %}
