@@ -218,5 +218,6 @@ def changePassword():
         oldPassword = request.form.get("oldPassword")
         newPassword = request.form.get("newPassword")
         confirmPassword = request.form.get("confirmPassword")
-        user = db.execute("SELECT * FROM users WHERE id = ? AND)
+        user = db.execute("SELECT * FROM users WHERE id = ?)
+        if check_password_hash(user[0]["hash"])
 
