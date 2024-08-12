@@ -185,7 +185,7 @@ def sell():
     if request.method == "POST":
         symbol = request.form.get("symbol")
         shares = int(request.form.get("shares"))
-        ownedShares = db.execute("SELECT shares FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+        ownedShares = db.execute("SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
         if not symbol:
              return apology("Missing Symbol")
         elif not shares:
@@ -198,7 +198,7 @@ def sell():
             db.execute("DELETE FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
         else:
             db.execute("UPDATE portfolio SET shares = shares - ? WHERE user_id = ? AND symbol = ?", shares, session["user_id"], symbol)
-        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * shares)
+        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, ownedShares[0]["price], ownedShares[0]["price] * 100 * shares)
         flash("Sold!")
         return redirect("/history")
 
