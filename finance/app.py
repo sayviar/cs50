@@ -69,10 +69,10 @@ def buy():
             return apology("The stock couldn't be found.")
 
         money = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-        spent = db.execute("SELECT SUM(round(shares * share_price,2)) as spent FROM history WHERE user_id = ?", session["user_id"])
-        if spent[0]["spent"] == None:
+        spent = db.execute("SELECT SUM(round(shares * share_price,2)) as spent FROM history WHERE user_id = ?", session["user_id"])[0]["spent"]
+        if spent == None:
             spent = 0
-        money = money[0]["cash"] - spent[0]["spent"]
+        money = money[0]["cash"] - spent
         if money * 100 < quote["price"] * 100 * shares:
             return apology("Sorry, your balance isn't enough for this purchase.")
 
