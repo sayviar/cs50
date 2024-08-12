@@ -216,12 +216,13 @@ def changePassword():
     """Change Password"""
     if request.method =="POST":
         newPassword = request.form.get("newPassword")
-        confirmPassword = request.form.get("confirmPassword")
         rows = db.execute("SELECT * FROM users WHERE id = ?)
         if not check_password_hash(
             rows[0]["hash"], request.form.get("oldPassword")
         ):
             return apology("Old password wrong!", 420)
+        else:
+            db.execute("UPDATE users SET hash = ? WHERE user_id = ?", generate_password_hash(newPassword, method='pbkdf2'))
 
 
 
