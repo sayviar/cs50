@@ -8,13 +8,17 @@
 {% block main %}
     <form action="/sell" method="post">
         <div class="mb-3">
+            <select class="form-control mx-auto w-auto" name="symbol" value='{{symbol["symbol"]}}' type="select">
+                <option
             {% if stocks %}
             {% for symbol in stocks %}
-            <input class="form-control mx-auto w-auto" name="symbol" value='{{symbol["symbol"]}}' type="select">
+                <option value='{{symbol["symbol"]}}' name="symbol" ></option>
             {% endfor %}
             {% endif %}
+        </select>
+            <input class="form-control mx-auto w-auto" name="shares" type="number">
         </div>
-        <button class="btn btn-primary" type="submit">Quote</button>
+        <button class="btn btn-primary" type="submit">Sell</button>
 
     </form>
 {% endblock %}
