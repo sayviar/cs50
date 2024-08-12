@@ -218,9 +218,10 @@ def changePassword():
         newPassword = request.form.get("newPassword")
         confirmPassword = request.form.get("confirmPassword")
         rows = db.execute("SELECT * FROM users WHERE id = ?)
-        if len(rows) != 1 or not check_password_hash(
+        if not check_password_hash(
             rows[0]["hash"], request.form.get("oldPassword")
         ):
-            return apology("Old password not ", 420)
+            return apology("Old password wrong!", 420)
+
 
 
