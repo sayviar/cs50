@@ -215,9 +215,12 @@ def sell():
 def changePassword():
     """Change Password"""
     if request.method =="POST":
-        oldPassword = request.form.get("oldPassword")
         newPassword = request.form.get("newPassword")
         confirmPassword = request.form.get("confirmPassword")
-        user = db.execute("SELECT * FROM users WHERE id = ?)
-        if check_password_hash(user[0]["hash"])
+        rows = db.execute("SELECT * FROM users WHERE id = ?)
+        if len(rows) != 1 or not check_password_hash(
+            rows[0]["hash"], request.form.get("oldPassword")
+        ):
+            return apology("invalid username and/or password", 403)
+
 
