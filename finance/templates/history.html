@@ -19,12 +19,12 @@
                     Price
                 </th>
                 <th class="text-end">
-                    TOTAL
+                    History
                 </th>
             </tr>
         </thead>
         <tbody>
-            {% if portfolio %}
+            {% if history %}
             {% for row in history %}
             <tr>
                 <td class="text-start">
@@ -37,28 +37,12 @@
                     {{row["share_price"] | usd}}
                 </td>
                 <td class="text-end">
-                    {{row["total"] | usd}}
+                    {{row["timestamp"]}}
                 </td>
             </tr>
             {% endfor %}
             {% endif %}
         <tfooter>
-            <tr>
-                <td class="text-end fw-bold" colspan ="3">
-                    Cash
-                </td>
-                <td class="text-end">
-                    {{cash | usd}}
-                </td>
-            </tr>
-            <tr>
-                <td class="border-0 text-end fw-bold" colspan ="3">
-                    TOTAL
-                </td>
-                <td class="border-0 text-end">
-                    {{total | usd}}
-                </td>
-            </tr>
             </tfooter>
         </tfooter>
         </tbody>
