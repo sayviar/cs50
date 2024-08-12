@@ -55,10 +55,13 @@ def buy():
         if not quote:
             flash("The stock couldn't be found.")
             redirect("/buy")
-        money = db.execute("SELECT cash FROM user WHERE id = ?", session["user_id"])
+        money = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         if money < quote["price"] * shares:
             flash("Sorry, your balance isn't enough for this purchase.")
             redirect("/buy")
+        stock = db.execute("SELECT * FROM portfolio WHERE id = ? AND symbol = ?", session["user_id"], symbol)
+        if len(stock) < 1:
+            db.execute("INSERT INTO portfolio )
     return render_template("buy.html")
 
 
