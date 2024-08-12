@@ -210,7 +210,7 @@ def sell():
     stocks = db.execute("SELECT symbol FROM portfolio WHERE user_id = ?", session["user_id"])
     return render_template("sell.html", stocks = stocks)
 
-@app.rout("/changePassword", methods=["GET","POST"])
+@app.route("/changePassword", methods=["GET","POST"])
 @login_required
 def changePassword():
     """Change Password"""
@@ -223,7 +223,7 @@ def changePassword():
             db.execute("UPDATE users SET hash = ? WHERE user_id = ?", generate_password_hash(newPassword, method='pbkdf2', salt_length=16), session["user_id"])
             flash("Password has been changed!")
             return redirect("/portfolio")
-    return render_template("/changePassword")
+    return render_template("/changePassword.html")
 
 
 
