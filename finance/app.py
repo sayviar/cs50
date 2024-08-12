@@ -64,7 +64,7 @@ def buy():
             db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES(?,?,?)", session["user_id"], symbol, shares)
             db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * shares)
             return redirect("/")
-        db.execite("UPDATE portfolio SET shares = shares + ? FROM )
+        db.execite("UPDATE portfolio SET shares = shares + ? WHERE user_id = ? AND symbol = ?", shares, session["user_id"], symbol)
     return render_template("buy.html")
 
 
