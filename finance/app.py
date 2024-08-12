@@ -35,7 +35,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    portfolio = db.execute("""SELECT DISTINCT port.symbol, port.shares, hist.share_price, round((port.shares * hist.share_price),2) as total
+    portfolio = db.execute("""SELECT DISTINCT port.symbol, port.shares, hist.share_price, round((port.shares * hist.share_price),2) as total, users.cash
                            FROM portfolio as port
                            JOIN users ON users.id = port.user_id
                            JOIN history hist ON hist.user_id = port.user_id AND hist.symbol = port.symbol
