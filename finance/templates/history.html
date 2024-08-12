@@ -40,7 +40,7 @@
                     {{row["share_price"] | usd}}
                 </td>
                 <td class="text-end">
-                    {{row["total"] / 100 | usd}}
+                    {{(row["total"] / 100) | usd}}
                 </td>
                 <td class="text-end">
                     {{row["timestamp"]}}
