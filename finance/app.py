@@ -57,20 +57,20 @@ def buy():
         shares = int(request.form.get("shares"))
         symbol = request.form.get("symbol")
         if not symbol or not shares:
-            flash("Please fill in the text fields.")
-            redirect ("/buy")
+            return apology("Please provide a valid symbol!")
+
+
         if shares < 1:
-            flash ("Please choose the numbers of shares at lease 1.")
-            redirect ("/buy")
-            
+            return apology ("Please choose the numbers of shares at lease 1.")
+
         quote=lookup(symbol)
         if not quote:
-            flash("The stock couldn't be found.")
-            redirect("/buy")
+            return apology("The stock couldn't be found.")
+
         money = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         if money[0]["cash"] * 100 < quote["price"] * 100 * shares:
-            flash("Sorry, your balance isn't enough for this purchase.")
-            redirect("/buy")
+            return apology("Sorry, your balance isn't enough for this purchase.")
+
         stock = db.execute("SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
         if len(stock) < 1:
             db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES(?,?,?)", session["user_id"], symbol, shares)
