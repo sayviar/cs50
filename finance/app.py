@@ -183,24 +183,25 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
-         symbol = request.form.get("symbol")
-         shares = int(request.form.get("shares"))
-         ownedShares = db.execute("SELECT shares FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
-         if not symbol:
+        symbol = request.form.get("symbol")
+        shares = int(request.form.get("shares"))
+        ownedShares = db.execute("SELECT shares FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+        if not symbol:
              return apology("Missing Symbol")
-         elif not shares:
+        elif not shares:
              return apology("Missing Shares")
-         elif shares < 0:
+        elif shares < 0:
              return apology("Invalid Shares")
-         elif shares < ownedShares[0]["shares"]:
+        elif shares > ownedShares[0]["shares"]:
              return apology("Too many shares.")
-         elif shares = ownedShares[0]["shares"]:
+        elif shares == ownedShares[0]["shares"]:
             db.execute("DELETE FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
         else:
             db.execute("UPDATE portfolio SET shares = shares - ? WHERE user_id = ? AND symbol = ?", shares, session["user_id"], symbol)
         db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)", session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * shares)
+        flash("Sold!")
+        return redirect("/history")
 
-         return apology("TODO")
     stocks = db.execute("SELECT symbol FROM portfolio WHERE user_id = ?", session["user_id"])
     return render_template("sell.html", stocks = stocks)
 
