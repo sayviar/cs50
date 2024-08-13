@@ -184,11 +184,12 @@ def register():
         if not userExists:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
             flash("User has been created!")
-            session.
-            return redirect("/portfolio")
+            session["user_id"] = rows[0]["id"]
+            session["user"] = rows[0]["username"]
+            return redirect("/")
         else:
-            flash("User is already taken!")
-            return redirect("/register")
+            return apology("User is already taken!")
+
 
     return render_template("register.html")
 
