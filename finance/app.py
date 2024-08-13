@@ -184,6 +184,9 @@ def register():
         if not userExists:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
             flash("User has been created!")
+            rows = db.execute(
+            "SELECT * FROM users WHERE username = ?", request.form.get("username")
+        )
             session["user_id"] = rows[0]["id"]
             session["user"] = rows[0]["username"]
             return redirect("/")
