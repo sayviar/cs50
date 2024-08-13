@@ -230,7 +230,7 @@ def sell():
         db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
                    session["user_id"], symbol, -shares, history[0]["share_price"], history[0]["share_price"] * 100 * shares)
         flash("Sold!")
-        return redirect("/portfolio")
+        return redirect("/")
 
     stocks = db.execute("SELECT symbol FROM portfolio WHERE user_id = ?", session["user_id"])
     return render_template("sell.html", stocks=stocks)
