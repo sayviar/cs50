@@ -193,7 +193,7 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
-        if try_int(request.form.get("shares")):
+        if not try_int(request.form.get("shares")):
             return apology("Shares has to be a number!")
         symbol = request.form.get("symbol")
         shares = int(request.form.get("shares"))
