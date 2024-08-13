@@ -28,25 +28,25 @@
         </thead>
         <tbody>
             {% if history %}
-            {% for row in history %}
-            <tr>
-                <td class="text-start">
-                    {{row["symbol"]}}
-                </td>
-                <td class="text-end">
-                    {{row["shares"]}}
-                </td>
-                <td class="text-end">
-                    {{row["share_price"] | usd}}
-                </td>
-                <td class="text-end">
-                    {{(row["total"] / 100) | usd}}
-                </td>
-                <td class="text-end">
-                    {{row["timestamp"]}}
-                </td>
-            </tr>
-            {% endfor %}
+                {% for row in history %}
+                    <tr>
+                        <td class="text-start">
+                            {{row["symbol"]}}
+                        </td>
+                        <td class="text-end">
+                            {{row["shares"]}}
+                        </td>
+                        <td class="text-end">
+                            {{row["share_price"] | usd}}
+                        </td>
+                        <td class="text-end">
+                            {{(row["total"] / 100) | usd}}
+                        </td>
+                        <td class="text-end">
+                            {{row["timestamp"]}}
+                        </td>
+                    </tr>
+                {% endfor %}
             {% endif %}
 
         </tbody>

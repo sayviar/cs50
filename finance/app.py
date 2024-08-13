@@ -69,10 +69,10 @@ def buy():
             return apology("The stock couldn't be found.")
 
         money = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
-        #spent = db.execute(
-         #   "SELECT SUM(round(shares * share_price,2)) as spent FROM history WHERE user_id = ?", session["user_id"])[0]["spent"]
-        #if spent == None:
-         #   spent = 0
+        # spent = db.execute(
+        #   "SELECT SUM(round(shares * share_price,2)) as spent FROM history WHERE user_id = ?", session["user_id"])[0]["spent"]
+        # if spent == None:
+        #   spent = 0
         money = money[0]["cash"]
         if money * 100 < quote["price"] * 100 * shares:
             return apology("Sorry, your balance isn't enough for this purchase.")
@@ -87,7 +87,8 @@ def buy():
                        shares, session["user_id"], symbol)
         db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
                    session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * (-shares))
-        db.execute("UPDATE users SET cash = cash - ? WHERE id = ?", quote["price"] * (shares), session["user_id"])
+        db.execute("UPDATE users SET cash = cash - ? WHERE id = ?",
+                   quote["price"] * (shares), session["user_id"])
 
         return redirect("/")
 
@@ -162,11 +163,9 @@ def quote():
         if not symbol:
             return apology("Please type in a symbol")
 
-
         quote = lookup(symbol)
         if not quote:
             return apology("Please type in a valid symbol")
-
 
         return render_template("quoted.html", quote=quote)
     return render_template("quote.html")
@@ -176,26 +175,25 @@ def quote():
 def register():
     """Register user"""
     if request.method == "POST":
-        if not request.form.get("username") or  not request.form.get("password") or not request.form.get("confirmation"):
+        if not request.form.get("username") or not request.form.get("password") or not request.form.get("confirmation"):
             return apology("Please fill in the form!")
         username = request.form.get("username")
         password = generate_password_hash(request.form.get(
             "password"), method='pbkdf2', salt_length=16)
-        if  not (request.form.get("password") == request.form.get("confirmation")):
+        if not (request.form.get("password") == request.form.get("confirmation")):
             return apology("Password and confirmation has to be equal!")
         userExists = db.execute("SELECT * FROM users WHERE username=?", username)
         if not userExists:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
             flash("User has been created!")
             rows = db.execute(
-            "SELECT * FROM users WHERE username = ?", request.form.get("username")
-        )
+                "SELECT * FROM users WHERE username = ?", request.form.get("username")
+            )
             session["user_id"] = rows[0]["id"]
             session["user"] = rows[0]["username"]
             return redirect("/")
         else:
             return apology("User is already taken!")
-
 
     return render_template("register.html")
 
@@ -229,7 +227,8 @@ def sell():
             "SELECT * FROM history WHERE user_id =? AND symbol =?", session["user_id"], symbol)
         db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
                    session["user_id"], symbol, -shares, history[0]["share_price"], history[0]["share_price"] * 100 * shares)
-        db.execute("UPDATE users SET cash = cash + ? WHERE id = ?", history[0]["share_price"]  * shares, session["user_id"])
+        db.execute("UPDATE users SET cash = cash + ? WHERE id = ?",
+                   history[0]["share_price"] * shares, session["user_id"])
         flash("Sold!")
         return redirect("/")
 
