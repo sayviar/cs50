@@ -178,7 +178,8 @@ def register():
         username = request.form.get("username")
         password = generate_password_hash(request.form.get(
             "password"), method='pbkdf2', salt_length=16)
-        if  not (request.form.get("password") == request.form.get("confirmation"))
+        if  not (request.form.get("password") == request.form.get("confirmation")):
+            return apology("Password and confirmation has to be equal")
         userExists = db.execute("SELECT * FROM users WHERE username=?", username)
         if not userExists:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
