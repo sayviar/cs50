@@ -173,6 +173,7 @@ def quote():
 def register():
     """Register user"""
     if request.method == "POST":
+        if not request.form.get("username") and 
         username = request.form.get("username")
         password = generate_password_hash(request.form.get(
             "password"), method='pbkdf2', salt_length=16)
