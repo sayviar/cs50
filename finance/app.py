@@ -56,7 +56,7 @@ def buy():
     if request.method == "POST":
         shares = int(request.form.get("shares"))
         symbol = request.form.get("symbol")
-        if not symbol.isnumeric():
+        if not isinstance(symbol, int):
             return apology("Shares has to be a number!")
         if not symbol or not shares:
             return apology("Please provide a valid symbol!")
