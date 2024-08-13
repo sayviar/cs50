@@ -54,7 +54,7 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        if not isinstance(request.form.get("shares"), int):
+        if not request.form.get("shares").isdigit():
             return apology("Shares has to be a number!")
         shares = int(request.form.get("shares"))
         symbol = request.form.get("symbol")
