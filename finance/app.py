@@ -43,8 +43,9 @@ def index():
     if not portfolio:
         return render_template("portfolio.html")
     cash = portfolio[0]["cash"]
+    total = 0
     for row in portfolio:
-        cash -= row["total"]
+        total += row["total"]
     total = portfolio[0]["cash"]
     return render_template("portfolio.html", portfolio=portfolio, cash=cash, total=total)
 
