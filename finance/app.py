@@ -35,11 +35,14 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    portfolio = db.execute("""SELECT DISTINCT port.symbol, port.shares, hist.share_price, round((port.shares * hist.share_price),2) as total, users.cash
+    portfolio = db.execute(
+        """SELECT DISTINCT port.symbol, port.shares, hist.share_price, round((port.shares * hist.share_price),2) as total, users.cash
                            FROM portfolio as port
                            JOIN users ON users.id = port.user_id
                            JOIN history hist ON hist.user_id = port.user_id AND hist.symbol = port.symbol
-                           WHERE users.id = ?""", session["user_id"])
+                           WHERE users.id = ?""",
+        session["user_id"],
+    )
     if not portfolio:
         return render_template("portfolio.html")
     cash = portfolio[0]["cash"]
@@ -47,7 +50,9 @@ def index():
     for row in portfolio:
         total += row["total"]
     total += cash
-    return render_template("portfolio.html", portfolio=portfolio, cash=cash, total=total)
+    return render_template(
+        "portfolio.html", portfolio=portfolio, cash=cash, total=total
+    )
 
 
 @app.route("/buy", methods=["GET", "POST"])
@@ -78,17 +83,37 @@ def buy():
             return apology("Sorry, your balance isn't enough for this purchase.")
 
         stock = db.execute(
-            "SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+            "SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?",
+            session["user_id"],
+            symbol,
+        )
         if len(stock) < 1:
-            db.execute("INSERT INTO portfolio (user_id, symbol, shares) VALUES(?,?,?)",
-                       session["user_id"], symbol, shares)
+            db.execute(
+                "INSERT INTO portfolio (user_id, symbol, shares) VALUES(?,?,?)",
+                session["user_id"],
+                symbol,
+                shares,
+            )
         else:
-            db.execute("UPDATE portfolio SET shares = shares + ? WHERE user_id = ? AND symbol = ?",
-                       shares, session["user_id"], symbol)
-        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
-                   session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * (-shares))
-        db.execute("UPDATE users SET cash = cash - ? WHERE id = ?",
-                   quote["price"] * (shares), session["user_id"])
+            db.execute(
+                "UPDATE portfolio SET shares = shares + ? WHERE user_id = ? AND symbol = ?",
+                shares,
+                session["user_id"],
+                symbol,
+            )
+        db.execute(
+            "INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
+            session["user_id"],
+            symbol,
+            shares,
+            quote["price"],
+            quote["price"] * 100 * (-shares),
+        )
+        db.execute(
+            "UPDATE users SET cash = cash - ? WHERE id = ?",
+            quote["price"] * (shares),
+            session["user_id"],
+        )
 
         return redirect("/")
 
@@ -175,16 +200,23 @@ def quote():
 def register():
     """Register user"""
     if request.method == "POST":
-        if not request.form.get("username") or not request.form.get("password") or not request.form.get("confirmation"):
+        if (
+            not request.form.get("username")
+            or not request.form.get("password")
+            or not request.form.get("confirmation")
+        ):
             return apology("Please fill in the form!")
         username = request.form.get("username")
-        password = generate_password_hash(request.form.get(
-            "password"), method='pbkdf2', salt_length=16)
+        password = generate_password_hash(
+            request.form.get("password"), method="pbkdf2", salt_length=16
+        )
         if not (request.form.get("password") == request.form.get("confirmation")):
             return apology("Password and confirmation has to be equal!")
         userExists = db.execute("SELECT * FROM users WHERE username=?", username)
         if not userExists:
-            db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
+            db.execute(
+                "INSERT INTO users (username, hash) values(?, ?)", username, password
+            )
             flash("User has been created!")
             rows = db.execute(
                 "SELECT * FROM users WHERE username = ?", request.form.get("username")
@@ -208,7 +240,10 @@ def sell():
         symbol = request.form.get("symbol")
         shares = int(request.form.get("shares"))
         ownedShares = db.execute(
-            "SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?", session["user_id"], symbol)
+            "SELECT * FROM portfolio WHERE user_id = ? AND symbol = ?",
+            session["user_id"],
+            symbol,
+        )
         if not symbol:
             return apology("Missing Symbol")
         elif not shares:
@@ -218,21 +253,42 @@ def sell():
         elif shares > ownedShares[0]["shares"]:
             return apology("Too many shares.")
         elif shares == ownedShares[0]["shares"]:
-            db.execute("DELETE FROM portfolio WHERE user_id = ? AND symbol = ?",
-                       session["user_id"], symbol)
+            db.execute(
+                "DELETE FROM portfolio WHERE user_id = ? AND symbol = ?",
+                session["user_id"],
+                symbol,
+            )
         else:
-            db.execute("UPDATE portfolio SET shares = shares - ? WHERE user_id = ? AND symbol = ?",
-                       shares, session["user_id"], symbol)
+            db.execute(
+                "UPDATE portfolio SET shares = shares - ? WHERE user_id = ? AND symbol = ?",
+                shares,
+                session["user_id"],
+                symbol,
+            )
         history = db.execute(
-            "SELECT * FROM history WHERE user_id =? AND symbol =?", session["user_id"], symbol)
-        db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
-                   session["user_id"], symbol, -shares, history[0]["share_price"], history[0]["share_price"] * 100 * shares)
-        db.execute("UPDATE users SET cash = cash + ? WHERE id = ?",
-                   history[0]["share_price"] * shares, session["user_id"])
+            "SELECT * FROM history WHERE user_id =? AND symbol =?",
+            session["user_id"],
+            symbol,
+        )
+        db.execute(
+            "INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
+            session["user_id"],
+            symbol,
+            -shares,
+            history[0]["share_price"],
+            history[0]["share_price"] * 100 * shares,
+        )
+        db.execute(
+            "UPDATE users SET cash = cash + ? WHERE id = ?",
+            history[0]["share_price"] * shares,
+            session["user_id"],
+        )
         flash("Sold!")
         return redirect("/")
 
-    stocks = db.execute("SELECT symbol FROM portfolio WHERE user_id = ?", session["user_id"])
+    stocks = db.execute(
+        "SELECT symbol FROM portfolio WHERE user_id = ?", session["user_id"]
+    )
     return render_template("sell.html", stocks=stocks)
 
 
@@ -246,8 +302,11 @@ def changePassword():
         if not check_password_hash(rows[0]["hash"], request.form.get("oldPassword")):
             return apology("Old password wrong!", 420)
         else:
-            db.execute("UPDATE users SET hash = ? WHERE id = ?", generate_password_hash(
-                newPassword, method='pbkdf2', salt_length=16), session["user_id"])
+            db.execute(
+                "UPDATE users SET hash = ? WHERE id = ?",
+                generate_password_hash(newPassword, method="pbkdf2", salt_length=16),
+                session["user_id"],
+            )
             flash("Password has been changed!")
             return redirect("/portfolio")
     return render_template("changePassword.html")
