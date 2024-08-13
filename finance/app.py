@@ -173,10 +173,12 @@ def quote():
 def register():
     """Register user"""
     if request.method == "POST":
-        if not request.form.get("username") and  not request.form.get("password") and not request.form.get(")
+        if not request.form.get("username") or  not request.form.get("password") or not request.form.get("confirmation"):
+            return apology("Please fill in the form!")
         username = request.form.get("username")
         password = generate_password_hash(request.form.get(
             "password"), method='pbkdf2', salt_length=16)
+        if  not (request.form.get("password") == request.form.get("confirmation"))
         userExists = db.execute("SELECT * FROM users WHERE username=?", username)
         if not userExists:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
