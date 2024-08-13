@@ -229,6 +229,7 @@ def sell():
             "SELECT * FROM history WHERE user_id =? AND symbol =?", session["user_id"], symbol)
         db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
                    session["user_id"], symbol, -shares, history[0]["share_price"], history[0]["share_price"] * 100 * shares)
+        db.execute("UPDATE users SET cash = cash + ? WHERE id = ?", history[0]["share_price"]  * shares, session["user_id])
         flash("Sold!")
         return redirect("/")
 
