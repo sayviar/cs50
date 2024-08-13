@@ -157,13 +157,13 @@ def quote():
     if request.method == "POST":
         symbol = request.form.get("symbol")
         if not symbol:
-            flash("Please type in a symbol")
-            return redirect("/quote")
+            return apology("Please type in a symbol")
+
 
         quote = lookup(symbol)
         if not quote:
-            flash("Please type in a valid symbol")
-            return redirect("/quote")
+            return apology("Please type in a valid symbol")
+
 
         return render_template("quoted.html", quote=quote)
     return render_template("quote.html")
