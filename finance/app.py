@@ -54,7 +54,7 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
-        if not request.form.get("shares").isdigit():
+        if not try_int(request.form.get("shares")):
             return apology("Shares has to be a number!")
         shares = int(request.form.get("shares"))
         symbol = request.form.get("symbol")
@@ -238,3 +238,12 @@ def changePassword():
             flash("Password has been changed!")
             return redirect("/portfolio")
     return render_template("changePassword.html")
+
+
+def try_int(s):
+    try:
+        int(s)
+    except ValueError:
+        return False
+    else:
+        return True
