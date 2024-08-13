@@ -86,6 +86,7 @@ def buy():
                        shares, session["user_id"], symbol)
         db.execute("INSERT INTO history (user_id, symbol, shares, share_price, total) VALUES(?,?,?,?,?)",
                    session["user_id"], symbol, shares, quote["price"], quote["price"] * 100 * (-shares))
+        
         return redirect("/")
 
     return render_template("buy.html")
