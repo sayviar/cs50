@@ -179,12 +179,11 @@ def register():
         password = generate_password_hash(request.form.get(
             "password"), method='pbkdf2', salt_length=16)
         if  not (request.form.get("password") == request.form.get("confirmation")):
-            return apology("Password and confirmation has to be equal")
+            return apology("Password and confirmation has to be equal!")
         userExists = db.execute("SELECT * FROM users WHERE username=?", username)
         if not userExists:
             db.execute("INSERT INTO users (username, hash) values(?, ?)", username, password)
-            flash("User has been created!")
-            return redirect("/login")
+            return apology("User has been created!")
         else:
             flash("User is already taken!")
             return redirect("/register")
