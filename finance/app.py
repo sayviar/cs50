@@ -58,11 +58,10 @@ def buy():
             return apology("Shares has to be a number!")
         shares = int(request.form.get("shares"))
         symbol = request.form.get("symbol")
+        if shares < 1:
+            return apology("Please choose the numbers of shares at least 1.")
         if not symbol or not shares:
             return apology("Please provide a valid symbol!")
-
-        if shares < 1:
-            return apology("Please choose the numbers of shares at lease 1.")
 
         quote = lookup(symbol)
         if not quote:
@@ -194,6 +193,8 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
+        if try_int(request.form.get("shares")):
+            return apology("Shares has to be a number!")
         symbol = request.form.get("symbol")
         shares = int(request.form.get("shares"))
         ownedShares = db.execute(
@@ -202,7 +203,7 @@ def sell():
             return apology("Missing Symbol")
         elif not shares:
             return apology("Missing Shares")
-        elif shares < 0:
+        elif shares < 1:
             return apology("Invalid Shares")
         elif shares > ownedShares[0]["shares"]:
             return apology("Too many shares.")
